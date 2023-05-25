@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { colors } from "./theme";
 
 export const TopBarContainer = styled.div`
   width: 100%;
@@ -7,7 +8,7 @@ export const TopBarContainer = styled.div`
   box-shadow: 0px 3px 10px #00000005;
   display: flex;
   flex-direction:column;
-  background: #ffffff;
+  background: ${colors.white};
 `;
 export const LogoContainer = styled.div`
 display:flex;
@@ -15,13 +16,13 @@ flex-direction:row;
 `;
 export const CustomList = styled.ul`
   list-style-type: none;
-
 `;
 
 
 export const CustomLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: ${colors.primary};
+  font-family:"Poppins";
   
 
   &:hover {
@@ -31,13 +32,13 @@ export const CustomLink = styled(Link)`
 export const LogoTitle = styled.h1`
   font-size: 30px;
   font-weight:700;
-  color:#212121;
+  color: ${colors.black};
 `;
 
 export const LogoText = styled.p`
  font-family:"Poppins";
 font-size: 12px;
-color: #5D5449;
+color: ${colors.grey};
 opacity: 1;
 `;
 

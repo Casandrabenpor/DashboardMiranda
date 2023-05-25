@@ -15,7 +15,9 @@ export const TopBar = () => {
       </div>
       </LogoContainer>
       <CustomList>
+     
         <li key="dashboard">
+        <i class="gg-key"></i>
           <CustomLink to="/">Dashboard</CustomLink>
         </li>
         <li key="bookings">

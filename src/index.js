@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { Dashboard } from './pages/dashboard';
+import "./index.css"
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Bookings } from './pages/bookings';
 import { Rooms } from './pages/rooms';

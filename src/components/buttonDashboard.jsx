@@ -17,7 +17,7 @@ export const BtnDashboard = () => {
       </ButtonDashboard>
       <ButtonDashboard>
         <IconCalendar>
-        <FontAwesomeIcon icon={faCalendarCheck} />
+          <FontAwesomeIcon icon={faCalendarCheck} />
         </IconCalendar>
         <TextButton>
           <Number>963</Number>

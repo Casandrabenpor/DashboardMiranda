@@ -1,13 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import { Dashboard } from './pages/dashboard';
+import App from "./App";
 import "./index.css"
-import { HashRouter, Routes, Route } from "react-router-dom";
-import { Bookings } from './pages/bookings';
-import { Rooms } from './pages/rooms';
-import { Contact } from './pages/contact';
-import { Users } from './pages/users';
+import { HashRouter } from "react-router-dom";
+
 
 
 const container = document.getElementById('root');
@@ -17,15 +14,8 @@ root.render(
   <React.StrictMode>
     {/* <Provider store={store}> */}
     <HashRouter>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/bookings" element={<Bookings />} />
-        <Route path="/rooms" element={<Rooms />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/users" element={<Users />} />
-
-      </Routes>
-     </HashRouter>
+      <App />
+    </HashRouter>
 
   </React.StrictMode>
 );

@@ -3,9 +3,12 @@ import { ContainerCustomers, CardsCustomers } from '../styled/CustomersStyled';
 
 export const Customers = () => {
     return (
+        <>
+        <ScheduleTitle>Latest Review by Customers</ScheduleTitle>
         <CardsCustomers>
+            
             <ContainerCustomers>
-                <ScheduleTitle>Latest Review by Customers</ScheduleTitle>
+                
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                 <div>
                     <div>photo</div>
@@ -15,7 +18,7 @@ export const Customers = () => {
                 </div>
             </ContainerCustomers>
             <ContainerCustomers>
-                <ScheduleTitle>Latest Review by Customers</ScheduleTitle>
+                
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                 <div>
                     <div>photo</div>
@@ -25,7 +28,7 @@ export const Customers = () => {
                 </div>
             </ContainerCustomers>
             <ContainerCustomers>
-                <ScheduleTitle>Latest Review by Customers</ScheduleTitle>
+                
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                 <div>
                     <div>photo</div>
@@ -35,5 +38,6 @@ export const Customers = () => {
                 </div>
             </ContainerCustomers>
         </CardsCustomers>
+        </>
     )
 }

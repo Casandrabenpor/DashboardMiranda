@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { colors } from "./theme";
 
+
 export const DisplayDashboard = styled.div`
 display:flex;
 flex-direction:row;
@@ -24,4 +25,18 @@ background-color: rgb(255, 255, 255);
 export const Number = styled.p`
 color:black;
 font-family:30px;
+`;
+
+export const FlippedIcon = styled.span`
+    display:inline-block;
+   transform: rotate(90deg);
+   color :red;
+   background-color:#FFEDEC;
+     
+`;
+export const FlippedIconTwo = styled.span`
+    display:inline-block;
+      transform: rotate(270deg);
+      color:red;
+      background-color:#FFEDEC;
 `;

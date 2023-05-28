@@ -16,7 +16,7 @@ export const SideBar = styled.div`
   overflow-x: hidden;
   position: fixed;
 `;
-export const Nav = styled.div`
+export const ContainerNav = styled.div`
   width: 100%;
   display: flex;
   align-items: center;

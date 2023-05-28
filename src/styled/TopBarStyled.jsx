@@ -2,13 +2,19 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "./theme";
 
-export const TopBarContainer = styled.div`
-  width: 100%;
-  height: 100px;
+export const SideBar = styled.div`
+
   box-shadow: 0px 3px 10px #00000005;
   display: flex;
   flex-direction:column;
   background: ${colors.white};
+  height: 100vh;
+  width: 238px;
+  padding: 2em;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  position: fixed;
 `;
 export const Nav = styled.div`
   width: 100%;
@@ -36,9 +42,18 @@ ion-icon{
 export const LogoContainer = styled.div`
 display:flex;
 flex-direction:row;
+align-items: center;
 `;
 export const CustomList = styled.ul`
+margin-top: 20%;
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  li{
+    display: flex;
+    gap: 1rem;
+  }
 `;
 
 

@@ -1,12 +1,12 @@
 import Logo from "../assets/logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
-import { Nav,IconNav, TopBarContainer, CustomLink, LogoTitle, LogoText, LogoContainer, CustomList } from "../styled/TopBarStyled";
+import { Nav,IconNav, SideBar, CustomLink, LogoTitle, LogoText, LogoContainer, CustomList } from "../styled/TopBarStyled";
 
 
 export const TopBar = () => {
   return (
-    <TopBarContainer>
+    <SideBar>
       <LogoContainer>
         <CustomLink to="/">
           <img src={Logo} alt="Logo" width={50} height={50} />
@@ -15,18 +15,9 @@ export const TopBar = () => {
           <LogoTitle>travl</LogoTitle>
           <LogoText>Hotel Admin Dashboard</LogoText>
         </div>
-        <Nav>
-          <p>Dashboard</p>
-          <IconNav>
-          {/* <ion-icon name="mail-outline"></ion-icon>
-            <ion-icon name="notifications-outline"></ion-icon> */}
-            <ion-icon name="mail-outline"></ion-icon>
-            <ion-icon name="notifications-outline"></ion-icon>
-            <ion-icon name="log-out-outline"></ion-icon>
-          </IconNav>
-        </Nav>
+       
       </LogoContainer>
-      {/* <CustomList>
+      <CustomList>
 
         <li key="dashboard">
         <ion-icon name="extension-puzzle-outline"></ion-icon>
@@ -48,8 +39,8 @@ export const TopBar = () => {
         <ion-icon name="extension-puzzle-outline"></ion-icon>
           <CustomLink to="/users">Users</CustomLink>
         </li>
-      </CustomList> */}
-    </TopBarContainer>
+      </CustomList>
+    </SideBar>
   );
 };
 

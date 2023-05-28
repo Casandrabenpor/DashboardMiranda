@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { colors } from "./theme";
 
 export const DisplayDashboard = styled.div`
+   width: ${(props) => props.sideBarActivated ? "85%" : "100%"}; 
+   margin-left:${(props) => props.sideBarActivated ? "15%" : "0%"}; 
   display: flex;
   flex-direction: row;
   gap: 2em;

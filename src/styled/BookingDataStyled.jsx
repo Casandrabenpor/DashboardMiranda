@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { colors } from "./theme";
 
 export const ContainerData = styled.div`
+    width: ${(props) => props.sideBarActivated ? "85%" : "100%"}; 
+    margin-left:${(props) => props.sideBarActivated ? "15%" : "0%"}; 
       background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 4px;
 `;
@@ -19,11 +21,7 @@ export const BookingSchedule = styled.div`
   justify-content: center;
  
 `;
-// export const BookingScheduleTitle = styled.div`
-// display: flex;
-// flex-direction: column;
 
-// `;
 export const BookingScheduleData = styled.div`
 display: flex;
 flex-direction: row;

@@ -9,7 +9,7 @@ export const SideBar = styled.div`
   flex-direction:column;
   background: ${colors.white};
   height: 100vh;
-  width: 238px;
+  width: 15%;
   padding: 2em;
   top: 0;
   left: 0;
@@ -17,28 +17,36 @@ export const SideBar = styled.div`
   position: fixed;
 `;
 export const ContainerNav = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  p{
-    font-size: 28px;
-    font-weight: 600;
-  }
+ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    p{
+      font-size: 28px;
+      font-weight: 600;
+    }
+  `;
+
+export const Content = styled.div`
+width: ${(props) => props.sideBarActivated ? "85%" : "100%"}; 
+margin-left:${(props) => props.sideBarActivated ? "15%" : "0%"};
 `;
+
 export const IconNav = styled.div`
 display: flex;
 gap: 2em;
 color: ${colors.greenTwo};
+
 ion-icon{
   width: 28px;
   height: 28px;
+  
 
 }
-
-
 `;
+
 export const LogoContainer = styled.div`
 display:flex;
 flex-direction:row;

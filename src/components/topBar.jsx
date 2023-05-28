@@ -2,11 +2,13 @@ import Logo from "../assets/logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import {  SideBar, CustomLink, LogoTitle, LogoText, LogoContainer, CustomList } from "../styled/TopBarStyled";
-
+import { useSelector } from "react-redux";
 
 export const TopBar = () => {
+  const sideBarActivated = useSelector(state => state.sidebar.activated);
   return (
-    <SideBar>
+    sideBarActivated ?
+     <SideBar>
       <LogoContainer>
         <CustomLink to="/">
           <img src={Logo} alt="Logo" width={50} height={50} />
@@ -41,6 +43,8 @@ export const TopBar = () => {
         </li>
       </CustomList>
     </SideBar>
+    :
+    <></>
   );
 };
 

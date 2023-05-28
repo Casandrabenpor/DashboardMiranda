@@ -19,14 +19,28 @@ export const BookingSchedule = styled.div`
   justify-content: center;
  
 `;
-export const BookingScheduleTitle = styled.div`
-display: flex;
-flex-direction: column;
+// export const BookingScheduleTitle = styled.div`
+// display: flex;
+// flex-direction: column;
 
-`;
+// `;
 export const BookingScheduleData = styled.div`
 display: flex;
 flex-direction: row;
 gap: 1rem;
 
+`;
+export const Number = styled.p`
+    background: #135846 0% 0% no-repeat padding-box;
+    border-radius: 12px;
+    width: 53px;
+    height: 53px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: ${colors.white};
+    font-size: 20px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    align-items: center;
 `;

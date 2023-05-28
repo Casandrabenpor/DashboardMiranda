@@ -7,4 +7,5 @@ export const colors = {
     greyTwo: '#787878',
     backgroundRed:'#FFEDEC',
     blackTwo: '#393939',
+    green:'#5AD07A'
 }

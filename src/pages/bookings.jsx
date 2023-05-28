@@ -1,7 +1,11 @@
+import Table from "../components/table";
+import { TopBar } from "../components/topBar";
 export const Bookings = () =>{
     return(
         <>
-        <h1>Hola</h1>
+           <TopBar/>
+       <Table/>
+    
         </>
     )
 }

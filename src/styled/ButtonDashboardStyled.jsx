@@ -7,6 +7,7 @@ export const DisplayDashboard = styled.div`
   gap: 2em;
   justify-content: center;
   margin-top: 10%;
+ 
 `;
 
 export const ButtonDashboard = styled.div`

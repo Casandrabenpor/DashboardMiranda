@@ -26,7 +26,7 @@ export const TopBar = () => {
           </IconNav>
         </Nav>
       </LogoContainer>
-      <CustomList>
+      {/* <CustomList>
 
         <li key="dashboard">
         <ion-icon name="extension-puzzle-outline"></ion-icon>
@@ -48,7 +48,7 @@ export const TopBar = () => {
         <ion-icon name="extension-puzzle-outline"></ion-icon>
           <CustomLink to="/users">Users</CustomLink>
         </li>
-      </CustomList>
+      </CustomList> */}
     </TopBarContainer>
   );
 };

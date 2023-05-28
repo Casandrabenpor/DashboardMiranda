@@ -1,11 +1,15 @@
 import Table from "../components/table";
 import { TopBar } from "../components/topBar";
-export const Bookings = () =>{
-    return(
+import { Nav } from "../components/nav";
+import {Search} from "../components/search";
+export const Bookings = () => {
+    return (
         <>
-           <TopBar/>
-       <Table/>
-    
+            <TopBar />
+            <Nav/>
+            <Search/>
+            <Table />
+
         </>
     )
 }

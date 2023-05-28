@@ -3,10 +3,10 @@ import { ContainerCustomers, CardsCustomers, Image,Img, GreenIcon, RedIcon } fro
 import person1 from "../assets/person1.jpg";
 import person2 from "../assets/person2.jpg";
 import person from "../assets/person.jpg";
-export const Customers = () => {
+export const Customers = ({ showTitle })  => {
     return (
         <>
-            <ScheduleTitle>Latest Review by Customers</ScheduleTitle>
+              {showTitle && <ScheduleTitle>Latest Review by Customers</ScheduleTitle>}
             <CardsCustomers>
 
                 <ContainerCustomers>

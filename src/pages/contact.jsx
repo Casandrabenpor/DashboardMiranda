@@ -1,8 +1,10 @@
-
+import { Nav } from "../components/nav";
+import { Customers } from "../components/customers";
 export const Contact = () =>{
     return(
         <>
-        <h1>Hola</h1>
+        <Nav/>
+        <Customers showTitle={false} />
         </>
     )
 }

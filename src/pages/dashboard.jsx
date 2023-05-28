@@ -6,7 +6,7 @@ import { Customers } from "../components/customers";
 export const Dashboard = () =>{
     return(
         <>
-        {/* <TopBar/> */}
+        <TopBar/>
         <BtnDashboard/>
         <Calendar/>
         <BookingData/>

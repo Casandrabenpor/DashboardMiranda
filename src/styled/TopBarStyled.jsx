@@ -10,6 +10,29 @@ export const TopBarContainer = styled.div`
   flex-direction:column;
   background: ${colors.white};
 `;
+export const Nav = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  p{
+    font-size: 28px;
+    font-weight: 600;
+  }
+`;
+export const IconNav = styled.div`
+display: flex;
+gap: 2em;
+color: ${colors.greenTwo};
+ion-icon{
+  width: 28px;
+  height: 28px;
+
+}
+
+
+`;
 export const LogoContainer = styled.div`
 display:flex;
 flex-direction:row;

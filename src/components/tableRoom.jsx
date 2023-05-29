@@ -1,5 +1,6 @@
 import sea from "../assets/sea.jpg";
-import { TableContainer, Button } from "../styled/TableStyled";
+import { TableContainer } from "../styled/TableStyled";
+import { Button } from "../styled/ButtonStyled";
 
 const TableRoom = () => {
     return (
@@ -22,10 +23,10 @@ const TableRoom = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
                 <tr>
                     <td><img src={sea} alt="photo" width={100} height={100} /></td>
@@ -34,10 +35,10 @@ const TableRoom = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
                 <tr>
                     <td><img src={sea} alt="photo" width={100} height={100} /></td>
@@ -46,10 +47,10 @@ const TableRoom = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
                 <tr>
                     <td><img src={sea} alt="photo" width={100} height={100} /></td>
@@ -58,10 +59,10 @@ const TableRoom = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
                 <tr>
                     <td><img src={sea} alt="photo" width={100} height={100} /></td>
@@ -70,10 +71,10 @@ const TableRoom = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
                 <tr>
                     <td><img src={sea} alt="photo" width={100} height={100} /></td>
@@ -82,12 +83,12 @@ const TableRoom = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
-               
+
             </TableContainer>
         </div>
     );

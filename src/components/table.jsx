@@ -1,5 +1,6 @@
 import person from "../assets/person.jpg";
-import { TableContainer, Button } from "../styled/TableStyled";
+import { TableContainer } from "../styled/TableStyled";
+import { Button,ButtonRed,ButtonGreen,ButtonGrey,ButtonBlack } from "../styled/ButtonStyled";
 
 const Table = () => {
     return (
@@ -22,10 +23,12 @@ const Table = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>
+                        <ButtonRed type="button">Booked</ButtonRed>
+                    </td>
                 </tr>
                 <tr>
                     <td><img src={person} alt="photo" width={100} height={100} /></td>
@@ -34,10 +37,12 @@ const Table = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>
+                        <ButtonGreen type="button">Available</ButtonGreen>
+                    </td>
                 </tr>
                 <tr>
                     <td><img src={person} alt="photo" width={100} height={100} /></td>
@@ -46,10 +51,12 @@ const Table = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>
+                        <ButtonGrey type="button">Pending</ButtonGrey>
+                    </td>
                 </tr>
                 <tr>
                     <td><img src={person} alt="photo" width={100} height={100} /></td>
@@ -58,10 +65,12 @@ const Table = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>
+                        <ButtonBlack type="button">Cancelled</ButtonBlack>
+                    </td>
                 </tr>
                 <tr>
                     <td><img src={person} alt="photo" width={100} height={100} /></td>
@@ -70,10 +79,10 @@ const Table = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
                 <tr>
                     <td><img src={person} alt="photo" width={100} height={100} /></td>
@@ -82,10 +91,10 @@ const Table = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
                 <tr>
                     <td><img src={person} alt="photo" width={100} height={100} /></td>
@@ -94,10 +103,10 @@ const Table = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
                 <tr>
                     <td><img src={person} alt="photo" width={100} height={100} /></td>
@@ -106,10 +115,10 @@ const Table = () => {
                     <td>18/01/2023</td>
                     <td>18/01/2023</td>
                     <td>
-                       <Button type="button">View Notes</Button>
-                        </td>
+                        <Button type="button">View Notes</Button>
+                    </td>
                     <td>Single Bed</td>
-                    <td>Occupied</td>
+                    <td>Booked</td>
                 </tr>
             </TableContainer>
         </div>

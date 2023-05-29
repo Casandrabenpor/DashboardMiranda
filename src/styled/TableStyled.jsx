@@ -12,17 +12,4 @@ export const TableContainer = styled.table`
   }
 `;
 
-export const Button = styled.button`
-  cursor: pointer;
-  border-radius: 12px;
-  width: 109px;
-  border: none;
-  height: 48px;
-  font-size: 16px;
-  font-family: "Poppins";
-  font-weight: 500;
 
-  &:hover {
-    background: #eef9f2;
-  }
-`;

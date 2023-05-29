@@ -20,12 +20,15 @@ export const ContainerNav = styled.div`
  
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
     flex-direction: row;
 
     p{
       font-size: 28px;
       font-weight: 600;
+    }
+    ion-icon{
+      cursor: pointer;
     }
   `;
 

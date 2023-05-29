@@ -1,10 +1,13 @@
 import person from "../assets/person.jpg";
 import { TableContainer } from "../styled/TableStyled";
 import { Button,ButtonRed,ButtonGreen,ButtonGrey,ButtonBlack } from "../styled/ButtonStyled";
+import { Content } from '../styled/TopBarStyled';
+import { useSelector } from "react-redux";
 
 const Table = () => {
+    const sideBarActivated = useSelector(state => state.sidebar.activated);
     return (
-        <div>
+         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
                 <tr>
                     <th>Photo</th>
@@ -121,7 +124,7 @@ const Table = () => {
                     <td>Booked</td>
                 </tr>
             </TableContainer>
-        </div>
+        </Content>
     );
 };
 

@@ -1,10 +1,13 @@
 import sea from "../assets/sea.jpg";
 import { TableContainer } from "../styled/TableStyled";
 import { Button } from "../styled/ButtonStyled";
+import { Content } from '../styled/TopBarStyled';
+import { useSelector } from "react-redux";
 
 const TableRoom = () => {
+    const sideBarActivated = useSelector(state => state.sidebar.activated);
     return (
-        <div>
+         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
                 <tr>
                     <th>Photo</th>
@@ -90,7 +93,7 @@ const TableRoom = () => {
                 </tr>
 
             </TableContainer>
-        </div>
+        </Content>
     );
 };
 

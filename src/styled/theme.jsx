@@ -5,6 +5,7 @@ export const colors = {
     black: '#212121',
     grey: '#5D5449',
     red:'#E23428',
+    yellow:'#FB9F44',
     greyTwo: '#787878',
     greyThree:'#6D6D6D',
     backgroundRed:'#FFEDEC',
@@ -16,4 +17,5 @@ export const colors = {
     backgroundBtnGreen: ' #E8FFEE 0% 0% no-repeat padding-box',
     backgroundBtnWhite:' #E2E2E2 0% 0% no-repeat padding-box',
     backgroundBtnGrey:'#575757 0% 0% no-repeat padding-box;',
+
 }

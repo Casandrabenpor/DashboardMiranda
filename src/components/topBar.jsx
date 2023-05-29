@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import {  SideBar, CustomLink, LogoTitle, LogoText, LogoContainer, CustomList } from "../styled/TopBarStyled";
 import { useSelector } from "react-redux";
+import { TbLayoutDashboard} from 'react-icons/tb';
+import {MdVpnKey} from 'react-icons/md';
 
 export const TopBar = () => {
   const sideBarActivated = useSelector(state => state.sidebar.activated);
@@ -22,11 +24,11 @@ export const TopBar = () => {
       <CustomList>
 
         <li key="dashboard">
-        <ion-icon name="extension-puzzle-outline"></ion-icon>
+        <TbLayoutDashboard/>
           <CustomLink to="/">Dashboard</CustomLink>
         </li>
         <li key="rooms">
-        <ion-icon name="key-outline"></ion-icon>
+      <MdVpnKey/>
           <CustomLink to="/rooms">Room</CustomLink>
         </li>
         <li key="bookings">

@@ -18,7 +18,7 @@ export const BookingSchedule = styled.div`
   display: flex;
   flex-direction: row;
   gap: 2em;
-  justify-content: center;
+
  
 `;
 
@@ -26,6 +26,7 @@ export const BookingScheduleData = styled.div`
 display: flex;
 flex-direction: row;
 gap: 1rem;
+justify-content: space-between;
 
 `;
 export const Number = styled.p`
@@ -41,4 +42,45 @@ export const Number = styled.p`
     font-family: 'Poppins';
     font-weight: 500;
     align-items: center;
+    margin-left: 58%;
 `;
+export const NumberRed = styled.p`
+     background: ${colors.red};
+    border-radius: 12px;
+    width: 53px;
+    height: 53px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: ${colors.white};
+    font-size: 20px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    align-items: center;
+   
+    
+`;
+export const NumberYellow = styled.p`
+     background: ${colors.yellow};
+    border-radius: 12px;
+    width: 53px;
+    height: 53px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: ${colors.white};
+    font-size: 20px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    align-items: center;
+    margin-left: 58%;
+    align-items: center;
+    
+`;
+export const PositionNumber = styled.p`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 54%;
+`

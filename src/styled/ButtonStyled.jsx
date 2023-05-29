@@ -45,3 +45,23 @@ export const ButtonBlack = styled(Button)`
   
   }
 `;
+// Select Bookings
+export const SelectStyled = styled.select`
+cursor: pointer;
+    color: ${colors.white};
+    background: #135846 0% 0% no-repeat padding-box;
+border-radius: 12px;
+padding: 1em 2em;
+text-align: center;
+font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 500;
+  
+`;
+export const StyledSearchSelect = styled.div`
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-end;
+  gap: 10em;
+  margin-top: 2%;
+`;

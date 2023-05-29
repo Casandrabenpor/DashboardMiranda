@@ -1,13 +1,15 @@
 import Table from "../components/table";
 import { TopBar } from "../components/topBar";
 import { Nav } from "../components/nav";
-import {Search} from "../components/search";
+
+import { Select } from "../components/select";
 export const Bookings = () => {
     return (
         <>
             <TopBar />
             <Nav/>
-            <Search/>
+           
+            <Select/>
             <Table />
 
         </>

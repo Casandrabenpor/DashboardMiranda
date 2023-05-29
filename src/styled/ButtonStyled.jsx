@@ -62,6 +62,28 @@ export const StyledSearchSelect = styled.div`
   display: flex;
   flex-direction:row;
   justify-content: flex-end;
+  align-items: flex-end;
   gap: 10em;
   margin-top: 2%;
+`;
+// button room
+export const ButtonGreenDark = styled.button`
+  cursor: pointer;
+  border: none;
+    color: ${colors.white};
+    background: #135846 ;
+border-radius: 12px;
+padding: 1em 2em;
+text-align: center;
+font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 500;
+`
+export const StyledBtnRoom = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 5em;
+  text-align: center;
+  align-items: flex-end;
 `;

@@ -1,11 +1,27 @@
 import { TableContainer } from "../styled/TableStyled";
 import { Content } from '../styled/TopBarStyled';
-import { useSelector } from "react-redux";
-import { Button, ButtonRed, ButtonGreen, ButtonGrey, ButtonBlack } from "../styled/ButtonStyled";
+import { Button, ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import person from "../assets/person.jpg";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { downloadFile } from "../features/jsonSlice/fileDownloadSlice";
 
 const TableUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
+    const users = useSelector(state => state.data.userData);
+    const status = useSelector(state => state.data.status);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (status === "idle") {
+            dispatch(downloadFile("mockUsers.json"));
+        }
+    }, [status, dispatch]);
+
+    const GenerateRandomAvatar = () =>{
+      let randomNumber =  Math.floor(Math.random() * 9);
+      let path = `./avatars/avatar${randomNumber}.jpg`;
+      return path;
+    }
     return (
         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
@@ -19,34 +35,22 @@ const TableUser = () => {
                     <th>Contact</th>
                     <th>Status</th>
                 </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>80701</td>
-                    <td>rosheeryne0@wikimedia.org</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                    </td>
-                    <td>(102) 1504954</td>
-                    <td>
-                        <ButtonRed type="button">INACTIVE</ButtonRed>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>80701</td>
-                    <td>rosheeryne0@wikimedia.org</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                    </td>
-                    <td>(102) 1504954</td>
-                    <td>
-                        <ButtonGreen type="button">ACTIVE</ButtonGreen>
-                    </td>
-                </tr>
+                {users.map(user =>
+                    <tr>
+                        <td><img src={GenerateRandomAvatar()} alt="photo" width={100} height={100} /></td>
+                        <td>{user.name}</td>
+                        <td>{user.id}</td>
+                        <td>{user.email}</td>
+                        <td>{user.startDate}</td>
+                        <td>{user.description} </td>
+                        <td>{user.contact}</td>
+                        <td>  {
+                            user.status === 'inactive'
+                                ? <ButtonRed type="button">INACTIVE</ButtonRed>
+                                : <ButtonGreen type="button">ACTIVE</ButtonGreen>
+                        }
+                        </td>
+                    </tr>)}
             </TableContainer>
         </Content>
     );

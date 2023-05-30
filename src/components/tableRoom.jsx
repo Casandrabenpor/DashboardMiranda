@@ -13,6 +13,7 @@ const TableRoom = () => {
     const rooms = useSelector(state => state.data.roomData);
     const status = useSelector(state => state.data.status);
     const dispatch = useDispatch();
+
     useEffect(() => {
         if (status === "idle") {
             dispatch(downloadRooms("mockRooms.json"));

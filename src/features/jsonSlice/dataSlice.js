@@ -1,4 +1,4 @@
-import { downloadFile, downloadRooms, downloadContact } from "./fileDownloadSlice";
+import { downloadFile, downloadRooms, downloadContact ,downloadBooking} from "./fileDownloadSlice";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const dataSlice = createSlice({
@@ -8,6 +8,7 @@ export const dataSlice = createSlice({
     userData: [],
     roomData: [],
     contactData:[],
+    bookingData:[],
   },
   reducers: {
 
@@ -43,6 +44,16 @@ export const dataSlice = createSlice({
       .addCase(downloadContact.fulfilled, (state, action) => {
         state.status = "fulfilled";
         state.contactData = action.payload;
+      })
+      .addCase(downloadBooking.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(downloadBooking.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(downloadBooking.fulfilled, (state, action) => {
+        state.status = "fulfilled";
+        state.bookingData = action.payload;
       });
   },
 });

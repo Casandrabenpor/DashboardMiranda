@@ -44,3 +44,17 @@ export const downloadContact = createAsyncThunk("data/downloadContact", async ()
     });
     return json;
 });
+
+export const downloadBooking = createAsyncThunk("data/downloadBooking", async () => {
+
+    const data =  await fetch("./mockData/mockBooking.json")
+    .catch((error) => {
+        throw error;
+    });
+
+    const json = await data.json()
+    .catch((error) => {
+        throw error;
+    });
+    return json;
+});

@@ -1,13 +1,25 @@
 import person from "../assets/person.jpg";
 import { TableContainer } from "../styled/TableStyled";
-import { Button,ButtonRed,ButtonGreen,ButtonGrey,ButtonBlack } from "../styled/ButtonStyled";
+import { Button, ButtonRed, ButtonGreen, ButtonGrey, ButtonBlack,ButtonYellow } from "../styled/ButtonStyled";
 import { Content } from '../styled/TopBarStyled';
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { downloadBooking } from "../features/jsonSlice/fileDownloadSlice";
 
 const Table = () => {
+    // Funcion para sacar del json [] a la tabla
+
     const sideBarActivated = useSelector(state => state.sidebar.activated);
+    const booking = useSelector(state => state.data.bookingData);
+    const status = useSelector(state => state.data.status);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (status === "idle") {
+            dispatch(downloadBooking("mockBooking.json"));
+        }
+    }, [status, dispatch]);
     return (
-         <Content sideBarActivated={sideBarActivated}>
+        <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
                 <tr>
                     <th>Photo</th>
@@ -19,110 +31,33 @@ const Table = () => {
                     <th>Room type</th>
                     <th>Status</th>
                 </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>17/02/2023</td>
-                    <td>18/01/2023</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        <Button type="button">View Notes</Button>
-                    </td>
-                    <td>Single Bed</td>
-                    <td>
-                        <ButtonRed type="button">Booked</ButtonRed>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>17/02/2023</td>
-                    <td>18/01/2023</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        <Button type="button">View Notes</Button>
-                    </td>
-                    <td>Single Bed</td>
-                    <td>
-                        <ButtonGreen type="button">Available</ButtonGreen>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>17/02/2023</td>
-                    <td>18/01/2023</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        <Button type="button">View Notes</Button>
-                    </td>
-                    <td>Single Bed</td>
-                    <td>
-                        <ButtonGrey type="button">Pending</ButtonGrey>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>17/02/2023</td>
-                    <td>18/01/2023</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        <Button type="button">View Notes</Button>
-                    </td>
-                    <td>Single Bed</td>
-                    <td>
-                        <ButtonBlack type="button">Cancelled</ButtonBlack>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>17/02/2023</td>
-                    <td>18/01/2023</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        <Button type="button">View Notes</Button>
-                    </td>
-                    <td>Single Bed</td>
-                    <td>Booked</td>
-                </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>17/02/2023</td>
-                    <td>18/01/2023</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        <Button type="button">View Notes</Button>
-                    </td>
-                    <td>Single Bed</td>
-                    <td>Booked</td>
-                </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>17/02/2023</td>
-                    <td>18/01/2023</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        <Button type="button">View Notes</Button>
-                    </td>
-                    <td>Single Bed</td>
-                    <td>Booked</td>
-                </tr>
-                <tr>
-                    <td><img src={person} alt="photo" width={100} height={100} /></td>
-                    <td>Carla Dominguez 50-222-5264</td>
-                    <td>17/02/2023</td>
-                    <td>18/01/2023</td>
-                    <td>18/01/2023</td>
-                    <td>
-                        <Button type="button">View Notes</Button>
-                    </td>
-                    <td>Single Bed</td>
-                    <td>Booked</td>
-                </tr>
+                {booking.map(bookings =>
+                    <tr>
+                        <td><img src={person} alt="photo" width={100} height={100} /></td>
+                        <td>{bookings.guest}</td>
+                        <td>{bookings.id}</td>
+                        <td>{bookings.order_date}</td>
+                        <td>{bookings.check_in}</td>
+                        <td>{bookings.check_out}</td>
+                        <td>
+                            <Button type="button">View Notes</Button>
+                        </td>
+                        <td>{bookings.room_type}</td>
+                        <td>
+                            {bookings.status === 'check in' ? (
+                                <ButtonGreen type="button">Check In</ButtonGreen>
+                            ) : (
+                                bookings.status === 'booked' ? (
+                                    <ButtonRed type="button">Booked</ButtonRed>
+                                ) : (
+                                    <ButtonYellow type="button">Pending</ButtonYellow>
+                                )
+                            )}
+                        </td>
+
+                    </tr>)}
+
+
             </TableContainer>
         </Content>
     );

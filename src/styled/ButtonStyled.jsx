@@ -24,6 +24,13 @@ export const ButtonRed = styled(Button)`
   
   }
 `;
+export const ButtonYellow = styled(Button)`
+    color: ${colors.yellow};
+    &:hover {
+    background: ${colors.backgroundBtnYellow};
+  
+  }
+`;
 export const ButtonGreen = styled(Button)`
     color: ${colors.green};
     &:hover {

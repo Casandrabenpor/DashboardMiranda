@@ -43,8 +43,8 @@ const TableRoom = () => {
                         <td>{room.rate}</td>
                         <td>{room.offer_price}</td>
                         <td>{
-                            room.status === 'booked'
-                                ? <ButtonRed type="button">Booked</ButtonRed>
+                            room.status === 'Occupied'
+                                ? <ButtonRed type="button">Occupied</ButtonRed>
                                 : <ButtonGreen type="button">Available</ButtonGreen>
                         }
                         </td>

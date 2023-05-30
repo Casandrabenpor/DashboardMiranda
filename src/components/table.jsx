@@ -1,6 +1,6 @@
 import person from "../assets/person.jpg";
 import { TableContainer } from "../styled/TableStyled";
-import { Button, ButtonRed, ButtonGreen, ButtonGrey, ButtonBlack,ButtonYellow } from "../styled/ButtonStyled";
+import { Button, ButtonRed, ButtonGreen, ButtonGrey, ButtonBlack, ButtonYellow } from "../styled/ButtonStyled";
 import { Content } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,17 @@ const Table = () => {
             dispatch(downloadBooking("mockBooking.json"));
         }
     }, [status, dispatch]);
+
+    const GetStatus = (bookingStatus) => {
+        switch (bookingStatus) {
+            case "Check In":
+                return <ButtonGreen type="button">Check In</ButtonGreen>;
+            case "Check Out":
+                return <ButtonRed type="button">Check Out</ButtonRed>;
+            default:
+                return <ButtonYellow type="button">In Progress</ButtonYellow>;
+        }
+    }
     return (
         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
@@ -34,25 +45,31 @@ const Table = () => {
                 {booking.map(bookings =>
                     <tr>
                         <td><img src={person} alt="photo" width={100} height={100} /></td>
-                        <td>{bookings.guest}</td>
-                        <td>{bookings.id}</td>
+                        <td>
+                            {bookings.guest}
+                            <div className="subrow">
+                                #{bookings.id}
+                            </div>
+                        </td>
                         <td>{bookings.order_date}</td>
-                        <td>{bookings.check_in}</td>
-                        <td>{bookings.check_out}</td>
+                        <td>
+                            {bookings.check_in}
+                            <div>
+                                {bookings.check_in_hour}
+                            </div>
+                        </td>
+                        <td>
+                            {bookings.check_out}
+                            <div>
+                                {bookings.check_out_hour}
+                            </div>
+                        </td>
                         <td>
                             <Button type="button">View Notes</Button>
                         </td>
-                        <td>{bookings.room_type}</td>
+                        <td>{bookings.room_type}-{bookings.room_number}</td>
                         <td>
-                            {bookings.status === 'check in' ? (
-                                <ButtonGreen type="button">Check In</ButtonGreen>
-                            ) : (
-                                bookings.status === 'booked' ? (
-                                    <ButtonRed type="button">Booked</ButtonRed>
-                                ) : (
-                                    <ButtonYellow type="button">Pending</ButtonYellow>
-                                )
-                            )}
+                            {GetStatus(bookings.status)}
                         </td>
 
                     </tr>)}

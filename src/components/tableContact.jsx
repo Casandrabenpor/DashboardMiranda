@@ -1,11 +1,24 @@
 import { TableContainer } from "../styled/TableStyled";
 import { Button, ButtonRed, ButtonGreen, ButtonGrey, ButtonBlack } from "../styled/ButtonStyled";
 import { Content } from '../styled/TopBarStyled';
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { downloadContact } from "../features/jsonSlice/fileDownloadSlice";
 const TableContact = () => {
-     const sideBarActivated = useSelector(state => state.sidebar.activated);
+
+    // Funcion para sacar del json [] a la tabla
+
+    const sideBarActivated = useSelector(state => state.sidebar.activated);
+    const contactUser = useSelector(state => state.data.contactData);
+    const status = useSelector(state => state.data.status);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (status === "idle") {
+            dispatch(downloadContact("mockContact.json"));
+        }
+    }, [status, dispatch]);
     return (
-         <Content sideBarActivated={sideBarActivated}>
+        <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
                 <tr>
                     <th>ID</th>
@@ -15,42 +28,19 @@ const TableContact = () => {
                     <th>Action</th>
 
                 </tr>
-                <tr>
-                    <td>921410057</td>
-                    <td>01/01/2020</td>
-                    <td>Corabella Forri</td>
-                    <td>primis in faucibus orci luctus et ultrices posuere cubilia curae</td>
-                    <td>
-                        <Button type="button">Archive</Button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>921410057</td>
-                    <td>01/01/2020</td>
-                    <td>Corabella Forri</td>
-                    <td>primis in faucibus orci luctus et ultrices posuere cubilia curae</td>
-                    <td>
-                        <Button type="button">Archive</Button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>921410057</td>
-                    <td>01/01/2020</td>
-                    <td>Corabella Forri</td>
-                    <td>primis in faucibus orci luctus et ultrices posuere cubilia curae</td>
-                    <td>
-                        <Button type="button">Archive</Button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>921410057</td>
-                    <td>01/01/2020</td>
-                    <td>Corabella Forri</td>
-                    <td>primis in faucibus orci luctus et ultrices posuere cubilia curae</td>
-                    <td>
-                        <Button type="button">Archive</Button>
-                    </td>
-                </tr>
+                {contactUser.map(contact =>
+                    <tr>
+                        <td>{contact.order_id}</td>
+                        <td>{contact.date}</td>
+                        <td>{contact.customer}</td>
+                        <td>{contact.comment}</td>
+                        <td>
+                            <Button type="button">Archive</Button>
+                        </td>
+                    </tr>
+                )}
+
+
             </TableContainer>
         </Content>
     );

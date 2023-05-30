@@ -1,4 +1,4 @@
-import { downloadFile, downloadRooms } from "./fileDownloadSlice";
+import { downloadFile, downloadRooms, downloadContact } from "./fileDownloadSlice";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const dataSlice = createSlice({
@@ -7,6 +7,7 @@ export const dataSlice = createSlice({
     status: "idle",
     userData: [],
     roomData: [],
+    contactData:[],
   },
   reducers: {
 
@@ -32,6 +33,16 @@ export const dataSlice = createSlice({
       .addCase(downloadRooms.fulfilled, (state, action) => {
         state.status = "fulfilled";
         state.roomData = action.payload;
+      })
+      .addCase(downloadContact.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(downloadContact.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(downloadContact.fulfilled, (state, action) => {
+        state.status = "fulfilled";
+        state.contactData = action.payload;
       });
   },
 });

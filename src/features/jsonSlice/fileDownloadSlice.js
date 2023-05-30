@@ -29,3 +29,18 @@ export const downloadRooms = createAsyncThunk("data/downloadRooms", async () => 
     });
     return json;
 });
+
+
+export const downloadContact = createAsyncThunk("data/downloadContact", async () => {
+
+    const data =  await fetch("./mockData/mockContact.json")
+    .catch((error) => {
+        throw error;
+    });
+
+    const json = await data.json()
+    .catch((error) => {
+        throw error;
+    });
+    return json;
+});

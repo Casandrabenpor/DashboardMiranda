@@ -9,8 +9,8 @@ const TableContact = () => {
     // Funcion para sacar del json [] a la tabla
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const contactUser = useSelector(state => state.data.contactData);
-    const status = useSelector(state => state.data.status);
+    const contactUser = useSelector(state => state.data.contactData.data);
+    const status = useSelector(state => state.data.contactData.status);
     const dispatch = useDispatch();
     useEffect(() => {
         if (status === "idle") {

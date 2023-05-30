@@ -4,11 +4,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export const dataSlice = createSlice({
   name: "data",
   initialState: {
-    status: "idle",
-    userData: [],
-    roomData: [],
-    contactData:[],
-    bookingData:[],
+    userData: { status: "idle", data:[] },
+    roomData: { status: "idle", data:[] },
+    contactData: { status: "idle", data:[] },
+    bookingData: { status: "idle", data:[] },
   },
   reducers: {
 
@@ -16,44 +15,44 @@ export const dataSlice = createSlice({
   extraReducers: (buider) => {
     buider
       .addCase(downloadFile.pending, (state) => {
-        state.status = "loading";
+        state.userData.status = "loading";
       })
       .addCase(downloadFile.rejected, (state) => {
-        state.status = "failed";
+        state.userData.status = "failed";
       })
       .addCase(downloadFile.fulfilled, (state, action) => {
-        state.status = "fulfilled";
-        state.userData = action.payload;
+        state.userData.status = "fulfilled";
+        state.userData.data = action.payload;
       })
       .addCase(downloadRooms.pending, (state) => {
-        state.status = "loading";
+        state.roomData.status = "loading";
       })
       .addCase(downloadRooms.rejected, (state) => {
-        state.status = "failed";
+        state.roomData.status = "failed";
       })
       .addCase(downloadRooms.fulfilled, (state, action) => {
-        state.status = "fulfilled";
-        state.roomData = action.payload;
+        state.roomData.status = "fulfilled";
+        state.roomData.data = action.payload;
       })
       .addCase(downloadContact.pending, (state) => {
-        state.status = "loading";
+        state.contactData.status = "loading";
       })
       .addCase(downloadContact.rejected, (state) => {
-        state.status = "failed";
+        state.contactData.status = "failed";
       })
       .addCase(downloadContact.fulfilled, (state, action) => {
-        state.status = "fulfilled";
-        state.contactData = action.payload;
+        state.contactData.status = "fulfilled";
+        state.contactData.data = action.payload;
       })
       .addCase(downloadBooking.pending, (state) => {
-        state.status = "loading";
+        state.bookingData.status = "loading";
       })
       .addCase(downloadBooking.rejected, (state) => {
-        state.status = "failed";
+        state.bookingData.status = "failed";
       })
       .addCase(downloadBooking.fulfilled, (state, action) => {
-        state.status = "fulfilled";
-        state.bookingData = action.payload;
+        state.bookingData.status = "fulfilled";
+        state.bookingData.data = action.payload;
       });
   },
 });

@@ -7,8 +7,8 @@ import { downloadFile } from "../features/jsonSlice/fileDownloadSlice";
 // Funcion para sacar del json [] a la tabla
 const TableUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const users = useSelector(state => state.data.userData);
-    const status = useSelector(state => state.data.status);
+    const users = useSelector(state => state.data.userData.data);
+    const status = useSelector(state => state.data.userData.status);
     const dispatch = useDispatch();
     useEffect(() => {
         if (status === "idle") {

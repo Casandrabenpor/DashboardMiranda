@@ -10,8 +10,8 @@ const TableRoom = () => {
     // Funcion para sacar del json [] a la tabla
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const rooms = useSelector(state => state.data.roomData);
-    const status = useSelector(state => state.data.status);
+    const rooms = useSelector(state => state.data.roomData.data);
+    const status = useSelector(state => state.data.roomData.status);
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -7,9 +7,9 @@ export const Login = () => {
             <p>Hotel Miranda Admin Dashboard</p>
 
             <Form>
-                <label htmlFor="email">Email</label>
-                <input type="text" id="email" name="email" />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="email" >Email</label>
+                <input type="text" placeholder="casandra@gmail.com" id="email" name="email" />
+                <label htmlFor="password" >Password</label>
                 <input type="password" id="password" name="password" />
                 <button type="submit" value="Login">Login</button>
             </Form>

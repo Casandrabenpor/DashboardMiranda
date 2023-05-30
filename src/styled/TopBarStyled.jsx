@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "./theme";
 
+
 export const SideBar = styled.div`
 
   box-shadow: 0px 3px 10px #00000005;
@@ -27,10 +28,11 @@ export const ContainerNav = styled.div`
       font-size: 28px;
       font-weight: 600;
     }
-    ion-icon{
-      cursor: pointer;
-    }
+  
   `;
+  export const Burger = styled.div`
+    cursor: pointer;
+  `
 
 export const Content = styled.div`
 width: ${(props) => props.sideBarActivated ? "85%" : "100%"}; 

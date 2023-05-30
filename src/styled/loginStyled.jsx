@@ -23,7 +23,6 @@ flex-direction: column;
 align-items: center;
     color: ${colors.black};
     button{
-        cursor: pointer;
     border-radius: 12px;
     border: none;
     width: 215px;
@@ -33,9 +32,10 @@ align-items: center;
     margin-top: 15%;
     font-family: "Poppins";
     font-size: 16px;
+    cursor: pointer;
     }
     input{
-        font-family: "Poppins";
+    font-family: "Poppins";
     border-radius: 12px;
     border: none;
     width: 220px;

@@ -21,19 +21,24 @@ export const ButtonDashboard = styled.div`
   border-radius: 12px;
   display: flex;
   gap: 1rem;
+  justify-content: center;
 
   p {
     font-family: 'Poppins';
     color: ${colors.greyTwo};
   }
+  
+ 
 `;
 
 export const Number = styled.p`
-  color: black;
-  font-family: 30px;
+  color: ${colors.black};
+  font-size: 30px;
 `;
 
+
 export const IonIconBed = styled.span`
+  cursor: pointer;
   background-color: ${colors.backgroundRed};
   width: 60px;
   height: 60px;
@@ -42,9 +47,15 @@ export const IonIconBed = styled.span`
   align-items: center;
   justify-content: center;
   margin-top: 15%;
+  &:hover {
+    background-color: ${colors.red};
+    color: white;
+  }
+  
 `;
 
 export const FlippedIcon = styled.span`
+ cursor: pointer;
   display: inline-block;
   transform: rotate(90deg);
   color: red;
@@ -56,9 +67,15 @@ export const FlippedIcon = styled.span`
   justify-content: center;
   background-color: ${colors.backgroundRed};
   margin-top: 15%;
+  &:hover {
+    background-color: ${colors.red};
+    color: white;
+  }
+  
 `;
 
 export const FlippedIconTwo = styled.span`
+ cursor: pointer;
   display: inline-block;
   transform: rotate(270deg);
   color: red;
@@ -70,6 +87,10 @@ export const FlippedIconTwo = styled.span`
   justify-content: center;
   background-color: ${colors.backgroundRed};
   margin-top: 15%;
+  &:hover {
+    background-color: ${colors.red};
+    color: white;
+  }
 `;
 
 export const TextButton = styled.div`
@@ -78,7 +99,8 @@ export const TextButton = styled.div`
   
 `;
 export const IconCalendar = styled.div`
-  background-color: ${colors.red};
+ background-color: ${colors.backgroundRed};
+ cursor: pointer;
   width: 60px;
   height: 60px;
   border-radius: 8px;
@@ -86,5 +108,10 @@ export const IconCalendar = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 15%;
+  
+  &:hover {
+    background-color: ${colors.red};
+    color: white;
+  }
   
 `;

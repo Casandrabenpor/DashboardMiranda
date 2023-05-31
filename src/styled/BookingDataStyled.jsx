@@ -6,8 +6,11 @@ export const ContainerData = styled.div`
     margin-left:${(props) => props.sideBarActivated ? "15%" : "0%"}; 
       background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 4px;
-  padding: 2em;
+  padding: 1em;
   margin-top: 5%;
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
 `;
 export const ScheduleTitle = styled.h4`
   font-family:"Poppins";

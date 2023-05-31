@@ -1,7 +1,7 @@
 import person from "../assets/person.jpg";
 import { TableContainer } from "../styled/TableStyled";
 import { Button, ButtonRed, ButtonGreen, ButtonGrey, ButtonBlack, ButtonYellow } from "../styled/ButtonStyled";
-import { Content } from '../styled/TopBarStyled';
+import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadBooking } from "../features/jsonSlice/fileDownloadSlice";
@@ -45,11 +45,15 @@ const Table = () => {
                 {booking.map(bookings =>
                     <tr>
                         <td><img src={person} alt="photo" width={100} height={100} /></td>
+                        
                         <td>
+                       
                             {bookings.guest}
+                            <CustomLink to="/BookingsUser">
                             <div className="subrow">
                                 #{bookings.id}
                             </div>
+                            </CustomLink>
                         </td>
                         <td>{bookings.order_date}</td>
                         <td>

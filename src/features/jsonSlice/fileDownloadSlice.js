@@ -1,60 +1,31 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const downloadFile = createAsyncThunk("data/download", async () => {
-
-    const data =  await fetch("./mockData/mockUsers.json")
-    .catch((error) => {
-        throw error;
-    });
-
-    const json = await data.json()
-    .catch((error) => {
-        throw error;
-    });
-    return json;
+    return retrieveFile("mockUsers.json");
 });
 
-
-
 export const downloadRooms = createAsyncThunk("data/downloadRooms", async () => {
-
-    const data =  await fetch("./mockData/mockRooms.json")
-    .catch((error) => {
-        throw error;
-    });
-
-    const json = await data.json()
-    .catch((error) => {
-        throw error;
-    });
-    return json;
+    return retrieveFile("mockRooms.json");
 });
 
 
 export const downloadContact = createAsyncThunk("data/downloadContact", async () => {
-
-    const data =  await fetch("./mockData/mockContact.json")
-    .catch((error) => {
-        throw error;
-    });
-
-    const json = await data.json()
-    .catch((error) => {
-        throw error;
-    });
-    return json;
+    return retrieveFile("mockContact.json");
 });
 
 export const downloadBooking = createAsyncThunk("data/downloadBooking", async () => {
+    return retrieveFile("mockBooking.json");
+});
 
-    const data =  await fetch("./mockData/mockBooking.json")
-    .catch((error) => {
-        throw error;
-    });
+async function retrieveFile(fileName) {
+    const data = await fetch(`./mockData/${fileName}`)
+        .catch((error) => {
+            throw error;
+        });
 
     const json = await data.json()
-    .catch((error) => {
-        throw error;
-    });
+        .catch((error) => {
+            throw error;
+        });
     return json;
-});
+}

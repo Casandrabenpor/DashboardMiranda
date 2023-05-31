@@ -4,7 +4,7 @@ import { BsChatTextFill } from 'react-icons/bs';
 import { Content } from '../styled/TopBarStyled';
 import { useSelector } from "react-redux";
 import { IdUser, ContainerUser, IdData, Text, IdName,IdPhone,Hr } from "../styled/BookingUserStyled";
-export const BookingsUser = () => {
+export const GuestDetailUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     return (
         <Content sideBarActivated={sideBarActivated}>

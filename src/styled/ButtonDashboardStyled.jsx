@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { colors } from "./theme";
 
 export const DisplayDashboard = styled.div`
-   width: ${(props) => props.sideBarActivated ? "85%" : "100%"}; 
-   margin-left:${(props) => props.sideBarActivated ? "15%" : "0%"}; 
+   width: ${(props) => props.sideBarActivated ? "85%" : "100%"};
+   margin-left:${(props) => props.sideBarActivated ? "15%" : "0%"};
   display: flex;
   flex-direction: row;
   gap: 2em;
   justify-content: center;
   margin-top: 2%;
- 
+
 `;
 
 export const ButtonDashboard = styled.div`
@@ -27,14 +27,16 @@ export const ButtonDashboard = styled.div`
     font-family: 'Poppins';
     color: ${colors.greyTwo};
   }
-  
- 
-`;
 
-export const Number = styled.p`
-  color: ${colors.black};
-  font-size: 30px;
-`;
+  
+  `;
+  export const Number = styled.p`
+      &&&{
+        color: ${colors.black};
+        font-size: 30px;
+      }
+  `;
+
 
 
 export const IonIconBed = styled.span`
@@ -51,7 +53,7 @@ export const IonIconBed = styled.span`
     background-color: ${colors.red};
     color: white;
   }
-  
+
 `;
 
 export const FlippedIcon = styled.span`
@@ -71,7 +73,7 @@ export const FlippedIcon = styled.span`
     background-color: ${colors.red};
     color: white;
   }
-  
+
 `;
 
 export const FlippedIconTwo = styled.span`
@@ -96,7 +98,7 @@ export const FlippedIconTwo = styled.span`
 export const TextButton = styled.div`
   display: flex;
   flex-direction: column;
-  
+
 `;
 export const IconCalendar = styled.div`
  background-color: ${colors.backgroundRed};
@@ -108,10 +110,10 @@ export const IconCalendar = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 15%;
-  
+
   &:hover {
     background-color: ${colors.red};
     color: white;
   }
-  
+
 `;

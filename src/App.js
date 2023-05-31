@@ -1,30 +1,34 @@
 import { Bookings } from './pages/bookingsPage';
 import { Rooms } from './pages/roomsPage';
-import {BookingsUserPage} from './pages/bookingUserPage';
+import { BookingsUserPage } from './pages/bookingUserPage';
 import { Contact } from './pages/contactPage';
 import { Users } from './pages/usersPage';
 import { Dashboard } from './pages/dashboardPage';
 import { Routes, Route } from "react-router-dom";
 import { LoginPage } from './pages/loginPage';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from './features/loginSlice/userSlice';
+import { ProtectedRoute } from './components/Route/protectedRouter';
+import { loadFromStorage } from './features/loginSlice/userSlice';
 
 function App() {
-    const user = useSelector(selectUser);
-    console.log(user);
-    return (
-      <div>
-        <Routes>
+  const dispatch = useDispatch();
+  dispatch(loadFromStorage());
+  const user = useSelector(selectUser);
+
+  return (
+    <div>
+      <Routes>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={user ? <Dashboard /> : <LoginPage />} />
-          <Route path="/bookings" element={<Bookings />} />
-          <Route path="/bookingsUser" element={<BookingsUserPage />} />
-          <Route path="/rooms" element={<Rooms />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/users" element={<Users />} />
-        </Routes>
-      </div>
-    );
-  }
-  
-  export default App;
+          <Route index path="/" element={ <ProtectedRoute user={user}> <Dashboard /></ProtectedRoute>} />
+          <Route path="/bookings" element={<ProtectedRoute user={user}> <Bookings /></ProtectedRoute>} />
+          <Route path="/bookingsUser" element={ <ProtectedRoute user={user}> <BookingsUserPage /></ProtectedRoute>} />
+          <Route path="/rooms" element={<ProtectedRoute user={user}><Rooms /></ProtectedRoute>} />
+          <Route path="/contact" element={<ProtectedRoute user={user}><Contact /></ProtectedRoute>} />
+          <Route path="/users" element={ <ProtectedRoute user={user}><Users /> </ProtectedRoute>} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;

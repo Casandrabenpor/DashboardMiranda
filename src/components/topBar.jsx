@@ -61,8 +61,8 @@ export const TopBar = () => {
           {user.name}
           
           </p> */}
-          <h3>Casandra Bennassar</h3>
-          <p>casandra@gmail.com</p>
+          <h3> {user.user}</h3>
+          <p>{user.email}</p>
           <button>Contact Us</button>
         </ContainerPhoto>
         <Footer>

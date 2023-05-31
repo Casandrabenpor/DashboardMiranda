@@ -5,23 +5,28 @@ import person1 from "../assets/person1.jpg";
 import person2 from "../assets/person2.jpg";
 import person from "../assets/person.jpg";
 import { useSelector } from "react-redux";
+import { useState } from 'react';
+import { Modal } from './modal';
 export const Customers = ({ showTitle }) => {
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
+    const [showModal, setShowModal] = useState(false);
     return (
         <Content sideBarActivated={sideBarActivated}>
             {showTitle && <ScheduleTitle>Latest Review by Customers</ScheduleTitle>}
+            {showModal && <Modal closeModal={() => setShowModal (false)}/>}
             <CardsCustomers>
-
+        
                 <ContainerCustomers>
 
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                  
                     <Image>
                         <Img src={person} width={100} height={100} alt="sea" />
                         <div>
                             <p>Kusnaidi Anderson</p>
                             <GreenIcon>
-                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                <ion-icon onClick={() => setShowModal(true)} name="checkmark-circle-outline"></ion-icon>
                             </GreenIcon>
                             <RedIcon>
                                 <ion-icon name="close-circle-outline"></ion-icon>

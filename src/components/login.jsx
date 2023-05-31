@@ -4,23 +4,32 @@ import { CustomLink } from "../styled/TopBarStyled";
 import { ContainerLogin, Form } from "../styled/loginStyled";
 import { login } from "../features/loginSlice/userSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
+
     const handleSubmit = (e) => {
-        console.log("hola")
         e.preventDefault();
-        dispatch(
-            login({
-                user:name,
-                email: email,
-                password: password,
-                loggedIn: true,
-            })
-        );
+
+        if(name === 'casandra' 
+            && email === 'casandra@gmail.com'
+            && password === 'test')
+        {
+            dispatch(
+                login({
+                    user:name,
+                    email: email,
+                    password: password,
+                    loggedIn: true,
+                })
+            );
+            navigate("/");
+        } 
     };
     return (
         <ContainerLogin>

@@ -19,5 +19,6 @@ export const Button = styled.button`
     font-family: "Poppins";
     &:hover {
     border-bottom: 2px solid ${colors.greenTwo};
+ 
   }
 `;

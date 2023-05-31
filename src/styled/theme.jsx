@@ -1,6 +1,7 @@
 export const colors = {
     primary: '#799283',
     white : '#ffffff',
+    whiteThree:'#EBF1EF',
     whiteTwo:'#BEBEBE',
     black: '#212121',
     grey: '#5D5449',
@@ -10,6 +11,7 @@ export const colors = {
     greyThree:'#6D6D6D',
     backgroundRed:'#FFEDEC',
     blackTwo: '#393939',
+    blackThree:'#393939',
     green:'#5AD07A',
     greenTwo:'#135846',
     backgroundBtn:'#eef9f2',

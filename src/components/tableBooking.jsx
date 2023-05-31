@@ -18,7 +18,7 @@ const Table = () => {
             dispatch(downloadBooking("mockBooking.json"));
         }
     }, [status, dispatch]);
-
+// Para los botones de colores .
     const GetStatus = (bookingStatus) => {
         switch (bookingStatus) {
             case "Check In":

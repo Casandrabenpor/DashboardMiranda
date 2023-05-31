@@ -1,4 +1,4 @@
-import Table from "../components/table";
+import Table from "../components/tableBooking";
 import { TopBar } from "../components/topBar";
 import { Nav } from "../components/nav";
 import { Select } from "../components/select";

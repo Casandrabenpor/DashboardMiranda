@@ -1,19 +1,23 @@
 import Logo from "../assets/logo.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
-import { SideBar, CustomLink, LogoTitle, LogoText, LogoContainer, CustomList } from "../styled/TopBarStyled";
-import { useSelector } from "react-redux";
+import Photo from "../assets/casandra.jpg";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
+import { SideBar, CustomLink, LogoTitle, LogoText, LogoContainer, CustomList, ContainerPhoto, Footer } from "../styled/TopBarStyled";
+import { useDispatch, useSelector } from "react-redux";
 import { TbLayoutDashboard } from 'react-icons/tb';
 import { MdVpnKey } from 'react-icons/md';
+import { selectUser } from "../features/loginSlice/userSlice";
 
 export const TopBar = () => {
   const sideBarActivated = useSelector(state => state.sidebar.activated);
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
   return (
     sideBarActivated ?
       <SideBar>
         <LogoContainer>
           <CustomLink to="/">
-            <img src={Logo} alt="Logo" width={50} height={50} />
+            <img src={Logo} alt="Logo" width={100} height={100} />
           </CustomLink>
           <div>
             <LogoTitle>travl</LogoTitle>
@@ -51,6 +55,21 @@ export const TopBar = () => {
             <CustomLink to="/users">Users</CustomLink>
           </li>
         </CustomList>
+        <ContainerPhoto>
+          <img src={Photo} alt="photo" width={150} height={100} />
+          {/* <p>{user.email}
+          {user.name}
+          
+          </p> */}
+          <h3>Casandra Bennassar</h3>
+          <p>casandra@gmail.com</p>
+          <button>Contact Us</button>
+        </ContainerPhoto>
+        <Footer>
+          <h5>Travl Hotel Admin Dashboard</h5>
+          <p>© 2023 All Rights Reserved</p>
+          <p>Made with ♥ by Casandra</p>
+        </Footer>
       </SideBar>
       :
       <></>

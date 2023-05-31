@@ -1,6 +1,6 @@
 import { TableContainer } from "../styled/TableStyled";
 import { Content } from '../styled/TopBarStyled';
-import { Button, ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
+import { ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadFile } from "../features/jsonSlice/fileDownloadSlice";

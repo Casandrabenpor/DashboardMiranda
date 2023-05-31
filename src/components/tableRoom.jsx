@@ -1,6 +1,6 @@
 import sea from "../assets/sea.jpg";
 import { TableContainer } from "../styled/TableStyled";
-import { Button, ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
+import {ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import { Content } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

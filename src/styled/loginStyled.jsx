@@ -13,14 +13,16 @@ export const ContainerLogin = styled.div`
     box-shadow: rgba(0, 0, 0, 0.08) 0px 16px 30px;
     border-radius: 12px;
     justify-content: center;
+    margin-left: 25%;
+    margin-top: 10%;
    
   
 `;
 
 export const Form = styled.form`
-display: flex;
-flex-direction: column;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: ${colors.black};
     button{
     border-radius: 12px;

@@ -1,5 +1,5 @@
 import { TableContainer } from "../styled/TableStyled";
-import { Button, ButtonRed, ButtonGreen, ButtonGrey, ButtonBlack } from "../styled/ButtonStyled";
+import { Button} from "../styled/ButtonStyled";
 import { Content } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

@@ -42,7 +42,46 @@ export const IdData = styled.div`
     display: flex;
     flex-direction: row;
     gap: 20em;
+    align-items:center;
 `;
 export const Hr = styled.hr`
         border-bottom: 1px solid rgb(121, 146, 131);
+`;
+// Style guest detail room
+export const Price = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+`;
+export const ContainerButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+    button{
+      background-color: rgb(232, 242, 239);
+    color: rgb(19, 88, 70);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 1em;
+    gap: 1em;
+    cursor: pointer;
+    }
+`;
+export const Subtext = styled.p`
+  font-family: "Poppins";
+  font-size: 14px;
+  color:${colors.greyFour};
+`;
+export const SubTitle = styled.h3`
+  font-family: "Poppins";
+  font-size: 24px;
+  color:${colors.black};
+`;
+export const Paragraph = styled.p`
+  color:${colors.blackFour};
+  font-size: 14px;
 `;

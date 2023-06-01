@@ -3,7 +3,7 @@ import { BsTelephone } from 'react-icons/bs';
 import { BsChatTextFill } from 'react-icons/bs';
 import { Content } from '../styled/TopBarStyled';
 import { useSelector } from "react-redux";
-import { IdUser, ContainerUser, IdData, Text, IdName,IdPhone,Hr } from "../styled/BookingUserStyled";
+import { IdUser, ContainerUser, IdData, Text, IdName,IdPhone,Hr,Subtext } from "../styled/BookingUserStyled";
 export const GuestDetailUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     return (
@@ -40,11 +40,11 @@ export const GuestDetailUser = () => {
             </ContainerUser>
             <IdData>
                 <div>
-                    <p>Chech In</p>
+                    <Subtext>Chech In</Subtext>
                     <p>23/05/2023</p>
                 </div>
                 <div>
-                    <p>Check Out</p>
+                    <Subtext>Check Out</Subtext>
                     <p>23/05/2023</p>
                 </div>
 

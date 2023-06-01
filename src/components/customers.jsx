@@ -18,7 +18,8 @@ export const Customers = ({ showTitle }) => {
         <Content sideBarActivated={sideBarActivated}>
             {showTitle && <ScheduleTitle>Latest Review by Customers</ScheduleTitle>}
             {showModal && <Modal closeModal={() => setShowModal (false)}/>}
-            {showModal2 && <Modal closeModal={() => setShowModal2 (false)}/>}
+            {showModal2 && <Modal closeModal2={() => setShowModal2 (false)}/>}
+            
             <CardsCustomers>
         
                 <ContainerCustomers>
@@ -40,11 +41,11 @@ export const Customers = ({ showTitle }) => {
                 </ContainerCustomers>
                 <ContainerCustomers>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                     <Image>
                         <Img src={person1} width={100} height={100} alt="sea" />
                         <div>
-                            <p>Kusnaidi Anderson</p>
+                            <p>Lucas Venetti</p>
                             <GreenIcon>
                                 <ion-icon onClick={() => setShowModal2(true)} name="checkmark-circle-outline"></ion-icon>
                             </GreenIcon>

@@ -46,6 +46,8 @@ export const IdData = styled.div`
 `;
 export const Hr = styled.hr`
         border-bottom: 1px solid rgb(121, 146, 131);
+        width: 40%;
+        position: absolute;
 `;
 // Style guest detail room
 export const Price = styled.div`
@@ -84,4 +86,17 @@ export const SubTitle = styled.h3`
 export const Paragraph = styled.p`
   color:${colors.blackFour};
   font-size: 14px;
+  max-width: 40%;
+`;
+// swiper detail
+export const SwiperStyled = styled.div`
+      display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 60%;
+    img{
+      width: 45em;
+      height: 50em;
+    }
 `;

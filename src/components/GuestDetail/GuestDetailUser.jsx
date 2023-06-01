@@ -1,9 +1,9 @@
-import person1 from "../assets/person1.jpg";
+import person1 from "../../assets/person1.jpg";
 import { BsTelephone } from 'react-icons/bs';
 import { BsChatTextFill } from 'react-icons/bs';
-import { Content } from '../styled/TopBarStyled';
+import { Content } from '../../styled/TopBarStyled';
 import { useSelector } from "react-redux";
-import { IdUser, ContainerUser, IdData, Text, IdName,IdPhone,Hr,Subtext } from "../styled/BookingUserStyled";
+import { IdUser, ContainerUser, IdData, Text, IdName,IdPhone,Hr,Subtext } from "../../styled/BookingUserStyled";
 export const GuestDetailUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     return (

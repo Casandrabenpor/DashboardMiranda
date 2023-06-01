@@ -1,6 +1,6 @@
-import { Content } from '../styled/TopBarStyled';
+import { Content } from '../../styled/TopBarStyled';
 import { useSelector } from "react-redux";
-import { IdData, Price, ContainerButton, Subtext, SubTitle } from "../styled/BookingUserStyled";
+import { IdData, Price, ContainerButton, Subtext, SubTitle,Paragraph} from "../../styled/BookingUserStyled";
 import { AiOutlineWifi, AiOutlineSafetyCertificate } from 'react-icons/ai';
 
 export const GuestDetailRoom = () => {
@@ -23,8 +23,8 @@ export const GuestDetailRoom = () => {
 
                 </IdData>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                <p>Facilities</p>
+                <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</Paragraph>
+                <Subtext>Facilities</Subtext>
                 <ContainerButton>
                     <div>
                         <button>

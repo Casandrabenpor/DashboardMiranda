@@ -11,10 +11,14 @@ export const Customers = ({ showTitle }) => {
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     const [showModal, setShowModal] = useState(false);
+    const [showModal2, setShowModal2] = useState(false);
+
+
     return (
         <Content sideBarActivated={sideBarActivated}>
             {showTitle && <ScheduleTitle>Latest Review by Customers</ScheduleTitle>}
             {showModal && <Modal closeModal={() => setShowModal (false)}/>}
+            {showModal2 && <Modal closeModal={() => setShowModal2 (false)}/>}
             <CardsCustomers>
         
                 <ContainerCustomers>
@@ -29,7 +33,7 @@ export const Customers = ({ showTitle }) => {
                                 <ion-icon onClick={() => setShowModal(true)} name="checkmark-circle-outline"></ion-icon>
                             </GreenIcon>
                             <RedIcon>
-                                <ion-icon name="close-circle-outline"></ion-icon>
+                                <ion-icon onClick={() => setShowModal(true)} name="close-circle-outline"></ion-icon>
                             </RedIcon>
                         </div>
                     </Image>
@@ -42,10 +46,10 @@ export const Customers = ({ showTitle }) => {
                         <div>
                             <p>Kusnaidi Anderson</p>
                             <GreenIcon>
-                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                <ion-icon onClick={() => setShowModal2(true)} name="checkmark-circle-outline"></ion-icon>
                             </GreenIcon>
                             <RedIcon>
-                                <ion-icon name="close-circle-outline"></ion-icon>
+                                <ion-icon  onClick={() => setShowModal2(true)} name="close-circle-outline"></ion-icon>
                             </RedIcon>
                         </div>
                     </Image>

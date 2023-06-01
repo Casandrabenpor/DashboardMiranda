@@ -14,7 +14,7 @@ export const Button = styled.button`
     color: rgb(110, 110, 110);
     padding: 0.5rem 0.75rem;
     cursor: pointer;
-    background: white;
+    background-color: #F8F8F8;
     border: none;
     font-family: "Poppins";
     &:hover {

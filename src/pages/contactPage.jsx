@@ -1,7 +1,7 @@
 import { Nav } from "../components/nav";
 import { TopBar } from "../components/topBar";
 import { Customers } from "../components/customers";
-import { Search } from "../components/search";
+import { SearchDifferent } from "../components/search";
 import TableContact from "../components/tableContact";
 import {TabsMenuContact} from "../components/tabsMenuContact";
 export const Contact = () =>{
@@ -11,7 +11,7 @@ export const Contact = () =>{
         <Nav/>
         <Customers showTitle={false} />
         <TabsMenuContact/>
-        <Search/>
+        <SearchDifferent/>
         <TableContact/>
         </>
     )

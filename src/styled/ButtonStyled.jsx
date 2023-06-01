@@ -92,5 +92,16 @@ export const StyledBtnRoom = styled.div`
   justify-content: flex-end;
   gap: 5em;
   text-align: center;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-end;
+`;
+export const StyledBtnUser = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 5em;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 5%;
 `;

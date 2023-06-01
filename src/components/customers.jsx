@@ -11,14 +11,21 @@ export const Customers = ({ showTitle }) => {
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     const [showModal, setShowModal] = useState(false);
-    const [showModal2, setShowModal2] = useState(false);
+    const [showUserReview, setShowUserReview] = useState(null);
+    const reviews = [
+        {name: 'Kusnaidi Anderson', src: person},
+        {name: 'Lucas Venetti', src: person1},
+        {name: 'Kusnaidi Anderson', src:person2}]
 
+    const ShowModalReview = (review) =>{
+        setShowModal(true); 
+        setShowUserReview(review);
+    } 
 
     return (
         <Content sideBarActivated={sideBarActivated}>
             {showTitle && <ScheduleTitle>Latest Review by Customers</ScheduleTitle>}
-            {showModal && <Modal closeModal={() => setShowModal (false)}/>}
-            {showModal2 && <Modal closeModal2={() => setShowModal2 (false)}/>}
+            {showModal && <Modal user={showUserReview} closeModal={() => setShowModal (false)}/>}
             
             <CardsCustomers>
         
@@ -27,14 +34,14 @@ export const Customers = ({ showTitle }) => {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                   
                     <Image>
-                        <Img src={person} width={100} height={100} alt="sea" />
+                        <Img src={reviews[0].src} width={100} height={100} alt="sea" />
                         <div>
-                            <p>Kusnaidi Anderson</p>
+                            <p>{reviews[0].name}</p>
                             <GreenIcon>
-                                <ion-icon onClick={() => setShowModal(true)} name="checkmark-circle-outline"></ion-icon>
+                                <ion-icon onClick={() => ShowModalReview(reviews[0])} name="checkmark-circle-outline"></ion-icon>
                             </GreenIcon>
                             <RedIcon>
-                                <ion-icon onClick={() => setShowModal(true)} name="close-circle-outline"></ion-icon>
+                                <ion-icon onClick={() => ShowModalReview(reviews[0])} name="close-circle-outline"></ion-icon>
                             </RedIcon>
                         </div>
                     </Image>
@@ -43,14 +50,14 @@ export const Customers = ({ showTitle }) => {
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                     <Image>
-                        <Img src={person1} width={100} height={100} alt="sea" />
+                        <Img src={reviews[1].src} width={100} height={100} alt="sea" />
                         <div>
-                            <p>Lucas Venetti</p>
+                            <p>{reviews[1].name}</p>
                             <GreenIcon>
-                                <ion-icon onClick={() => setShowModal2(true)} name="checkmark-circle-outline"></ion-icon>
+                                <ion-icon onClick={() => ShowModalReview(reviews[1])} name="checkmark-circle-outline"></ion-icon>
                             </GreenIcon>
                             <RedIcon>
-                                <ion-icon  onClick={() => setShowModal2(true)} name="close-circle-outline"></ion-icon>
+                                <ion-icon  onClick={() => ShowModalReview(reviews[1])} name="close-circle-outline"></ion-icon>
                             </RedIcon>
                         </div>
                     </Image>
@@ -59,14 +66,14 @@ export const Customers = ({ showTitle }) => {
 
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                     <Image>
-                        <Img src={person2} width={100} height={100} alt="sea" />
+                        <Img src={reviews[2].src} width={100} height={100} alt="sea" />
                         <div>
-                            <p>Kusnaidi Anderson</p>
+                            <p>{reviews[2].name}</p>
                             <GreenIcon>
-                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                <ion-icon  onClick={() => ShowModalReview(reviews[2])} name="checkmark-circle-outline"></ion-icon>
                             </GreenIcon>
                             <RedIcon>
-                                <ion-icon name="close-circle-outline"></ion-icon>
+                                <ion-icon  onClick={() => ShowModalReview(reviews[2])} name="close-circle-outline"></ion-icon>
                             </RedIcon>
                         </div>
                     </Image>

@@ -10,7 +10,7 @@ export const Dashboard = () =>{
     return(
         <>
         <TopBar/>
-        <Nav/>
+        <Nav name= "Dashboard"/>
         <BtnDashboard/>
         <Calendar/>
         <BookingData/>

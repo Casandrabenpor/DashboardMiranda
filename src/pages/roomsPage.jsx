@@ -7,7 +7,7 @@ export const Rooms = () =>{
     return(
             <>
             <TopBar/>
-            <Nav/>
+            <Nav name= "Room"/>
             <TabsMenuRoom/>
             <SelectRoom />
             <TableRoom/>

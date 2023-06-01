@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from './features/loginSlice/userSlice';
 import { ProtectedRoute } from './components/Route/protectedRouter';
 import { loadFromStorage } from './features/loginSlice/userSlice';
+import { NewUser } from './components/Form/NewUser';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,10 +23,11 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route index path="/" element={ <ProtectedRoute user={user}> <Dashboard /></ProtectedRoute>} />
           <Route path="/bookings" element={<ProtectedRoute user={user}> <Bookings /></ProtectedRoute>} />
-          <Route path="/bookingsUser" element={ <ProtectedRoute user={user}> <BookingsUserPage /></ProtectedRoute>} />
+          <Route path="/bookingsUser/*" element={ <ProtectedRoute user={user}> <BookingsUserPage /></ProtectedRoute>} />
           <Route path="/rooms" element={<ProtectedRoute user={user}><Rooms /></ProtectedRoute>} />
           <Route path="/contact" element={<ProtectedRoute user={user}><Contact /></ProtectedRoute>} />
           <Route path="/users" element={ <ProtectedRoute user={user}><Users /> </ProtectedRoute>} />
+          <Route path="/newUser" element={ <ProtectedRoute user={user}><NewUser /> </ProtectedRoute>} />
       </Routes>
     </div>
   );

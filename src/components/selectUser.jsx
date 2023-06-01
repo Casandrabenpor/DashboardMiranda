@@ -1,7 +1,9 @@
 import { SelectStyled, StyledSearchSelect, ButtonGreenDark ,StyledBtnUser} from "../styled/ButtonStyled";
-import { Content } from '../styled/TopBarStyled';
+import { Content,CustomLink } from '../styled/TopBarStyled';
 import { useSelector } from "react-redux";
 import { Search } from "../components/search";
+
+
 
 
 export const SelectUser = () => {
@@ -9,7 +11,9 @@ export const SelectUser = () => {
     return (
         <Content sideBarActivated={sideBarActivated}>
             <StyledBtnUser>
+            <CustomLink to="/newUser">
             <ButtonGreenDark>New Employee</ButtonGreenDark>
+            </CustomLink>
             <Search/>
                 <StyledSearchSelect>
 

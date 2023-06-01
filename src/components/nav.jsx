@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { logout } from "../features/loginSlice/userSlice";
 
-export const Nav = () => {
+export const Nav = (props) => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     const dispatch = useDispatch();
     
@@ -23,15 +23,13 @@ export const Nav = () => {
                 <Burger>
                     <GiHamburgerMenu onClick={toggleSideBar} />
                 </Burger>
-                <p>Dashboard </p>
+                <p>{props.name} </p>
                 <IconNav>
                     {/* <ion-icon name="mail-outline"></ion-icon>
             <ion-icon name="notifications-outline"></ion-icon> */}
                     <ion-icon name="mail-outline"></ion-icon>
                     <ion-icon name="notifications-outline"></ion-icon>
-                    {/* <CustomLink to="/login"> */}
                     <ion-icon name="log-out-outline" onClick={(e) => handleLogout(e)}></ion-icon>
-                    {/* </CustomLink> */}
                     
                 </IconNav>
             </ContainerNav>

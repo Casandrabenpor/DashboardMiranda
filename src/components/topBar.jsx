@@ -36,7 +36,7 @@ export const TopBar = () => {
             <CustomLink to="/rooms">Room</CustomLink>
           </li>
           <li key="bookings">
-            {/* <FontAwesomeIcon icon={faCalendarCheck} /> */} <svg
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               height="20"
               width="20"

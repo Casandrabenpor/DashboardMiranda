@@ -69,8 +69,8 @@ export const CustomList = styled.ul`
     gap: 1rem;
     &:hover {
    
-   border-left: 5px solid ${colors.red};
-   border-radius: 0px 6px 6px 0px;
+    border-left:  solid ${colors.red}; 
+    border-radius: 0px 6px 6px 0px;
    color: ${colors.red};
  }
   }

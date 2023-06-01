@@ -7,7 +7,7 @@ export const Bookings = () => {
     return (
         <>
             <TopBar />
-            <Nav />
+            <Nav name= "Bookings"/>
             <TabsMenu/>
             <Select />
             <Table />

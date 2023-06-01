@@ -8,7 +8,7 @@ export const Contact = () =>{
     return(
         <>
         <TopBar/>
-        <Nav/>
+        <Nav name= "Contact"/>
         <Customers showTitle={false} />
         <TabsMenuContact/>
         <SearchDifferent/>

@@ -4,7 +4,7 @@ import { BsChatTextFill } from 'react-icons/bs';
 import { Content } from '../../styled/TopBarStyled';
 import { useSelector } from "react-redux";
 import { IdUser, ContainerUser, IdData, Text, IdName,IdPhone,Hr,Subtext } from "../../styled/BookingUserStyled";
-export const GuestDetailUser = () => {
+export const GuestDetailUser = (props) => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     return (
         <Content sideBarActivated={sideBarActivated}>
@@ -12,7 +12,7 @@ export const GuestDetailUser = () => {
                 <img src={person1} alt="person photo" width={200} height={200} />
                 <IdUser>
                     <IdName>
-                        <h3>Dimitri Wyllt</h3>
+                        <h3>{props.booking.guest}</h3>
                         <svg
                             stroke="currentColor"
                             fill="none"
@@ -31,7 +31,7 @@ export const GuestDetailUser = () => {
                             <circle cx="12" cy="5" r="1"></circle>
                         </svg>
                     </IdName>
-                    <Text>ID 1234124512551</Text>
+                    <Text>{props.booking.id}</Text>
                     <IdPhone>
                         <BsTelephone />
                         <button><BsChatTextFill /> Send Message</button>
@@ -40,12 +40,12 @@ export const GuestDetailUser = () => {
             </ContainerUser>
             <IdData>
                 <div>
-                    <Subtext>Chech In</Subtext>
-                    <p>23/05/2023</p>
+                    <Subtext>Check In</Subtext>
+                    <p>{props.booking.check_in}</p>
                 </div>
                 <div>
                     <Subtext>Check Out</Subtext>
-                    <p>23/05/2023</p>
+                    <p>{props.booking.check_out}</p>
                 </div>
 
             </IdData>

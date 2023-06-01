@@ -1,6 +1,5 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
-import { CustomLink } from "../styled/TopBarStyled";
 import { ContainerLogin, Form } from "../styled/loginStyled";
 import { login } from "../features/loginSlice/userSlice";
 import { useDispatch } from "react-redux";
@@ -16,20 +15,19 @@ export const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(name === 'casandra' 
+        if (name === 'casandra'
             && email === 'casandra@gmail.com'
-            && password === 'test')
-        {
+            && password === 'test') {
             dispatch(
                 login({
-                    user:name,
+                    user: name,
                     email: email,
                     password: password,
                     loggedIn: true,
                 })
             );
             navigate("/");
-        } 
+        }
     };
     return (
         <ContainerLogin>
@@ -37,7 +35,7 @@ export const Login = () => {
             <p>Hotel Miranda Admin Dashboard</p>
 
             <Form onSubmit={(e) => handleSubmit(e)}>
-            <label htmlFor="name" >Name</label>
+                <label htmlFor="name" >Name</label>
                 <input
                     type="text"
                     placeholder="casandra"
@@ -58,12 +56,11 @@ export const Login = () => {
                     type="password"
                     id="password"
                     name="password"
+                    placeholder="test"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     autocomplete="current-password" />
-                {/* <CustomLink to="/"> */}
                 <button type="submit" value="Login">Login</button>
-                {/* </CustomLink> */}
             </Form>
         </ContainerLogin>
     )

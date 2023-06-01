@@ -3,11 +3,13 @@ import { Nav } from "../components/nav";
 import TableUser from "../components/tableUsers";
 import { SelectUser } from "../components/selectUser";
 import { TabsMenuUsers } from "../components/tabsMenuUsers";
+
+
 export const Users = () => {
     return (
         <>
             <TopBar />
-            <Nav />
+            <Nav name= "Users"/>
             <TabsMenuUsers/>
             <SelectUser/>
             <TableUser/>

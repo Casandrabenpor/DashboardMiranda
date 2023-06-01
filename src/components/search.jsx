@@ -29,7 +29,7 @@ export const Search = () => {
 export const SearchDifferent = () => {
     return (
         <div>
-            <InputWithDifferentStyle placeholder="Search with different style..." />
+            <InputWithDifferentStyle placeholder="Search ..." />
         </div>
     );
 };

@@ -49,7 +49,7 @@ const Table = () => {
                         <td>
                        
                             {bookings.guest}
-                            <CustomLink to="/BookingsUser">
+                            <CustomLink to={`/BookingsUser/${bookings.id}`}>
                             <div className="subrow">
                                 #{bookings.id}
                             </div>

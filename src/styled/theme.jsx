@@ -19,6 +19,7 @@ export const colors = {
     backgroundBtnGreen: ' #E8FFEE 0% 0% no-repeat padding-box',
     backgroundBtnGrey:'#575757 0% 0% no-repeat padding-box;',
     backgroundBtnWhite:' #E2E2E2 0% 0% no-repeat padding-box',
-    backgroundBtnGrey:'#575757 0% 0% no-repeat padding-box;',
+    backgroundBtnGrey:'#575757 0% 0% no-repeat padding-box',
+    backgroundBtnRed:' #FFEDEC 0% 0% no-repeat padding-box',
 
 }

@@ -71,6 +71,7 @@ export const CustomList = styled.ul`
    
    border-left: 5px solid ${colors.red};
    border-radius: 0px 6px 6px 0px;
+   color: ${colors.red};
  }
   }
 
@@ -85,6 +86,7 @@ export const CustomLink = styled(Link)`
 
   &:hover {
     border-bottom: 2px solid red;
+    color: ${colors.red};
    
   }
 `;

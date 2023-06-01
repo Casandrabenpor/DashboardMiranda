@@ -12,7 +12,12 @@ export const Form = styled.div`
         justify-content: center;
     }
     input{
-       
+       border-bottom: 1px solid ${colors.grey};
+       border-left: none;
+       border-top:none;
+       text-align: center;
+       width: 50%;
+       margin-left: 25%;
   
     }
 `;
@@ -32,19 +37,22 @@ export const NewUser = () => {
             <h1>NEW USER</h1>
             <Form>
                 <label htmlFor="fname">Photo</label>
-                <input type="text" id="photo" name="photo" value="photo" />
+                <input type="text" id="photo" name="photo" value="" placeholder="img" />
                 <label htmlFor="lname">Full Name</label>
-                <input type="text" id="name" name="name" value="name" />
-                <label htmlFor="lname"></label>
-                <input type="text" id="email" name="email" value="email" />
+                <input type="text" id="name" name="name" value="" placeholder="Full Name" />
+                <label htmlFor="lname">Email</label>
+                <input type="text" id="email" name="email" value=""  placeholder="Email"/>
                 <label htmlFor="fname">Start Date</label>
-                <input type="date" id="date" name="date" value="date" />
+                <input type="date" id="date" name="date" value="" />
                 <label htmlFor="Description">Description</label>
-                <input type="text" id="description" name="description" value="description" />
+                <input type="text" id="description" name="description" value="" placeholder="Description"/>
                 <label htmlFor="Phone Number">Phone Number</label>
-                <input type="number" id="number" name="number" value="number" />
+                <input type="number" id="number" name="number" value="" placeholder="Number"/>
                 <label htmlFor="fname">Room status</label>
-                <input type="radio" id="status" name="status" value="status" />
+                <label for="age1">Active</label>
+                <input type="radio" id="status" name="status" value="" />
+                <label for="age1">Inactive</label>
+                <input type="radio" id="status" name="status" value="" />
                 <Button type="button">Save</Button>
             </Form>
         </div>

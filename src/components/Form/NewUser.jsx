@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { colors } from "../../styled/theme";
+import {CustomLink } from "../../styled/TopBarStyled";
+export const FormTitle = styled.h1`
+    text-align: center;
+`;
 export const Form = styled.div`
     display: flex;
     flex-direction: column;
@@ -15,6 +19,7 @@ export const Form = styled.div`
        border-bottom: 1px solid ${colors.grey};
        border-left: none;
        border-top:none;
+       border-right:none;
        text-align: center;
        width: 50%;
        margin-left: 25%;
@@ -34,7 +39,7 @@ export const Button = styled.button`
 export const NewUser = () => {
     return (
         <div>
-            <h1>NEW USER</h1>
+            <FormTitle>NEW USER</FormTitle>
             <Form>
                 <label htmlFor="fname">Photo</label>
                 <input type="text" id="photo" name="photo" value="" placeholder="img" />
@@ -53,7 +58,9 @@ export const NewUser = () => {
                 <input type="radio" id="status" name="status" value="" />
                 <label for="age1">Inactive</label>
                 <input type="radio" id="status" name="status" value="" />
+                <CustomLink to="/users">
                 <Button type="button">Save</Button>
+                </CustomLink>
             </Form>
         </div>
     );

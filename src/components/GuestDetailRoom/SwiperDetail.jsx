@@ -1,10 +1,10 @@
-import person from "../../assets/person.jpg";
-import { SwiperStyled} from "../../styled/BookingUserStyled";
+import room from "../../assets/bedroom.jpg";
+import { SwiperStyled } from "../../styled/BookingUserStyled";
 export const SwiperDetail = () => {
     return (
-    <SwiperStyled>
+        <SwiperStyled>
 
-<img src={person} alt="swiper"/>
-</SwiperStyled>
+            <img src={room} alt="swiper" />
+        </SwiperStyled>
     );
 };

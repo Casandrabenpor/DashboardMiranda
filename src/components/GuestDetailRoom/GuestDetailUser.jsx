@@ -14,7 +14,7 @@ export const GuestDetailUser = (props) => {
                 </CustomButtonBed>
                 <IdUser>
                     <IdName>
-                        <h3>h</h3>
+                        <h3>Deluxe A-123</h3>
                         <svg
                             stroke="currentColor"
                             fill="none"
@@ -33,7 +33,7 @@ export const GuestDetailUser = (props) => {
                             <circle cx="12" cy="5" r="1"></circle>
                         </svg>
                     </IdName>
-                    <Text>dd</Text>
+                    <Text>1</Text>
                     <IdPhone>
                         <BsTelephone />
                         <button><BsChatTextFill /> Send Message</button>
@@ -43,11 +43,11 @@ export const GuestDetailUser = (props) => {
             <IdData>
                 <div>
                     <Subtext>Check In</Subtext>
-                    <p>dd</p>
+                    <p>2023-04-25</p>
                 </div>
                 <div>
                     <Subtext>Check Out</Subtext>
-                    <p>ss</p>
+                    <p>2023-04-25</p>
                 </div>
 
             </IdData>

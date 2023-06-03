@@ -100,8 +100,9 @@ export const SwiperStyled = styled.div`
     align-items: flex-end;
     margin-left: 60%;
     img{
-      width: 45em;
+      width: 40em;
       height: 50em;
+      object-fit: contain;
     }
 `;
 // css booking room
@@ -117,3 +118,4 @@ export const CustomButtonBed = styled.button`
    color: green;
   }
 `;
+

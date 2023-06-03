@@ -36,10 +36,10 @@ export const Button = styled.button`
     border-radius: 12px;
     margin-left: 40%;
 `;
-export const NewUser = () => {
+export const NewRoom = () => {
     return (
         <div>
-            <FormTitle>NEW USER</FormTitle>
+            <FormTitle>NEW ROOM</FormTitle>
             <Form>
                 <label htmlFor="fname">Photo Url</label>
                 <input type="text" id="photo" name="photo" value="" placeholder="img" />

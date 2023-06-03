@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { colors } from "./theme";
 
+export const Container = styled.div`
+  padding: 2%;
+`;
 
 export const ContainerUser = styled.div`
     display: flex;
     flex-direction: row;
     gap: 2em;
+    padding: 2%;
 `;
 export const Text = styled.p`
     color:${colors.primary};
@@ -99,4 +103,17 @@ export const SwiperStyled = styled.div`
       width: 45em;
       height: 50em;
     }
+`;
+// css booking room
+export const CustomButtonBed = styled.button`
+  width: 15em;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  ion-icon{
+   width: 80%;
+   color: green;
+  }
 `;

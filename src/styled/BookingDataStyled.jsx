@@ -2,15 +2,16 @@ import styled from "styled-components";
 import { colors } from "./theme";
 
 export const ContainerData = styled.div`
-    width: ${(props) => props.sideBarActivated ? "85%" : "100%"}; 
-    margin-left:${(props) => props.sideBarActivated ? "15%" : "0%"}; 
-      background-color: rgb(255, 255, 255);
+  width: ${(props) => props.sideBarActivated ? "85%" : "100%"}; 
+  margin-left:${(props) => props.sideBarActivated ? "15%" : "0%"}; 
+  background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 4px;
   padding: 1em;
   margin-top: 5%;
   gap: 1em;
   display: flex;
   flex-direction: column;
+  padding: 2%;
 `;
 export const ScheduleTitle = styled.h4`
   font-family:"Poppins";

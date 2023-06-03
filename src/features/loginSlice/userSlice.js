@@ -22,7 +22,7 @@ export const userSlice = createSlice({
             {
                 return;
             }
-
+//esta linea d econst va bien en app para hecerlo mas simple
              const userJson = localStorage.getItem("user");
              if (userJson){
                 state.user = JSON.parse(userJson);

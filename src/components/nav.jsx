@@ -25,8 +25,6 @@ export const Nav = (props) => {
                 </Burger>
                 <p>{props.name} </p>
                 <IconNav>
-                    {/* <ion-icon name="mail-outline"></ion-icon>
-            <ion-icon name="notifications-outline"></ion-icon> */}
                     <ion-icon name="mail-outline"></ion-icon>
                     <ion-icon name="notifications-outline"></ion-icon>
                     <ion-icon name="log-out-outline" onClick={(e) => handleLogout(e)}></ion-icon>

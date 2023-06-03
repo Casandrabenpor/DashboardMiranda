@@ -85,6 +85,7 @@ text-align: center;
 font-size: 16px;
   font-family: "Poppins";
   font-weight: 500;
+  margin-top: 2%;
 `
 export const StyledBtnRoom = styled.div`
   display: flex;

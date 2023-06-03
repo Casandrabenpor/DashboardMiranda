@@ -1,6 +1,7 @@
 import { Bookings } from './pages/bookingsPage';
 import { Rooms } from './pages/roomsPage';
 import { BookingsUserPage } from './pages/bookingUserPage';
+import { RoomUserPage } from './pages/roomUserPage';
 import { Contact } from './pages/contactPage';
 import { Users } from './pages/usersPage';
 import { Dashboard } from './pages/dashboardPage';
@@ -11,6 +12,7 @@ import { selectUser } from './features/loginSlice/userSlice';
 import { ProtectedRoute } from './components/Route/protectedRouter';
 import { loadFromStorage } from './features/loginSlice/userSlice';
 import { NewUser } from './components/Form/NewUser';
+import { NewRoom } from './components/Form/NewRoom';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +30,8 @@ function App() {
           <Route path="/contact" element={<ProtectedRoute user={user}><Contact /></ProtectedRoute>} />
           <Route path="/users" element={ <ProtectedRoute user={user}><Users /> </ProtectedRoute>} />
           <Route path="/newUser" element={ <ProtectedRoute user={user}><NewUser /> </ProtectedRoute>} />
+          <Route path="/newRoom" element={ <ProtectedRoute user={user}><NewRoom /> </ProtectedRoute>} />
+          <Route path="/bookingRoom/*" element={ <ProtectedRoute user={user}> <RoomUserPage /></ProtectedRoute>} />
       </Routes>
     </div>
   );

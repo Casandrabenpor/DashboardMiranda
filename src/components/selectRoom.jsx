@@ -1,5 +1,5 @@
 import { SelectStyled, StyledSearchSelect, ButtonGreenDark ,StyledBtnRoom} from "../styled/ButtonStyled";
-import { Content } from '../styled/TopBarStyled';
+import { Content,CustomLink } from '../styled/TopBarStyled';
 import { useSelector } from "react-redux";
 
 
@@ -8,7 +8,9 @@ export const SelectRoom = () => {
     return (
         <Content sideBarActivated={sideBarActivated}>
             <StyledBtnRoom>
+            <CustomLink to="/newRoom">
             <ButtonGreenDark>New Room</ButtonGreenDark>
+            </CustomLink>
             <StyledSearchSelect>
 
                 <SelectStyled name="order">

@@ -1,7 +1,7 @@
 import sea from "../assets/sea.jpg";
 import { TableContainer } from "../styled/TableStyled";
 import {ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
-import { Content } from '../styled/TopBarStyled';
+import { Content,CustomLink } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadRooms } from "../features/jsonSlice/fileDownloadSlice";
@@ -34,9 +34,10 @@ const TableRoom = () => {
                     <th>Status</th>
                 </tr>
                 {rooms.map(room =>
+                 
                     <tr>
                         <td><img src={sea} alt="photo" width={100} height={100} /></td>
-                        <td>{room.room_number}</td>
+                        <td>  <CustomLink to="/bookingRoom">{room.room_number}</CustomLink></td>
                         <td>{room.room_id}</td>
                         <td>{room.bed_type}</td>
                         <td>{room.facilities}</td>
@@ -48,7 +49,7 @@ const TableRoom = () => {
                                 : <ButtonGreen type="button">Available</ButtonGreen>
                         }
                         </td>
-                    </tr>)}
+                    </tr> )}
 
 
 

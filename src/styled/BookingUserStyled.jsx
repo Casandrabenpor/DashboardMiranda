@@ -114,7 +114,7 @@ export const CustomButtonBed = styled.button`
   align-items: center;
   border-radius: 12px;
   ion-icon{
-   width: 80%;
+   font-size:90px;
    color: green;
   }
 `;

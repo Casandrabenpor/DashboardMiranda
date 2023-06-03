@@ -3,16 +3,16 @@ import { Content } from '../styled/TopBarStyled';
 import { ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { downloadFile } from "../features/jsonSlice/fileDownloadSlice";
+import { downloadPeople } from "../features/jsonSlice/fileDownloadSlice";
 // Funcion para sacar del json [] a la tabla
 const TableUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const users = useSelector(state => state.data.userData.data);
-    const status = useSelector(state => state.data.userData.status);
+    const users = useSelector(state => state.person.data);
+    const status = useSelector(state => state.person.status);
     const dispatch = useDispatch();
     useEffect(() => {
         if (status === "idle") {
-            dispatch(downloadFile("mockUsers.json"));
+            dispatch(downloadPeople("mockUsers.json"));
         }
     }, [status, dispatch]);
 // Funcion para generar photos de avatares random

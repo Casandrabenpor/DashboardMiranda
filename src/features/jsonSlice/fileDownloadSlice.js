@@ -1,19 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const downloadFile = createAsyncThunk("data/download", async () => {
+export const downloadPeople= createAsyncThunk("person/downloadPeople", async () => {
     return retrieveFile("mockUsers.json");
 });
 
-export const downloadRooms = createAsyncThunk("data/downloadRooms", async () => {
+export const downloadRooms = createAsyncThunk("room/downloadRooms", async () => {
     return retrieveFile("mockRooms.json");
 });
 
 
-export const downloadContact = createAsyncThunk("data/downloadContact", async () => {
+export const downloadContact = createAsyncThunk("contact/downloadContact", async () => {
     return retrieveFile("mockContact.json");
 });
 
-export const downloadBooking = createAsyncThunk("data/downloadBooking", async () => {
+export const downloadBooking = createAsyncThunk("booking/downloadBooking", async () => {
     return retrieveFile("mockBooking.json");
 });
 

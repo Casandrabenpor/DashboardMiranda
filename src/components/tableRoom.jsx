@@ -10,8 +10,8 @@ const TableRoom = () => {
     // Funcion para sacar del json [] a la tabla
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const rooms = useSelector(state => state.data.roomData.data);
-    const status = useSelector(state => state.data.roomData.status);
+    const rooms = useSelector(state => state.room.data);
+    const status = useSelector(state => state.room.status);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const TableRoom = () => {
                         <td>  <CustomLink to="/bookingRoom">{room.room_number}</CustomLink></td>
                         <td>{room.room_id}</td>
                         <td>{room.bed_type}</td>
-                        <td>{room.facilities}</td>
+                        <td>{room.amenities.map(amenitie =>`${amenitie} `)}</td>
                         <td>{room.rate}</td>
                         <td>{room.offer_price}</td>
                         <td>{
@@ -48,6 +48,7 @@ const TableRoom = () => {
                                 ? <ButtonRed type="button">Occupied</ButtonRed>
                                 : <ButtonGreen type="button">Available</ButtonGreen>
                         }
+                           <td><button>x</button></td>
                         </td>
                     </tr> )}
 

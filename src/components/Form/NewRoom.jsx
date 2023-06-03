@@ -4,7 +4,7 @@ import {CustomLink } from "../../styled/TopBarStyled";
 export const FormTitle = styled.h1`
     text-align: center;
 `;
-export const Form = styled.div`
+export const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -26,7 +26,7 @@ export const Form = styled.div`
   
     }
 `;
-export const Button = styled.button`
+export const Button = styled.input`
     cursor: pointer;
     color: ${colors.green};
     width: 20em;
@@ -37,30 +37,41 @@ export const Button = styled.button`
     margin-left: 40%;
 `;
 export const NewRoom = () => {
+    const handleCreateRoom = (e) =>{
+        e.preventDefault();
+        console.log(e.target.photo.value);
+        let newRoom = {
+            room_number: "1",
+            room_id: "123",
+
+        };
+    }
     return (
         <div>
             <FormTitle>NEW ROOM</FormTitle>
-            <Form>
+            <Form onSubmit={handleCreateRoom}>
                 <label htmlFor="fname">Photo Url</label>
-                <input type="text" id="photo" name="photo" value="" placeholder="img" />
-                <label htmlFor="lname">Full Name</label>
-                <input type="text" id="name" name="name" value="" placeholder="Full Name" />
-                <label htmlFor="lname">Email</label>
-                <input type="text" id="email" name="email" value=""  placeholder="Email"/>
-                <label htmlFor="fname">Start Date</label>
-                <input type="date" id="date" name="date" value="" />
-                <label htmlFor="Description">Description</label>
-                <input type="text" id="description" name="description" value="" placeholder="Description"/>
-                <label htmlFor="Phone Number">Phone Number</label>
-                <input type="number" id="number" name="number" value="" placeholder="Number"/>
+                <input type="text" id="photo" name="photo" defaultdefaultValue=""  placeholder="img" />
+                <label htmlFor="lname">Room Number</label>
+                <input type="text" id="room_number" name="name" defaultValue=""  placeholder="Room Number" />
+                <label htmlFor="lname">Room Id</label>
+                <input type="text" id="room_id" name="room_id" defaultValue=""   placeholder="Room Id"/>
+                <label htmlFor="fname">Amenities</label>
+                <input type="text" id="amenities" name="amenities" defaultValue=""   placeholder="Amenities"/>
+                <label htmlFor="Description">Bed type</label>
+                <input type="text" id="bed_type" name="bed_type" defaultValue=""  placeholder="Bed type"/>
+                <label htmlFor="Phone Number">Rate</label>
+                <input type="number" id="rate" name="rate" defaultValue=""  placeholder="Rate"/>
+                <label htmlFor="fname">Offer price</label>
+                <input type="text" id="offer_price" name="offer_price" defaultdefaultValue=""  placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
-                <label for="age1">Active</label>
-                <input type="radio" id="status" name="status" value="" />
-                <label for="age1">Inactive</label>
-                <input type="radio" id="status" name="status" value="" />
-                <CustomLink to="/users">
-                <Button type="button">Save</Button>
-                </CustomLink>
+                <label for="age1">Available</label>
+                <input type="radio" id="status" name="status" defaultValue=""  />
+                <label for="age1">Occupied</label>
+                <input type="radio" id="status" name="status" defaultValue=""  />
+                {/* <CustomLink to="/users"> */}
+                <Button type="submit" value="Create"/>
+                {/* </CustomLink> */}
             </Form>
         </div>
     );

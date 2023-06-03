@@ -11,7 +11,7 @@ export const BookingsUserPage = () => {
     const location = useLocation()
     const bookingId = location.pathname.replace("/BookingsUser/","")
 
-    const bookings = useSelector(state => state.data.bookingData.data);
+    const bookings = useSelector(state => state.booking.data);
     const booking = bookings.find(booking => booking.id === bookingId);
 
     return (

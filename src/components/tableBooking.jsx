@@ -10,8 +10,8 @@ const Table = () => {
     // Funcion para sacar del json [] a la tabla
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const booking = useSelector(state => state.data.bookingData.data);
-    const status = useSelector(state => state.data.bookingData.status);
+    const booking = useSelector(state => state.booking.data);
+    const status = useSelector(state => state.booking.status);
     const dispatch = useDispatch();
     useEffect(() => {
         if (status === "idle") {

@@ -5,6 +5,7 @@ import { Content,CustomLink } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadRooms } from "../features/jsonSlice/fileDownloadSlice";
+import { deleteRoom } from "../features/jsonSlice/roomSlice";
 
 const TableRoom = () => {
     // Funcion para sacar del json [] a la tabla
@@ -19,6 +20,10 @@ const TableRoom = () => {
             dispatch(downloadRooms("mockRooms.json"));
         }
     }, [status, dispatch]);
+    const handleDeleteRoom = (e,room) =>{
+        e.preventDefault();
+        dispatch(deleteRoom(room));
+    }
 
     return (
         <Content sideBarActivated={sideBarActivated}>
@@ -48,7 +53,10 @@ const TableRoom = () => {
                                 ? <ButtonRed type="button">Occupied</ButtonRed>
                                 : <ButtonGreen type="button">Available</ButtonGreen>
                         }
-                           <td><button>x</button></td>
+                           <td><button onClick={e => handleDeleteRoom(e,room)}>x</button></td>
+                           <CustomLink to={`/rooms/edit/${room.room_id}`}>
+                           <td><button>Edit</button></td>
+                           </CustomLink>
                         </td>
                     </tr> )}
 

@@ -13,6 +13,7 @@ import { ProtectedRoute } from './components/Route/protectedRouter';
 import { loadFromStorage } from './features/loginSlice/userSlice';
 import { NewUser } from './components/Form/NewUser';
 import { NewRoom } from './components/Form/NewRoom';
+import { EditRoom } from './components/Form/EditRoom';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function App() {
           <Route path="/newUser" element={ <ProtectedRoute user={user}><NewUser /> </ProtectedRoute>} />
           <Route path="/newRoom" element={ <ProtectedRoute user={user}><NewRoom /> </ProtectedRoute>} />
           <Route path="/bookingRoom/*" element={ <ProtectedRoute user={user}> <RoomUserPage /></ProtectedRoute>} />
+          <Route path="/rooms/edit/*" element={ <ProtectedRoute user={user}> <EditRoom /></ProtectedRoute>} />
       </Routes>
     </div>
   );

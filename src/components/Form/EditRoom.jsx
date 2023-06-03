@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../styled/theme";
-import { useDispatch } from "react-redux";
+import { useSelector ,useDispatch} from "react-redux";
 import React, { useState } from 'react';
-import { createRoom } from "../../features/jsonSlice/roomSlice";
+import { useLocation } from 'react-router-dom';
+import { editRoom } from "../../features/jsonSlice/roomSlice";
+
 
 export const FormTitle = styled.h1`
     text-align: center;
@@ -39,62 +41,69 @@ export const Button = styled.input`
     border-radius: 12px;
     margin-left: 40%;
 `;
-export const NewRoom = () => {
+export const EditRoom = () => {
     const dispatch = useDispatch();
+    const location = useLocation()
+    const roomId = parseInt(location.pathname.replace("/rooms/edit/",""));
+
+    const rooms = useSelector(state => state.room.data);
+    const room = rooms.find(room => room.room_id === roomId);
+
     const [roomStatus, setRoomStatus] = useState('Available');
     const handleStatusChange = (e) => {
         setRoomStatus(e.target.value); // Actualizar el estado con el valor seleccionado
     };
 
-    const handleCreateRoom = (e) => {
+    const handleEditRoom = (e) => {
         e.preventDefault();
-        let newRoom = {
+        let updateRoom = {
             room_number: e.target.room_number.value,
-            room_id: e.target.room_id.value,
+            room_id: parseInt(e.target.room_id.value),
             amenities: [ e.target.amenities.value],
             bed_type: e.target.bed_type.value,
             rate: e.target.rate.value,
             offer_price: e.target.offer_price.value,
             status: roomStatus,
         };
-        dispatch(createRoom(newRoom));
+        dispatch(editRoom(updateRoom));
     }
+
     return (
         <div>
-            <FormTitle>NEW ROOM</FormTitle>
-            <Form onSubmit={handleCreateRoom}>
+            <FormTitle>ROOM EDITOR</FormTitle>
+            <Form onSubmit={handleEditRoom}>
                 <label htmlFor="fname">Photo Url</label>
-                <input type="text" id="photo" name="photo" defaultdefaultValue="" placeholder="img" />
+                <input type="text" id="photo" name="photo" defaultValue="" placeholder="img" />
                 <label htmlFor="lname">Room Number</label>
-                <input type="text" id="room_number" name="name" defaultValue="" placeholder="Room Number" />
+                <input type="text" id="room_number" name="name" defaultValue={room.room_number} placeholder="Room Number" />
                 <label htmlFor="lname">Room Id</label>
-                <input type="text" id="room_id" name="room_id" defaultValue="" placeholder="Room Id" />
+                <input type="text" id="room_id" name="room_id" value={room.room_id} placeholder="Room Id" />
                 <label htmlFor="fname">Amenities</label>
-                <input type="text" id="amenities" name="amenities" defaultValue="" placeholder="Amenities" />
+                <input type="text" id="amenities" name="amenities" defaultValue={room.amenities[0]} placeholder="Amenities" />
                 <label htmlFor="Description">Bed type</label>
-                <input type="text" id="bed_type" name="bed_type" defaultValue="" placeholder="Bed type" />
+                <input type="text" id="bed_type" name="bed_type" defaultValue={room.bed_type} placeholder="Bed type" />
                 <label htmlFor="Phone Number">Rate</label>
-                <input type="number" id="rate" name="rate" defaultValue="" placeholder="Rate" />
+                <input type="number" id="rate" name="rate" defaultValue={room.rate} placeholder="Rate" />
                 <label htmlFor="fname">Offer price</label>
-                <input type="text" id="offer_price" name="offer_price" defaultdefaultValue="" placeholder="Offer price" />
+                <input type="text" id="offer_price" name="offer_price" defaultValue={room.offer_price} placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
                 <input type="radio" 
                     id="status1" 
                     name="status" 
                     value="Available" 
-                    checked={roomStatus === 'Available'} // Marcar el radio button si el valor es "Available"
-                    onChange={handleStatusChange} />
+                    checked={room.status === 'Available'}
+                    onChange={handleStatusChange}/>
                 <label for="status1">Available</label>
                 <input type="radio"
                     id="status2"
                     name="status"
-                    value="Occupied"
-                    checked={roomStatus === 'Occupied'} // Marcar el radio button si el valor es "Occupied"
-                    onChange={handleStatusChange} />
+                    value="Occupied" 
+                    checked={room.status === 'Occupied'} 
+                    onChange={handleStatusChange}/>
                 <label for="status2">Occupied</label>
-                {/* <CustomLink to="/users"> */}
-                <Button type="submit" value="Create" />
-                {/* </CustomLink> */}
+            
+                <Button type="submit" value="Edit" />
+            
             </Form>
         </div>
     );

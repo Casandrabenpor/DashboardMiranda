@@ -1,9 +1,10 @@
 import { TableContainer } from "../styled/TableStyled";
-import { Content } from '../styled/TopBarStyled';
+import { Content,CustomLink } from '../styled/TopBarStyled';
 import { ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadPeople } from "../features/jsonSlice/fileDownloadSlice";
+import { deletePerson } from "../features/jsonSlice/personSlice";
 // Funcion para sacar del json [] a la tabla
 const TableUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
@@ -20,6 +21,10 @@ const TableUser = () => {
       let randomNumber =  Math.floor(Math.random() * 9);
       let path = `./avatars/avatar${randomNumber}.jpg`;
       return path;
+    }
+    const handleDeletePerson = (e,user) =>{
+        e.preventDefault();
+        dispatch(deletePerson(user));
     }
     return (
         <Content sideBarActivated={sideBarActivated}>
@@ -49,6 +54,12 @@ const TableUser = () => {
                                 : <ButtonGreen type="button">ACTIVE</ButtonGreen>
                         }
                         </td>
+                        <td>
+                        <td><button onClick={e => handleDeletePerson(e,user)}>x</button></td>
+                        </td>
+                        <CustomLink to={`/users/edit/${user.id}`}>
+                        <td><button>Edit</button></td>
+                        </CustomLink>
                     </tr>)}
             </TableContainer>
         </Content>

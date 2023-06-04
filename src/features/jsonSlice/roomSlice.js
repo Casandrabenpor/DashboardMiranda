@@ -40,8 +40,8 @@ export const roomSlice = createSlice({
             })
             .addCase(deleteRoom.fulfilled, (state, action) => {
                 state.status = "fulfilled";
-                state.data = state.data.filter(room => 
-                    room.room_id !=action.payload.room_id);
+                state.data = state.data.filter(room =>
+                    room.room_id != action.payload.room_id);
             })
             .addCase(editRoom.pending, (state) => {
                 state.status = "loading";
@@ -51,7 +51,7 @@ export const roomSlice = createSlice({
             })
             .addCase(editRoom.fulfilled, (state, action) => {
                 state.status = "fulfilled";
-                let index = state.data.findIndex( room => room.room_id === action.payload.room_id);
+                let index = state.data.findIndex(room => room.room_id === action.payload.room_id);
                 state.data[index] = action.payload;
             });
     },
@@ -64,8 +64,8 @@ export const createRoom = createAsyncThunk("room/createRoom", async (newRoom) =>
 export const deleteRoom = createAsyncThunk("room/deleteRoom", async (room) => {
     await new Promise(resolve => setTimeout(resolve, 200));
     return room;
-  });
-  export const editRoom = createAsyncThunk("room/editRoom", async (editedRoom) => {
+});
+export const editRoom = createAsyncThunk("room/editRoom", async (editedRoom) => {
     await new Promise(resolve => setTimeout(resolve, 200));
     return editedRoom;
-  });
+});

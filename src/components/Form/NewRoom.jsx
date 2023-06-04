@@ -64,7 +64,7 @@ export const NewRoom = () => {
             <FormTitle>NEW ROOM</FormTitle>
             <Form onSubmit={handleCreateRoom}>
                 <label htmlFor="fname">Photo Url</label>
-                <input type="text" id="photo" name="photo" defaultdefaultValue="" placeholder="img" />
+                <input type="text" id="photo" name="photo" defaultValue="" placeholder="img" />
                 <label htmlFor="lname">Room Number</label>
                 <input type="text" id="room_number" name="name" defaultValue="" placeholder="Room Number" />
                 <label htmlFor="lname">Room Id</label>
@@ -76,7 +76,7 @@ export const NewRoom = () => {
                 <label htmlFor="Phone Number">Rate</label>
                 <input type="number" id="rate" name="rate" defaultValue="" placeholder="Rate" />
                 <label htmlFor="fname">Offer price</label>
-                <input type="text" id="offer_price" name="offer_price" defaultdefaultValue="" placeholder="Offer price" />
+                <input type="text" id="offer_price" name="offer_price" defaultValue="" placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
                 <input type="radio" 
                     id="status1" 

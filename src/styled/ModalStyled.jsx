@@ -8,8 +8,8 @@ export const ContainerModal = styled.div`
     background-color: ${colors.backgroundBtnYellow};
     transform: translate(-50%, -50%);
     position: fixed;
-  top: 50%;
-  left: 50%;
+    top: 50%;
+    left: 50%;
     
 `;
 export const ModalBackground = styled.div`

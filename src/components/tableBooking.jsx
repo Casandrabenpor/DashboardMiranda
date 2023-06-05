@@ -1,16 +1,17 @@
 import person from "../assets/person.jpg";
 import { TableContainer } from "../styled/TableStyled";
-import { Button, ButtonRed, ButtonGreen,ButtonYellow } from "../styled/ButtonStyled";
+import { Button, ButtonRed, ButtonGreen, ButtonYellow } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadBooking } from "../features/jsonSlice/fileDownloadSlice";
+import { deleteBooking } from "../features/jsonSlice/bookingSlice";
 
 const Table = () => {
     // Funcion para sacar del json [] a la tabla
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const booking = useSelector(state => state.booking.data);
+    const bookings = useSelector(state => state.booking.data);
     const status = useSelector(state => state.booking.status);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -18,7 +19,7 @@ const Table = () => {
             dispatch(downloadBooking("mockBooking.json"));
         }
     }, [status, dispatch]);
-// Para los botones de colores .
+    // Para los botones de colores .
     const GetStatus = (bookingStatus) => {
         switch (bookingStatus) {
             case "Check In":
@@ -28,6 +29,10 @@ const Table = () => {
             default:
                 return <ButtonYellow type="button">In Progress</ButtonYellow>;
         }
+    }
+    const handleDeleteBooking = (e, booking) => {
+        e.preventDefault();
+        dispatch(deleteBooking(booking));
     }
     return (
         <Content sideBarActivated={sideBarActivated}>
@@ -42,40 +47,43 @@ const Table = () => {
                     <th>Room type</th>
                     <th>Status</th>
                 </tr>
-                {booking.map(bookings =>
+                {bookings.map(booking =>
                     <tr>
                         <td><img src={person} alt="photo" width={100} height={100} /></td>
-                        
+
                         <td>
-                       
-                            {bookings.guest}
-                            <CustomLink to={`/BookingsUser/${bookings.id}`}>
-                            <div className="subrow">
-                                #{bookings.id}
-                            </div>
+
+                            {booking.guest}
+                            <CustomLink to={`/BookingsUser/${booking.id}`}>
+                                <div className="subrow">
+                                    #{booking.id}
+                                </div>
                             </CustomLink>
                         </td>
-                        <td>{bookings.order_date}</td>
+                        <td>{booking.order_date}</td>
                         <td>
-                            {bookings.check_in}
+                            {booking.check_in}
                             <div>
-                                {bookings.check_in_hour}
+                                {booking.check_in_hour}
                             </div>
                         </td>
                         <td>
-                            {bookings.check_out}
+                            {booking.check_out}
                             <div>
-                                {bookings.check_out_hour}
+                                {booking.check_out_hour}
                             </div>
                         </td>
                         <td>
                             <Button type="button">View Notes</Button>
                         </td>
-                        <td>{bookings.room_type}-{bookings.room_number}</td>
+                        <td>{booking.room_type}-{booking.room_number}</td>
                         <td>
-                            {GetStatus(bookings.status)}
+                            {GetStatus(booking.status)}
                         </td>
-
+                        <td><button onClick={e => handleDeleteBooking(e, booking)}>x</button></td>
+                        <CustomLink to={`/bookings/edit/${booking.id}`}>
+                           <td><button>Edit</button></td>
+                           </CustomLink>
                     </tr>)}
 
 

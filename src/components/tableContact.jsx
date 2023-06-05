@@ -1,9 +1,10 @@
 import { TableContainer } from "../styled/TableStyled";
 import { Button} from "../styled/ButtonStyled";
-import { Content } from '../styled/TopBarStyled';
+import { Content,CustomLink } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadContact } from "../features/jsonSlice/fileDownloadSlice";
+import { deleteContact } from "../features/jsonSlice/contactSlice";
 const TableContact = () => {
 
     // Funcion para sacar del json [] a la tabla
@@ -17,6 +18,11 @@ const TableContact = () => {
             dispatch(downloadContact("mockContact.json"));
         }
     }, [status, dispatch]);
+
+    const handleDeleteContact = (e,contact) =>{
+        e.preventDefault();
+        dispatch(deleteContact(contact));
+    }
     return (
         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
@@ -37,6 +43,10 @@ const TableContact = () => {
                         <td>
                             <Button type="button">Archive</Button>
                         </td>
+                        <td><button onClick={e => handleDeleteContact(e,contact)}>x</button></td>
+                        <CustomLink to={`/contact/edit/${contact.order_id}`}>
+                           <td><button>Edit</button></td>
+                           </CustomLink>
                     </tr>
                 )}
 

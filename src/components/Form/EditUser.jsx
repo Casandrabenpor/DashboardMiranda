@@ -59,7 +59,7 @@ export const EditPerson = () => {
         e.preventDefault();
         let editedPerson = {
             name: e.target.name.value,
-            id: e.target.id.value,
+            id: parseInt(e.target.id.value),
             email:  e.target.email.value,
             startDate: e.target.date.value,
             description: e.target.description.value,

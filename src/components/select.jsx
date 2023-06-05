@@ -1,4 +1,4 @@
-import { SelectStyled,StyledSearchSelect } from "../styled/ButtonStyled";
+import { SelectStyled,StyledSearchSelect,ButtonGreenDark } from "../styled/ButtonStyled";
 import { Content } from '../styled/TopBarStyled';
 import { useSelector } from "react-redux";
 import { Search } from "./search";
@@ -9,6 +9,7 @@ export const Select = () => {
         <Content sideBarActivated={sideBarActivated}>
             <StyledSearchSelect>
                 <Search></Search>
+                <ButtonGreenDark>New Booking</ButtonGreenDark>
                 <SelectStyled name="order">
                     <option value="date">Order Date</option>
                     <option value="Guest" >

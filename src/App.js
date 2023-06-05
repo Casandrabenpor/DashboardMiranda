@@ -15,6 +15,7 @@ import { NewUser } from './components/Form/NewUser';
 import { NewRoom } from './components/Form/NewRoom';
 import { EditRoom } from './components/Form/EditRoom';
 import { EditPerson } from './components/Form/EditUser';
+import { NewBooking } from './components/Form/NewBooking';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,8 @@ function App() {
           <Route path="/bookingRoom/*" element={ <ProtectedRoute user={user}> <RoomUserPage /></ProtectedRoute>} />
           <Route path="/rooms/edit/*" element={ <ProtectedRoute user={user}> <EditRoom /></ProtectedRoute>} />
           <Route path="/users/edit/*" element={ <ProtectedRoute user={user}> <EditPerson /></ProtectedRoute>} />
+          <Route path="/newBooking" element={ <ProtectedRoute user={user}><NewBooking /> </ProtectedRoute>} />
+          
       </Routes>
     </div>
   );

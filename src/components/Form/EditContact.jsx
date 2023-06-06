@@ -56,18 +56,19 @@ export const EditContact = () => {
     const contactId = location.pathname.replace("/contact/edit/","");
     const contacts = useSelector(state => state.contact.data);
     const contact = contacts.find(contact => contact.id === contactId);
-
+    console.log( contact);
+    
     const handleEditContact = (e) => {
         e.preventDefault();
-        let editContact = {
-            order_id: e.target.id.value,
+        let editedContact = {
+            order_id: parseInt(e.target.id.value),
             date: e.target.date.value,
             customer: e.target.customer.value,
             comment: e.target.comment.value,
             
 
         };
-        dispatch(editContact(editContact));
+        dispatch(editContact(editedContact));
     }
 
     return (

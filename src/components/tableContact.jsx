@@ -1,6 +1,6 @@
 import { TableContainer } from "../styled/TableStyled";
-import { Button} from "../styled/ButtonStyled";
-import { Content,CustomLink } from '../styled/TopBarStyled';
+import { Button } from "../styled/ButtonStyled";
+import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadContact } from "../features/jsonSlice/fileDownloadSlice";
@@ -18,8 +18,8 @@ const TableContact = () => {
             dispatch(downloadContact("mockContact.json"));
         }
     }, [status, dispatch]);
-
-    const handleDeleteContact = (e,contact) =>{
+    //Para eliminar contactos
+    const handleDeleteContact = (e, contact) => {
         e.preventDefault();
         dispatch(deleteContact(contact));
     }
@@ -43,10 +43,10 @@ const TableContact = () => {
                         <td>
                             <Button type="button">Archive</Button>
                         </td>
-                        <td><button onClick={e => handleDeleteContact(e,contact)}>x</button></td>
-                        <CustomLink to={`/contact/edit/${contact.order_id}`}>
-                           <td><button>Edit</button></td>
-                           </CustomLink>
+                        <td><button onClick={e => handleDeleteContact(e, contact)}>x</button></td>
+                        <CustomLink to={`/contactUser/edit/${contact.id}`}>
+                            <td><button>Edit</button></td>
+                        </CustomLink>
                     </tr>
                 )}
 

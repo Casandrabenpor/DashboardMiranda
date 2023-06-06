@@ -16,6 +16,7 @@ export const SideBar = styled.div`
   left: 0;
   overflow-x: hidden;
   position: fixed;
+  padding: 1em;
 `;
 
 export const ContainerNav = styled.div`
@@ -25,6 +26,7 @@ export const ContainerNav = styled.div`
     justify-content: space-between; 
     flex-direction: row;
     background: ${colors.white};
+    padding: 1em;
 
     p{
       font-size: 28px;

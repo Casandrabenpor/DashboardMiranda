@@ -1,46 +1,13 @@
-import styled from "styled-components";
-import { colors } from "../../styled/theme";
+
+import {Form,Button,Select,FormTitle} from "../../styled/EditStyled";
 import { useSelector ,useDispatch} from "react-redux";
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { editPerson } from "../../features/jsonSlice/personSlice";
 
 
-export const FormTitle = styled.h1`
-    text-align: center;
-`;
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    label{
-        display: flex;
-        flex-direction: row;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-    input{
-       border-bottom: 1px solid ${colors.grey};
-       border-left: none;
-       border-top:none;
-       border-right:none;
-       text-align: center;
-       width: 50%;
-       margin-left: 25%;
-  
-    }
-`;
-export const Button = styled.input`
-    cursor: pointer;
-    color: ${colors.green};
-    width: 20em;
-    padding: 1em 2em;
-    background-color: rgb(235, 241, 239);
-    border: none;
-    border-radius: 12px;
-    margin-left: 40%;
-`;
+
+
 export const EditPerson = () => {
     const dispatch = useDispatch();
     const location = useLocation()

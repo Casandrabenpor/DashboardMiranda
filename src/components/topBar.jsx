@@ -1,7 +1,5 @@
 import Logo from "../assets/logo.png";
 import Photo from "../assets/casandra.jpg";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import { SideBar, CustomLink, LogoTitle, LogoText, LogoContainer, CustomList, ContainerPhoto, Footer } from "../styled/TopBarStyled";
 import { useDispatch, useSelector } from "react-redux";
 import { TbLayoutDashboard } from 'react-icons/tb';

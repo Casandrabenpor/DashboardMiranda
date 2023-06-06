@@ -4,6 +4,7 @@ import { colors } from "./theme";
 export const ContainerTabsMenu = styled.div`
     display: flex;
     flex-direction: row;
+    margin-top: 2%;
     
 `;
 export const Button = styled.button`

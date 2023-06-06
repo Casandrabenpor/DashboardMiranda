@@ -77,7 +77,7 @@ export const EditContact = () => {
             <FormTitle>EDIT BOOKING</FormTitle>
             <Form onSubmit={handleEditContact} >
             <label htmlFor="lname">ID</label>
-            <input type="text" id="id" name="id" value={contact.id} placeholder="id" />
+            <input type="text" id="id" name="id" value={contact.order_id} placeholder="id" />
             <label htmlFor="lname">Date</label>
             <input type="date" id="date" name="date" defaultValue={contact.date} placeholder="Date" />
             <label htmlFor="fname">Customer</label>

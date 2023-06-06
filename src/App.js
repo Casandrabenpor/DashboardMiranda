@@ -44,7 +44,7 @@ function App() {
           <Route path="/bookingRoom/*" element={ <ProtectedRoute user={user}> <RoomUserPage /></ProtectedRoute>} />
           <Route path="/users/edit/*" element={ <ProtectedRoute user={user}> <EditPerson /></ProtectedRoute>} />
           <Route path="/newContact" element={ <ProtectedRoute user={user}><NewContact /> </ProtectedRoute>} />
-          <Route path="/contactUser/edit/*" element={ <ProtectedRoute user={user}> <EditContact /></ProtectedRoute>} />
+          <Route path="/contacts/edit/*" element={ <ProtectedRoute user={user}> <EditContact /></ProtectedRoute>} />
       </Routes>
     </div>
   );

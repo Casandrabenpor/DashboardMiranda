@@ -53,9 +53,10 @@ export const Select = styled.select`
 export const EditContact = () => {
     const dispatch = useDispatch();
     const location = useLocation()
-    const contactId = location.pathname.replace("/contact/edit/","");
+    const contactId = location.pathname.replace("/contacts/edit/","");
+    
     const contacts = useSelector(state => state.contact.data);
-    const contact = contacts.find(contact => contact.id === contactId);
+    const contact = contacts.find(contact => contact.order_id === contactId);
     console.log( contact);
     
     const handleEditContact = (e) => {

@@ -1,7 +1,7 @@
 import { TableContainer } from "../styled/TableStyled";
 import { Button } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadContact } from "../features/jsonSlice/fileDownloadSlice";
 import { deleteContact } from "../features/jsonSlice/contactSlice";
@@ -23,6 +23,17 @@ const TableContact = () => {
         e.preventDefault();
         dispatch(deleteContact(contact));
     }
+    //Para mostrar el boton de dentro de otro boton
+    const [seeButton, setSeeButton] = useState(false);
+
+    const handleIconMouseDown = () => {
+        setSeeButton(true);
+    };
+
+    const handleIconMouseUp = () => {
+        setSeeButton(false);
+    };
+
     return (
         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
@@ -43,12 +54,26 @@ const TableContact = () => {
                         <td>
                             <Button type="button">Archive</Button>
                         </td>
-                        <td><button onClick={e => handleDeleteContact(e, contact)}>x</button></td>
-                        <CustomLink to={`/contactUser/edit/${contact.id}`}>
-                            <td><button>Edit</button></td>
-                        </CustomLink>
+                        <td>
+                            <ion-icon
+                                name="ellipsis-vertical-outline"
+                                onMouseDown={handleIconMouseDown}
+                                onMouseUp={handleIconMouseUp}
+                            />
+                                {seeButton && (
+                                    <>
+                                        <CustomLink to={`/contacts/edit/${contact.order_id}`}>
+                                            <button>Edit</button>
+                                        </CustomLink>
+                                        <button onClick={e => handleDeleteContact(e, contact)}>
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        </button>
+                                    </>
+                                )}
+                            
+                        </td>
                     </tr>
-                )}
+                )};
 
 
             </TableContainer>

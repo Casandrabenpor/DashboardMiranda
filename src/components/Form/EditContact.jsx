@@ -74,7 +74,7 @@ export const EditContact = () => {
 
     return (
         <div>
-            <FormTitle>EDIT BOOKING</FormTitle>
+            <FormTitle>EDIT CONTACT</FormTitle>
             <Form onSubmit={handleEditContact} >
             <label htmlFor="lname">ID</label>
             <input type="text" id="id" name="id" value={contact.order_id} placeholder="id" />

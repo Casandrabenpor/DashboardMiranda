@@ -13,5 +13,20 @@ export const TableContainer = styled.table`
     text-align: left;
   }
 `;
+export const IonIcon = styled.div`
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  ion-icon{
+    border: none;
+    cursor: pointer;
+  }
+  
+`;
+export const RedIcon = styled.div`
+color: red;
+`;
+
 
 

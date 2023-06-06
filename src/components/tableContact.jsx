@@ -1,10 +1,11 @@
-import { TableContainer } from "../styled/TableStyled";
+import { TableContainer, IonIcon, RedIcon } from "../styled/TableStyled";
 import { Button } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadContact } from "../features/jsonSlice/fileDownloadSlice";
 import { deleteContact } from "../features/jsonSlice/contactSlice";
+
 const TableContact = () => {
 
     // Funcion para sacar del json [] a la tabla
@@ -55,22 +56,25 @@ const TableContact = () => {
                             <Button type="button">Archive</Button>
                         </td>
                         <td>
-                            <ion-icon
-                                name="ellipsis-vertical-outline"
-                                onMouseDown={handleIconMouseDown}
-                                onMouseUp={handleIconMouseUp}
-                            />
+                            <IonIcon>
+                                <ion-icon
+                                    name="ellipsis-vertical-outline"
+                                    onMouseDown={handleIconMouseDown}
+                                    onMouseUp={handleIconMouseUp}
+                                />
                                 {seeButton && (
                                     <>
                                         <CustomLink to={`/contacts/edit/${contact.order_id}`}>
-                                            <button>Edit</button>
+                                            <ion-icon name="create-outline"></ion-icon>
                                         </CustomLink>
-                                        <button onClick={e => handleDeleteContact(e, contact)}>
-                                            <ion-icon name="trash-outline"></ion-icon>
-                                        </button>
+                                        <RedIcon>
+                                            <ion-icon name="trash-outline" onClick={e => handleDeleteContact(e, contact)}></ion-icon>
+                                        </RedIcon>
+
                                     </>
                                 )}
-                            
+                            </IonIcon>
+
                         </td>
                     </tr>
                 )};

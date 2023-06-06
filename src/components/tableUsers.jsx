@@ -1,7 +1,7 @@
-import { TableContainer } from "../styled/TableStyled";
+import { TableContainer, IonIcon, RedIcon } from "../styled/TableStyled";
 import { Content,CustomLink } from '../styled/TopBarStyled';
 import { ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadPeople } from "../features/jsonSlice/fileDownloadSlice";
 import { deletePerson } from "../features/jsonSlice/personSlice";
@@ -26,6 +26,16 @@ const TableUser = () => {
         e.preventDefault();
         dispatch(deletePerson(user));
     }
+     //Para mostrar el boton de dentro de otro boton
+     const [seeButton, setSeeButton] = useState(false);
+
+     const handleIconMouseDown = () => {
+         setSeeButton(true);
+     };
+ 
+     const handleIconMouseUp = () => {
+         setSeeButton(false);
+     };
     return (
         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
@@ -55,11 +65,27 @@ const TableUser = () => {
                         }
                         </td>
                         <td>
-                        <td><button onClick={e => handleDeletePerson(e,user)}>x</button></td>
+                            <IonIcon>
+                                <ion-icon
+                                    name="ellipsis-vertical-outline"
+                                    onMouseDown={handleIconMouseDown}
+                                    onMouseUp={handleIconMouseUp}
+                                />
+                                {seeButton && (
+                                    <>
+                                          <CustomLink to={`/users/edit/${user.id}`}>
+                                            <ion-icon name="create-outline"></ion-icon>
+                                        </CustomLink>
+                                        <RedIcon>
+                                            <ion-icon name="trash-outline" onClick={e => handleDeletePerson(e,user)}></ion-icon>
+                                        </RedIcon>
+
+                                    </>
+                                )}
+                            </IonIcon>
+
                         </td>
-                        <CustomLink to={`/users/edit/${user.id}`}>
-                        <td><button>Edit</button></td>
-                        </CustomLink>
+                       
                     </tr>)}
             </TableContainer>
         </Content>

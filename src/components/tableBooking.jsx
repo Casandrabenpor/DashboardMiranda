@@ -1,8 +1,8 @@
 import person from "../assets/person.jpg";
-import { TableContainer } from "../styled/TableStyled";
+import { TableContainer, IonIcon, RedIcon } from "../styled/TableStyled";
 import { Button, ButtonRed, ButtonGreen, ButtonYellow } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadBooking } from "../features/jsonSlice/fileDownloadSlice";
 import { deleteBooking } from "../features/jsonSlice/bookingSlice";
@@ -30,10 +30,22 @@ const Table = () => {
                 return <ButtonYellow type="button">In Progress</ButtonYellow>;
         }
     }
+    //Para eliminar bookings
     const handleDeleteBooking = (e, booking) => {
         e.preventDefault();
         dispatch(deleteBooking(booking));
     }
+    //Para mostrar el boton de dentro de otro boton
+    const [seeButton, setSeeButton] = useState(false);
+
+    const handleIconMouseDown = () => {
+        setSeeButton(true);
+    };
+
+    const handleIconMouseUp = () => {
+        setSeeButton(false);
+    };
+
     return (
         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
@@ -80,10 +92,26 @@ const Table = () => {
                         <td>
                             {GetStatus(booking.status)}
                         </td>
-                        <td><button onClick={e => handleDeleteBooking(e, booking)}>x</button></td>
-                        <CustomLink to={`/bookings/edit/${booking.id}`}>
-                           <td><button>Edit</button></td>
-                           </CustomLink>
+                        <td>
+                            <IonIcon>
+                                <ion-icon
+                                    name="ellipsis-vertical-outline"
+                                    onMouseDown={handleIconMouseDown}
+                                    onMouseUp={handleIconMouseUp}
+                                />
+                                {seeButton && (
+                                    <>
+                                        <CustomLink to={`/bookings/edit/${booking.id}`}>
+                                            <ion-icon name="create-outline"></ion-icon>
+                                        </CustomLink>
+                                        <RedIcon>
+                                            <ion-icon name="trash-outline" onClick={e => handleDeleteBooking(e, booking)}></ion-icon>
+                                        </RedIcon>
+
+                                    </>
+                                )}
+                            </IonIcon>
+                        </td>
                     </tr>)}
 
 

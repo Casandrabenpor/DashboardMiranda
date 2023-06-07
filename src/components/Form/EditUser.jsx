@@ -70,7 +70,7 @@ export const EditPerson = () => {
                     onChange={handleStatusChange} />
                 <label for="status2">Inactive</label>
                 {/* <CustomLink to="/users"> */}
-                <Button type="submit" value="Create" />
+                <Button type="submit" value="Edit" />
                 {/* </CustomLink> */}
             </Form>
         </div>

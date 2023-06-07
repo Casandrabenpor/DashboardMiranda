@@ -1,16 +1,17 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import { ContainerLogin, Form } from "../styled/loginStyled";
-import { login } from "../features/loginSlice/userSlice";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./Authentication/AuthenticationContext";
+import { useContext } from "react";
 
 export const Login = () => {
     const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const dispatch = useDispatch();
+    const authContext = useContext(AuthContext);
+    const {  login } = authContext;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,14 +19,7 @@ export const Login = () => {
         if (name === 'casandra'
             && email === 'casandra@gmail.com'
             && password === 'test') {
-            dispatch(
-                login({
-                    user: name,
-                    email: email,
-                    password: password,
-                    loggedIn: true,
-                })
-            );
+                login(name,email);
             navigate("/");
         }
     };

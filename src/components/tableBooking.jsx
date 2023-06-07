@@ -11,7 +11,7 @@ const Table = () => {
     // Funcion para sacar del json [] a la tabla
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const bookings = useSelector(state => state.booking.data);
+    const bookings = useSelector(state => state.booking.filteredData);
     const status = useSelector(state => state.booking.status);
     const dispatch = useDispatch();
     useEffect(() => {

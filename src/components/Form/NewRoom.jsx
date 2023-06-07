@@ -78,20 +78,21 @@ export const NewRoom = () => {
                 <label htmlFor="fname">Offer price</label>
                 <input type="text" id="offer_price" name="offer_price" defaultValue="" placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
+                <label for="status1">Available</label>
                 <input type="radio" 
                     id="status1" 
                     name="status" 
                     value="Available" 
-                    checked={roomStatus === 'Available'} // Marcar el radio button si el valor es "Available"
-                    onChange={handleStatusChange} />
-                <label for="status1">Available</label>
+                    checked={roomStatus === 'Available'}
+                    onChange={handleStatusChange}/>
+                <label for="status2">Occupied</label>
                 <input type="radio"
                     id="status2"
                     name="status"
-                    value="Occupied"
-                    checked={roomStatus === 'Occupied'} // Marcar el radio button si el valor es "Occupied"
-                    onChange={handleStatusChange} />
-                <label for="status2">Occupied</label>
+                    value="Occupied" 
+                    checked={roomStatus === 'Occupied'} 
+                    onChange={handleStatusChange}/>
+            
                 {/* <CustomLink to="/users"> */}
                 <Button type="submit" value="Create" />
                 {/* </CustomLink> */}

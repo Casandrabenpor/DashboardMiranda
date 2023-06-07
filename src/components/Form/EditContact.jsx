@@ -13,17 +13,15 @@ export const EditContact = () => {
     
     const contacts = useSelector(state => state.contact.data);
     const contact = contacts.find(contact => contact.order_id === contactId);
-    console.log( contact);
+   
     
     const handleEditContact = (e) => {
         e.preventDefault();
         let editedContact = {
-            order_id: parseInt(e.target.id.value),
+            order_id: e.target.id.value,
             date: e.target.date.value,
             customer: e.target.customer.value,
             comment: e.target.comment.value,
-            
-
         };
         dispatch(editContact(editedContact));
     }

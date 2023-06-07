@@ -3,12 +3,14 @@ import {Form,Button,Select,FormTitle} from "../../styled/EditStyled";
 import { useSelector, useDispatch } from "react-redux";
 import { editBooking } from "../../features/jsonSlice/bookingSlice";
 import { useLocation } from 'react-router-dom';
+import { useState } from "react";
 
 
 export const EditBooking = () => {
     const dispatch = useDispatch();
     const location = useLocation()
     const bookingId = location.pathname.replace("/bookings/edit/","");
+    
     const bookings = useSelector(state => state.booking.data);
     const booking = bookings.find(booking => booking.id === bookingId);
     
@@ -16,12 +18,12 @@ export const EditBooking = () => {
         e.preventDefault();
         let editedBooking = {
             guest: e.target.guest.value,
-            id: parseInt(e.target.booking_id.value),
+            id: e.target.booking_id.value,
             order_date: e.target.date.value,
             check_in: e.target.check_in.value,
             check_out: e.target.check_out.value,
-            // room_type: e.target.room_type1.value,
-
+            room_type: e.target.select.value,
+            room_number: booking.room_number
         };
         dispatch(editBooking(editedBooking));
     }
@@ -45,10 +47,11 @@ export const EditBooking = () => {
                 <input type="date" id="check_out" name="check_out" defaultValue={booking.check_out}  placeholder="Check out" />
 
 
-                <Select name="select">
-                    <option value="value1" id="room_type1">Suite</option>
-                    <option value="value2" id="room_type2" >Double Bed</option>
-                    <option value="value3" id="room_type3">Double Superior</option>
+                <Select name="select" defaultValue={booking.room_type}>
+                    <option value="Suite" id="option_1">Suite</option>
+                    <option value="Double Bed" id="option_2" >Double Bed</option>
+                    <option value="Double Superior" id="option_3">Double Superior</option>
+                    <option value="Single Bed" id="option_3">Single Bed</option>
                 </Select>
 
                 {/* <CustomLink to="/users"> */}

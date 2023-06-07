@@ -2,11 +2,13 @@ import { IconNav, ContainerNav, Content, CustomLink, Burger } from "../styled/To
 import { toggle } from "../features/sideBarSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { logout } from "../features/loginSlice/userSlice";
+import { useContext } from "react";
+import { AuthContext } from "./Authentication/AuthenticationContext";
 
 export const Nav = (props) => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     const dispatch = useDispatch();
+    const authContext = useContext(AuthContext);
     
     const toggleSideBar = (event) => {
         event.preventDefault();
@@ -14,7 +16,7 @@ export const Nav = (props) => {
     };
     const handleLogout = (e) => {
         e.preventDefault();
-        dispatch(logout());
+        authContext.logout();
     };
  
     return (

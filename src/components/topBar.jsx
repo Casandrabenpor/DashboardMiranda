@@ -1,15 +1,17 @@
 import Logo from "../assets/logo.png";
 import Photo from "../assets/casandra.jpg";
 import { SideBar, CustomLink, LogoTitle, LogoText, LogoContainer, CustomList, ContainerPhoto, Footer } from "../styled/TopBarStyled";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { TbLayoutDashboard } from 'react-icons/tb';
 import { MdVpnKey } from 'react-icons/md';
-import { selectUser } from "../features/loginSlice/userSlice";
+import { AuthContext } from "./Authentication/AuthenticationContext";
+import { useContext } from "react";
 
 export const TopBar = () => {
   const sideBarActivated = useSelector(state => state.sidebar.activated);
-  const user = useSelector(selectUser);
-  const dispatch = useDispatch();
+  // const user = useSelector(selectUser);
+  const authContext = useContext(AuthContext);
+
   return (
     sideBarActivated ?
       <SideBar>
@@ -59,8 +61,8 @@ export const TopBar = () => {
           {user.name}
           
           </p> */}
-          <h3> {user.user}</h3>
-          <p>{user.email}</p>
+          <h3> {authContext.user.user}</h3>
+          <p>{authContext.user.email}</p>
           <button>Contact Us</button>
         </ContainerPhoto>
         <Footer>

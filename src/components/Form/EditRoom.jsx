@@ -15,7 +15,7 @@ export const EditRoom = () => {
     const rooms = useSelector(state => state.room.data);
     const room = rooms.find(room => room.room_id === roomId);
 
-    const [roomStatus, setRoomStatus] = useState('Available');
+    const [roomStatus, setRoomStatus] = useState(room.status);
     const handleStatusChange = (e) => {
         setRoomStatus(e.target.value); // Actualizar el estado con el valor seleccionado
     };
@@ -53,20 +53,20 @@ export const EditRoom = () => {
                 <label htmlFor="fname">Offer price</label>
                 <input type="text" id="offer_price" name="offer_price" defaultValue={room.offer_price} placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
+                <label for="status1">Available</label>
                 <input type="radio" 
                     id="status1" 
                     name="status" 
                     value="Available" 
-                    checked={room.status === 'Available'}
+                    checked={roomStatus === 'Available'}
                     onChange={handleStatusChange}/>
-                <label for="status1">Available</label>
+                <label for="status2">Occupied</label>
                 <input type="radio"
                     id="status2"
                     name="status"
                     value="Occupied" 
-                    checked={room.status === 'Occupied'} 
+                    checked={roomStatus === 'Occupied'} 
                     onChange={handleStatusChange}/>
-                <label for="status2">Occupied</label>
             
                 <Button type="submit" value="Edit" />
             

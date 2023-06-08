@@ -4,7 +4,7 @@ import { useSelector ,useDispatch} from "react-redux";
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { editPerson } from "../../features/jsonSlice/personSlice";
-
+import { CustomLink } from '../../styled/TopBarStyled';
 
 
 
@@ -69,9 +69,9 @@ export const EditPerson = () => {
                     checked={person.status === 'Inactive'} // Marcar el radio button si el valor es "Inactive"
                     onChange={handleStatusChange} />
                 <label for="status2">Inactive</label>
-                {/* <CustomLink to="/users"> */}
+                <CustomLink to="/users">
                 <Button type="submit" value="Edit" />
-                {/* </CustomLink> */}
+                </CustomLink>
             </Form>
         </div>
     );

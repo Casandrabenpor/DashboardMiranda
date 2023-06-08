@@ -1,52 +1,8 @@
-import styled from "styled-components";
-import { colors } from "../../styled/theme";
+import {Form,Button,Select,FormTitle} from "../../styled/EditStyled";
 import { createBooking } from "../../features/jsonSlice/bookingSlice";
 import { useDispatch } from "react-redux";
+import { CustomLink } from '../../styled/TopBarStyled';
 
-export const FormTitle = styled.h1`
-    text-align: center;
-`;
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    label{
-        display: flex;
-        flex-direction: row;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-    input{
-       border-bottom: 1px solid ${colors.grey};
-       border-left: none;
-       border-top:none;
-       border-right:none;
-       text-align: center;
-       width: 50%;
-       margin-left: 25%;
-  
-    }
-`;
-export const Button = styled.input`
-    cursor: pointer;
-    color: ${colors.green};
-    width: 20em;
-    padding: 1em 2em;
-    background-color: rgb(235, 241, 239);
-    border: none;
-    border-radius: 12px;
-    margin-left: 40%;
-`;
-export const Select = styled.select`
-    background-color: #eee;
-    border: none;
-    outline: none;
-    padding: 5px 10px;
-    width: 150px;
-    text-align: center;
-    display: flex;
-`;
 export const NewBooking = () => {
     const dispatch = useDispatch();
     const handleCreateBooking = (e) => {
@@ -57,7 +13,7 @@ export const NewBooking = () => {
             order_date: e.target.date.value,
             check_in: e.target.check_in.value,
             check_out: e.target.check_out.value,
-            // room_type: e.target.room_type1.value,
+            room_type: e.target.select.value,
 
         };
         dispatch(createBooking(newBooking));
@@ -79,16 +35,16 @@ export const NewBooking = () => {
                 <label htmlFor="fname">Check out</label>
                 <input type="date" id="check_out" name="check_out" defaultValue="" placeholder="Check out" />
 
-
-                <Select name="select">
-                    <option value="value1" id="room_type1">Suite</option>
-                    <option value="value2" id="room_type2" >Double Bed</option>
-                    <option value="value3" id="room_type3">Double Superior</option>
+                <Select name="select" defaultValue="">
+                    <option value="Suite" id="option_1">Suite</option>
+                    <option value="Double Bed" id="option_2" >Double Bed</option>
+                    <option value="Double Superior" id="option_3">Double Superior</option>
+                    <option value="Single Bed" id="option_3">Single Bed</option>
                 </Select>
 
-                {/* <CustomLink to="/users"> */}
+                <CustomLink to="/bookings">
                 <Button type="submit" value="Create" />
-                {/* </CustomLink> */}
+                </CustomLink>
             </Form>
         </div>
     );

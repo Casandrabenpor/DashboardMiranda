@@ -52,4 +52,5 @@ export const Select = styled.select`
     width: 150px;
     text-align: center;
     display: flex;
+    margin-left: 45%;
 `;

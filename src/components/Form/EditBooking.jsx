@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { editBooking } from "../../features/jsonSlice/bookingSlice";
 import { useLocation } from 'react-router-dom';
 import { useState } from "react";
+import { CustomLink } from '../../styled/TopBarStyled';
 
 
 export const EditBooking = () => {
@@ -54,9 +55,9 @@ export const EditBooking = () => {
                     <option value="Single Bed" id="option_3">Single Bed</option>
                 </Select>
 
-                {/* <CustomLink to="/users"> */}
+                <CustomLink to="/bookings">
                 <Button type="submit" value="Edit" />
-                {/* </CustomLink> */}
+                </CustomLink>
             </Form>
         </div>
     );

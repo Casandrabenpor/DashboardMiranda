@@ -1,44 +1,10 @@
-import styled from "styled-components";
-import { colors } from "../../styled/theme";
 import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { createRoom } from "../../features/jsonSlice/roomSlice";
+import { Form, Button, Select, FormTitle } from "../../styled/EditStyled";
+import { CustomLink } from '../../styled/TopBarStyled';
 
-export const FormTitle = styled.h1`
-    text-align: center;
-`;
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    label{
-        display: flex;
-        flex-direction: row;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-    input{
-       border-bottom: 1px solid ${colors.grey};
-       border-left: none;
-       border-top:none;
-       border-right:none;
-       text-align: center;
-       width: 50%;
-       margin-left: 25%;
-  
-    }
-`;
-export const Button = styled.input`
-    cursor: pointer;
-    color: ${colors.green};
-    width: 20em;
-    padding: 1em 2em;
-    background-color: rgb(235, 241, 239);
-    border: none;
-    border-radius: 12px;
-    margin-left: 40%;
-`;
+
 export const NewRoom = () => {
     const dispatch = useDispatch();
     const [roomStatus, setRoomStatus] = useState('Available');
@@ -51,8 +17,8 @@ export const NewRoom = () => {
         let newRoom = {
             room_number: e.target.room_number.value,
             room_id: e.target.room_id.value,
-            amenities: [ e.target.amenities.value],
-            bed_type: e.target.bed_type.value,
+            amenities: [e.target.amenities.value],
+            bed_type: e.target.select.value,
             rate: e.target.rate.value,
             offer_price: e.target.offer_price.value,
             status: roomStatus,
@@ -66,36 +32,40 @@ export const NewRoom = () => {
                 <label htmlFor="fname">Photo Url</label>
                 <input type="text" id="photo" name="photo" defaultValue="" placeholder="img" />
                 <label htmlFor="lname">Room Number</label>
-                <input type="text" id="room_number" name="name" defaultValue="" placeholder="Room Number" />
+                <input type="number" id="room_number" name="name" defaultValue="" placeholder="Room Number" />
                 <label htmlFor="lname">Room Id</label>
                 <input type="text" id="room_id" name="room_id" defaultValue="" placeholder="Room Id" />
                 <label htmlFor="fname">Amenities</label>
                 <input type="text" id="amenities" name="amenities" defaultValue="" placeholder="Amenities" />
-                <label htmlFor="Description">Bed type</label>
-                <input type="text" id="bed_type" name="bed_type" defaultValue="" placeholder="Bed type" />
+                <Select name="select" defaultValue="">
+                    <option value="Suite" id="option_1">Suite</option>
+                    <option value="Double Bed" id="option_2" >Double Bed</option>
+                    <option value="Double Superior" id="option_3">Double Superior</option>
+                    <option value="Single Bed" id="option_3">Single Bed</option>
+                </Select>
                 <label htmlFor="Phone Number">Rate</label>
-                <input type="number" id="rate" name="rate" defaultValue="" placeholder="Rate" />
+                <input type="number" id="rate" name="rate" min="10" defaultValue="" placeholder="Rate" />
                 <label htmlFor="fname">Offer price</label>
-                <input type="text" id="offer_price" name="offer_price" defaultValue="" placeholder="Offer price" />
+                <input type="text" id="offer_price" name="offer_price" min="1" defaultValue="" placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
                 <label for="status1">Available</label>
-                <input type="radio" 
-                    id="status1" 
-                    name="status" 
-                    value="Available" 
+                <input type="radio"
+                    id="status1"
+                    name="status"
+                    value="Available"
                     checked={roomStatus === 'Available'}
-                    onChange={handleStatusChange}/>
+                    onChange={handleStatusChange} />
                 <label for="status2">Occupied</label>
                 <input type="radio"
                     id="status2"
                     name="status"
-                    value="Occupied" 
-                    checked={roomStatus === 'Occupied'} 
-                    onChange={handleStatusChange}/>
-            
-                {/* <CustomLink to="/users"> */}
-                <Button type="submit" value="Create" />
-                {/* </CustomLink> */}
+                    value="Occupied"
+                    checked={roomStatus === 'Occupied'}
+                    onChange={handleStatusChange} />
+
+                <CustomLink to="/rooms">
+                    <Button type="submit" value="Create" />
+                </CustomLink>
             </Form>
         </div>
     );

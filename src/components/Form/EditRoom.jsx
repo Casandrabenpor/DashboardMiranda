@@ -1,16 +1,17 @@
 
-import {Form,Button,Select,FormTitle,Container} from "../../styled/EditStyled";
-import { useSelector ,useDispatch} from "react-redux";
+import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
+import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { editRoom } from "../../features/jsonSlice/roomSlice";
+import { CustomLink } from '../../styled/TopBarStyled';
 
 
 
 export const EditRoom = () => {
     const dispatch = useDispatch();
     const location = useLocation()
-    const roomId = parseInt(location.pathname.replace("/rooms/edit/",""));
+    const roomId = parseInt(location.pathname.replace("/rooms/edit/", ""));
 
     const rooms = useSelector(state => state.room.data);
     const room = rooms.find(room => room.room_id === roomId);
@@ -25,8 +26,8 @@ export const EditRoom = () => {
         let updateRoom = {
             room_number: e.target.room_number.value,
             room_id: parseInt(e.target.room_id.value),
-            amenities: [ e.target.amenities.value],
-            bed_type: e.target.bed_type.value,
+            amenities: [e.target.amenities.value],
+            bed_type: e.target.select.value,
             rate: e.target.rate.value,
             offer_price: e.target.offer_price.value,
             status: roomStatus,
@@ -46,30 +47,39 @@ export const EditRoom = () => {
                 <input type="text" id="room_id" name="room_id" value={room.room_id} placeholder="Room Id" />
                 <label htmlFor="fname">Amenities</label>
                 <input type="text" id="amenities" name="amenities" defaultValue={room.amenities[0]} placeholder="Amenities" />
-                <label htmlFor="Description">Bed type</label>
-                <input type="text" id="bed_type" name="bed_type" defaultValue={room.bed_type} placeholder="Bed type" />
+                {/* <label htmlFor="Description">Bed type</label>
+                <input type="text" id="bed_type" name="bed_type" defaultValue={room.bed_type} placeholder="Bed type" /> */}
+                <Select name="select" defaultValue={room.room_type}>
+                    <option value="Suite" id="option_1">Suite</option>
+                    <option value="Double Bed" id="option_2" >Double Bed</option>
+                    <option value="Double Superior" id="option_3">Double Superior</option>
+                    <option value="Single Bed" id="option_3">Single Bed</option>
+                </Select>
+
+
                 <label htmlFor="Phone Number">Rate</label>
-                <input type="number" id="rate" name="rate" defaultValue={room.rate} placeholder="Rate" />
+                <input type="number" id="rate" name="rate" min="10" defaultValue={room.rate} placeholder="Rate" />
                 <label htmlFor="fname">Offer price</label>
-                <input type="text" id="offer_price" name="offer_price" defaultValue={room.offer_price} placeholder="Offer price" />
+                <input type="text" id="offer_price" name="offer_price" min="1" defaultValue={room.offer_price} placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
                 <label for="status1">Available</label>
-                <input type="radio" 
-                    id="status1" 
-                    name="status" 
-                    value="Available" 
+                <input type="radio"
+                    id="status1"
+                    name="status"
+                    value="Available"
                     checked={roomStatus === 'Available'}
-                    onChange={handleStatusChange}/>
+                    onChange={handleStatusChange} />
                 <label for="status2">Occupied</label>
                 <input type="radio"
                     id="status2"
                     name="status"
-                    value="Occupied" 
-                    checked={roomStatus === 'Occupied'} 
-                    onChange={handleStatusChange}/>
-            
-                <Button type="submit" value="Edit" />
-            
+                    value="Occupied"
+                    checked={roomStatus === 'Occupied'}
+                    onChange={handleStatusChange} />
+                <CustomLink to="/rooms">
+                    <Button type="submit" value="Edit" />
+                </CustomLink>
+
             </Form>
         </Container>
     );

@@ -2,7 +2,7 @@ import {Form,Button,Select,FormTitle} from "../../styled/EditStyled";
 import { useSelector, useDispatch } from "react-redux";
 import { editContact } from "../../features/jsonSlice/contactSlice";
 import { useLocation } from 'react-router-dom';
-
+import { CustomLink } from '../../styled/TopBarStyled';
 
 
 
@@ -40,9 +40,9 @@ export const EditContact = () => {
             <input type="text" id="comment" name="comment" defaultValue={contact.comment} placeholder="comment" />
         
 
-            {/* <CustomLink to="/users"> */}
+            <CustomLink to="/contact">
             <Button type="submit" value="Edit" />
-            {/* </CustomLink> */}
+            </CustomLink>
             </Form>
         </div>
     );

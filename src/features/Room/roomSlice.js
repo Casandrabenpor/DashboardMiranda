@@ -6,10 +6,25 @@ export const roomSlice = createSlice({
     initialState: {
         status: "idle",
         data: [],
+        filteredData:[],
     },
     reducers: {
+        filteredAll: (state, action) => {
+            // Filtra las habitaciones 
+            state.filteredData = state.data.filter(room => room.status === 'Available' || 'Occupied');
+          },
+        filteredAvailable: (state, action) => {
+            // Filtra las habitaciones y actualiza el estado en función del estado "Available"
+            state.filteredData = state.data.filter(room => room.status === 'Available');
+          },
+          filteredOccupied: (state, action) => {
+            // Filtra las habitaciones y actualiza el estado en función del estado "Occupied"
+            state.filteredData = state.data.filter(room => room.status === 'Occupied');
+          },
+        },
+      
 
-    },
+ 
     extraReducers: (buider) => {
         buider
             .addCase(downloadRooms.pending, (state) => {
@@ -21,6 +36,7 @@ export const roomSlice = createSlice({
             .addCase(downloadRooms.fulfilled, (state, action) => {
                 state.status = "fulfilled";
                 state.data = action.payload;
+                state.filteredData = state.data;
             })
             .addCase(createRoom.pending, (state) => {
                 state.status = "loading";
@@ -31,6 +47,7 @@ export const roomSlice = createSlice({
             .addCase(createRoom.fulfilled, (state, action) => {
                 state.status = "fulfilled";
                 state.data.push(action.payload);
+                state.filteredData = state.data;
             })
             .addCase(deleteRoom.pending, (state) => {
                 state.status = "loading";
@@ -69,3 +86,5 @@ export const editRoom = createAsyncThunk("room/editRoom", async (editedRoom) => 
     await new Promise(resolve => setTimeout(resolve, 200));
     return editedRoom;
 });
+export const { filteredAll,filteredAvailable, filteredOccupied } = roomSlice.actions;
+export default roomSlice.reducer;

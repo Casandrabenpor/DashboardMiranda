@@ -11,9 +11,10 @@ const TableRoom = () => {
     // Funcion para sacar del json [] a la tabla
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const rooms = useSelector(state => state.room.data);
+    const rooms = useSelector(state => state.room.filteredData);
     const status = useSelector(state => state.room.status);
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         if (status === "idle") {

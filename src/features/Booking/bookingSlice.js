@@ -8,8 +8,8 @@ export const bookingSlice = createSlice({
         data: [],
         filteredData: [],
     },
-    //Search
     reducers: {
+        //Search
         filterBookings: (state, action) => {
             const searchTerm = action.payload;
             if (searchTerm) {
@@ -25,19 +25,37 @@ export const bookingSlice = createSlice({
 
             }
         },
-        //Para ordenar date,guest,check in y check out
-        orderBookings: (state, action) => {
-            let bookings = state.filteredData;
-            if (action.payload === "date") {
-                state.filteredData = bookings.sort(
-                    (current, next) => {
-                        let currentDate = createDateFromString(current.date);
-                        let nextDate = createDateFromString(next.date);
-                        return currentDate - nextDate;
-                    }
-                )
-            }
+        // TABS BOOKING, FILTRAR POR all booking, checking,checkout o in progress
+        filteredAll: (state, action) => {
+            // Filtra los status 
+            state.filteredData = state.data.filter(booking => booking.status === 'Check in' || 'Check out' || 'In Progress');
+        },
+        filteredChecking: (state, action) => {
+            // Filtra checkin
+            state.filteredData = state.data.filter(booking => booking.status === 'Check In');
+        },
+        filteredCheckout: (state, action) => {
+            // Filtra checkout
+            state.filteredData = state.data.filter(booking => booking.status === 'Check Out');
+        },
+        filteredInProgress: (state, action) => {
+            // Filtra inProgress
+            state.filteredData = state.data.filter(booking => booking.status === 'In Progress');
+        },
+    },
+    //Para ordenar date,guest,check in y check out
+    orderBookings: (state, action) => {
+        let bookings = state.filteredData;
+        if (action.payload === "date") {
+            state.filteredData = bookings.sort(
+                (current, next) => {
+                    let currentDate = createDateFromString(current.date);
+                    let nextDate = createDateFromString(next.date);
+                    return currentDate - nextDate;
+                }
+            )
         }
+
 
     },
     extraReducers: (buider) => {
@@ -74,8 +92,7 @@ export const bookingSlice = createSlice({
             .addCase(deleteBooking.fulfilled, (state, action) => {
                 state.status = "fulfilled";
                 state.data = state.data.filter(booking =>
-                    booking.id != action.payload.id);
-
+                booking.id !== action.payload.id);
                 state.filteredData = state.data;
             })
             .addCase(editBooking.pending, (state) => {
@@ -107,26 +124,27 @@ export const editBooking = createAsyncThunk("booking/editBooking", async (edited
 });
 //función para ordenar los dias,meses y años en js
 
-  
-  // Nota: En JavaScript, los meses empiezan en 0 (enero es el mes 0)
-  function createDateFromString(dateString) {
+
+// Nota: En JavaScript, los meses empiezan en 0 (enero es el mes 0)
+function createDateFromString(dateString) {
     if (!dateString) {
-      return null; // Manejar el caso de valor indefinido o vacío según tus necesidades
+        return null; // Manejar el caso de valor indefinido o vacío según tus necesidades
     }
-    
+
     const dateTimeParts = dateString.split("T");
     const dateParts = dateTimeParts[0].split("-");
     const timeParts = dateTimeParts[1].split(":");
-    
+
     const year = parseInt(dateParts[0]);
     const month = parseInt(dateParts[1]) - 1;
     const day = parseInt(dateParts[2]);
     const hour = parseInt(timeParts[0]);
     const minute = parseInt(timeParts[1]);
-    
+
     const date = new Date(year, month, day, hour, minute);
-    
+
     return date;
-  }
-  
-export const { filterBookings,orderBookings } = bookingSlice.actions;
+}
+
+export const { filterBookings, orderBookings, filteredAll, filteredChecking, filteredCheckout, filteredInProgress } = bookingSlice.actions;
+export default bookingSlice.reducer;

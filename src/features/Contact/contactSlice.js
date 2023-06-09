@@ -48,6 +48,7 @@ export const contactSlice = createSlice({
           .addCase(createContact.fulfilled, (state, action) => {
             state.status = "fulfilled";
             state.data.push(action.payload);
+            state.filteredData = state.data;
           })
           .addCase(deleteContact.pending, (state) => {
             state.status = "loading";
@@ -58,7 +59,8 @@ export const contactSlice = createSlice({
         .addCase(deleteContact.fulfilled, (state, action) => {
             state.status = "fulfilled";
             state.data = state.data.filter(contact =>
-                contact.order_id != action.payload.order_id);
+                contact.order_id !== action.payload.order_id);
+                state.filteredData = state.data;
         })
         .addCase(editContact.pending, (state) => {
           state.status = "loading";
@@ -70,6 +72,7 @@ export const contactSlice = createSlice({
           state.status = "fulfilled";
           let index = state.data.findIndex(contact => contact.order_id === action.payload.order_id);
           state.data[index] = action.payload;
+          state.filteredData = state.data;
         });
     },
 });

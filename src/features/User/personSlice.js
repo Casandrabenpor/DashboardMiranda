@@ -9,6 +9,7 @@ export const personSlice = createSlice({
     filteredData: [],
   },
   reducers: {
+    //SEARCH
     filterUsers: (state, action) => {
       const searchTerm = action.payload;
       if (searchTerm) {
@@ -24,6 +25,19 @@ export const personSlice = createSlice({
 
       }
     },
+    //Filtrar users
+    filteredAll: (state, action) => {
+      // Filtra las habitaciones 
+      state.filteredData = state.data.filter(person => person.status === 'inactive' || 'active');
+    },
+    filteredInactive: (state, action) => {
+      // Filtra las habitaciones y actualiza el estado en función del estado "Available"
+      state.filteredData = state.data.filter(person => person.status === 'inactive');
+    },
+    filteredActive: (state, action) => {
+      // Filtra las habitaciones y actualiza el estado en función del estado "Occupied"
+      state.filteredData = state.data.filter(person => person.status === 'active');
+    },
   },
   extraReducers: (buider) => {
     buider
@@ -36,6 +50,7 @@ export const personSlice = createSlice({
       .addCase(downloadPeople.fulfilled, (state, action) => {
         state.status = "fulfilled";
         state.data = action.payload;
+        state.filteredData = state.data;
       })
       .addCase(createPerson.pending, (state) => {
         state.status = "loading";
@@ -46,6 +61,7 @@ export const personSlice = createSlice({
       .addCase(createPerson.fulfilled, (state, action) => {
         state.status = "fulfilled";
         state.data.push(action.payload);
+        state.filteredData = state.data;
       })
       .addCase(deletePerson.pending, (state) => {
         state.status = "loading";
@@ -57,6 +73,7 @@ export const personSlice = createSlice({
         state.status = "fulfilled";
         state.data = state.data.filter(user =>
           user.id != action.payload.id);
+        state.filteredData = state.data;
       })
       .addCase(editPerson.pending, (state) => {
         state.status = "loading";
@@ -68,6 +85,7 @@ export const personSlice = createSlice({
         state.status = "fulfilled";
         let index = state.data.findIndex(person => person.id === action.payload.id);
         state.data[index] = action.payload;
+        state.filteredData = state.data;
       });
   },
 });
@@ -83,4 +101,5 @@ export const editPerson = createAsyncThunk("person/editPerson", async (editedPeo
   await new Promise(resolve => setTimeout(resolve, 200));
   return editedPeople;
 });
-export const { filterUsers } = personSlice.actions;
+export const { filterUsers, filteredActive, filteredAll, filteredInactive } = personSlice.actions;
+export default personSlice.reducer;

@@ -58,7 +58,8 @@ export const roomSlice = createSlice({
             .addCase(deleteRoom.fulfilled, (state, action) => {
                 state.status = "fulfilled";
                 state.data = state.data.filter(room =>
-                    room.room_id != action.payload.room_id);
+                    room.room_id !== action.payload.room_id);
+                    state.filteredData = state.data;
             })
             .addCase(editRoom.pending, (state) => {
                 state.status = "loading";
@@ -70,6 +71,7 @@ export const roomSlice = createSlice({
                 state.status = "fulfilled";
                 let index = state.data.findIndex(room => room.room_id === action.payload.room_id);
                 state.data[index] = action.payload;
+                state.filteredData = state.data;
             });
     },
 });

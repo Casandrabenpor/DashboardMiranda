@@ -4,8 +4,9 @@ import { ButtonGreenDark } from "../styled/ButtonStyled";
 import { CustomLink, Content } from '../styled/TopBarStyled';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { filterBookings } from "../features/jsonSlice/bookingSlice";
-
+import { filterBookings } from "../features/Booking/bookingSlice";
+import { filterContacts } from "../features/Contact/contactSlice";
+import { filterUsers } from "../features/User/personSlice";
 export const Input = styled.input`
     padding: 1em 2em;
     border-radius: 12px;
@@ -28,27 +29,51 @@ export const Container = styled.div`
     margin-left: 60%;
 `;
 
-export const Search = () => {
+export const SearchBooking = () => {
     const dispatch = useDispatch();
 
-    const handleSearch = (event) => {
+    const handleSearchBooking = (event) => {
         event.preventDefault();
         const query = event.target.value;
         dispatch(filterBookings(query));
     };
+
     return (
         <div>
-            <Input placeholder="Search..." onChange={handleSearch} />
+            <Input placeholder="Search..." onChange={handleSearchBooking} />
 
         </div>
     );
 };
-export const SearchDifferent = () => {
+export const SearchUser = () => {
+    const dispatch = useDispatch();
+
+    const handleSearchUser = (event) => {
+        event.preventDefault();
+        const query = event.target.value;
+        dispatch(filterUsers(query));
+    };
+
+    return (
+        <div>
+            <Input placeholder="Search..." onChange={handleSearchUser} />
+
+        </div>
+    );
+};
+export const SearchContact = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
+    const dispatch = useDispatch();
+    
+    const handleSearchContact = (event) => {
+        event.preventDefault();
+        const query = event.target.value;
+        dispatch(filterContacts(query));
+    };
     return (
         <Container>
             <Content sideBarActivated={sideBarActivated}>
-                <InputWithDifferentStyle placeholder="Search ..." />
+                <InputWithDifferentStyle placeholder="Search ..." onChange={handleSearchContact} />
                 <CustomLink to="/newContact">
                     <ButtonGreenDark>New Contact</ButtonGreenDark>
                 </CustomLink>

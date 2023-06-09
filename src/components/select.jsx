@@ -1,8 +1,8 @@
 import { SelectStyled,StyledSearchSelect,ButtonGreenDark } from "../styled/ButtonStyled";
 import { Content,CustomLink } from '../styled/TopBarStyled';
 import { useDispatch, useSelector } from "react-redux";
-import { Search } from "./search";
-import { orderBookings } from "../features/jsonSlice/bookingSlice";
+import { SearchBooking } from "./search";
+import { orderBookings } from "../features/Booking/bookingSlice";
 
 export const Select = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
@@ -17,7 +17,7 @@ export const Select = () => {
     return (
         <Content sideBarActivated={sideBarActivated}>
             <StyledSearchSelect>
-                <Search></Search>
+                <SearchBooking></SearchBooking>
                 <CustomLink to="/newBooking">
                 <ButtonGreenDark>New Booking</ButtonGreenDark>
                 </CustomLink>

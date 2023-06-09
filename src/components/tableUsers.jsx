@@ -4,11 +4,11 @@ import { ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadPeople } from "../features/jsonSlice/fileDownloadSlice";
-import { deletePerson } from "../features/jsonSlice/personSlice";
+import { deletePerson } from "../features/User/personSlice";
 // Funcion para sacar del json [] a la tabla
 const TableUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const users = useSelector(state => state.person.data);
+    const users = useSelector(state => state.person.filteredData);
     const status = useSelector(state => state.person.status);
     const dispatch = useDispatch();
     useEffect(() => {

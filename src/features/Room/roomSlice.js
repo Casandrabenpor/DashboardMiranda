@@ -1,4 +1,4 @@
-import { downloadRooms } from "./fileDownloadSlice";
+import { downloadRooms } from "../jsonSlice/fileDownloadSlice";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const roomSlice = createSlice({

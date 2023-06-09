@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { sideBarSlice } from '../features/sideBarSlice';
 import userReducer from '../features/loginSlice/userSlice';
-import { personSlice } from '../features/jsonSlice/personSlice';
-import {contactSlice} from '../features/jsonSlice/contactSlice';
-import {bookingSlice} from '../features/jsonSlice/bookingSlice';
-import {roomSlice} from '../features/jsonSlice/roomSlice';
+import { personSlice } from '../features/User/personSlice';
+import {contactSlice} from '../features/Contact/contactSlice';
+import {bookingSlice} from '../features/Booking/bookingSlice';
+import {roomSlice} from '../features/Room/roomSlice';
 
 export const store = configureStore({
   reducer: {

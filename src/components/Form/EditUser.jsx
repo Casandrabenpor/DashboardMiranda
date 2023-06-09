@@ -1,9 +1,9 @@
 
-import {Form,Button,Select,FormTitle} from "../../styled/EditStyled";
+import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { useSelector ,useDispatch} from "react-redux";
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { editPerson } from "../../features/jsonSlice/personSlice";
+import { editPerson } from "../../features/User/personSlice";
 import { CustomLink } from '../../styled/TopBarStyled';
 
 
@@ -37,7 +37,7 @@ export const EditPerson = () => {
     }
 
     return (
-        <div>
+        <Container>
             <FormTitle>EDIT USER</FormTitle>
             <Form on onSubmit={handleEditPerson}>
                 <label htmlFor="fname">Photo Url</label>
@@ -73,6 +73,6 @@ export const EditPerson = () => {
                 <Button type="submit" value="Edit" />
                 </CustomLink>
             </Form>
-        </div>
+        </Container>
     );
 };

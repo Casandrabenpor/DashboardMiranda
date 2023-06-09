@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import {Form,Button,Select,FormTitle} from "../../styled/EditStyled";
-import { createContact } from "../../features/jsonSlice/contactSlice";
+import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
+import { createContact } from "../../features/Contact/contactSlice";
 import { CustomLink } from '../../styled/TopBarStyled';
 
 export const NewContact = () => {
@@ -18,7 +18,7 @@ export const NewContact = () => {
         dispatch(createContact(newContact));
     }
 return (
-    <div>
+    <Container>
         <FormTitle>NEW CONTACT</FormTitle>
         <Form onSubmit={handleCreateContact}>
          
@@ -36,6 +36,6 @@ return (
             <Button type="submit" value="Create" />
             </CustomLink>
         </Form>
-    </div>
+    </Container>
 );
 };

@@ -1,8 +1,8 @@
-import { Form, Button, Select, FormTitle } from "../../styled/EditStyled";
+import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { CustomLink } from "../../styled/TopBarStyled";
 import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
-import { createPerson } from "../../features/jsonSlice/personSlice";
+import { createPerson } from "../../features/User/personSlice";
 
 export const NewUser = () => {
     const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export const NewUser = () => {
         dispatch(createPerson(newPerson));
     }
     return (
-        <div>
+        <Container>
             <FormTitle>NEW USER</FormTitle>
             <Form on onSubmit={handleCreatePerson}>
                 <label htmlFor="fname">Photo Url</label>
@@ -61,6 +61,6 @@ export const NewUser = () => {
                     <Button type="submit" value="Create" />
                 </CustomLink>
             </Form>
-        </div>
+        </Container>
     );
 };

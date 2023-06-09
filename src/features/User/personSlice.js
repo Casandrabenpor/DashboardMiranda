@@ -1,14 +1,29 @@
-import { downloadPeople } from "./fileDownloadSlice";
+import { downloadPeople } from "../jsonSlice/fileDownloadSlice";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const personSlice = createSlice({
   name: "person",
   initialState: {
     status: "idle",
-    data: []
+    data: [],
+    filteredData: [],
   },
   reducers: {
+    filterUsers: (state, action) => {
+      const searchTerm = action.payload;
+      if (searchTerm) {
+        state.filteredData = state.data.filter((person) => {
+          if (!person.name) {
+            return false;
+          }
+          return person.name.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+      } else {
+        // Si no hay un término de búsqueda, mostramos todos los datos originales
+        state.filteredData = state.data;
 
+      }
+    },
   },
   extraReducers: (buider) => {
     buider
@@ -68,3 +83,4 @@ export const editPerson = createAsyncThunk("person/editPerson", async (editedPeo
   await new Promise(resolve => setTimeout(resolve, 200));
   return editedPeople;
 });
+export const { filterUsers } = personSlice.actions;

@@ -1,5 +1,5 @@
-import {Form,Button,Select,FormTitle} from "../../styled/EditStyled";
-import { createBooking } from "../../features/jsonSlice/bookingSlice";
+import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
+import { createBooking } from "../../features/Booking/bookingSlice";
 import { useDispatch } from "react-redux";
 import { CustomLink } from '../../styled/TopBarStyled';
 
@@ -19,7 +19,7 @@ export const NewBooking = () => {
         dispatch(createBooking(newBooking));
     }
     return (
-        <div>
+        <Container>
             <FormTitle>NEW BOOKING</FormTitle>
             <Form onSubmit={handleCreateBooking}>
                 <label htmlFor="fname">Photo Url</label>
@@ -46,6 +46,6 @@ export const NewBooking = () => {
                 <Button type="submit" value="Create" />
                 </CustomLink>
             </Form>
-        </div>
+        </Container>
     );
 };

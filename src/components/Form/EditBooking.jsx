@@ -1,7 +1,7 @@
 
-import {Form,Button,Select,FormTitle} from "../../styled/EditStyled";
+import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { useSelector, useDispatch } from "react-redux";
-import { editBooking } from "../../features/jsonSlice/bookingSlice";
+import { editBooking } from "../../features/Booking/bookingSlice";
 import { useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { CustomLink } from '../../styled/TopBarStyled';
@@ -31,7 +31,7 @@ export const EditBooking = () => {
 
 
     return (
-        <div>
+        <Container>
             <FormTitle>EDIT BOOKING</FormTitle>
             <Form onSubmit={handleEditBooking}>
                 <label htmlFor="fname">Photo Url</label>
@@ -59,6 +59,6 @@ export const EditBooking = () => {
                 <Button type="submit" value="Edit" />
                 </CustomLink>
             </Form>
-        </div>
+        </Container>
     );
 };

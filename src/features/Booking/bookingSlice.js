@@ -1,4 +1,4 @@
-import { downloadBooking } from "./fileDownloadSlice";
+import { downloadBooking } from "../jsonSlice/fileDownloadSlice";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const bookingSlice = createSlice({
@@ -6,7 +6,7 @@ export const bookingSlice = createSlice({
     initialState: {
         status: "idle",
         data: [],
-        filteredData: []
+        filteredData: [],
     },
     //Search
     reducers: {

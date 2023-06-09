@@ -6,6 +6,7 @@ export const Container = styled.div`
     border-radius: 12px;
     width: 70%;
     margin-left: 15%;
+    padding: 2em;
 `;
 export const FormTitle = styled.h1`
     text-align: center;
@@ -37,7 +38,7 @@ export const Form = styled.form`
 export const Button = styled.input`
     cursor: pointer;
     color: ${colors.green};
-    width: 20em;
+    width: 10em;
     padding: 1em 2em;
     background-color: rgb(235, 241, 239);
     border: none;

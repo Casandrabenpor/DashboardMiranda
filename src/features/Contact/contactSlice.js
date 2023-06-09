@@ -1,4 +1,4 @@
-import { downloadContact } from "./fileDownloadSlice";
+import { downloadContact } from "../jsonSlice/fileDownloadSlice";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const contactSlice = createSlice({
@@ -6,8 +6,24 @@ export const contactSlice = createSlice({
     initialState: {
         status: "idle",
         data:[] ,
+        filteredData: [],
     },
     reducers: {
+      filterContacts: (state, action) => {
+        const searchTerm = action.payload;
+        if (searchTerm) {
+            state.filteredData = state.data.filter((contact) => {
+                if (!contact.customer) {
+                    return false;
+                }
+                return contact.customer.toLowerCase().includes(searchTerm.toLowerCase());
+            });
+        } else {
+            // Si no hay un término de búsqueda, mostramos todos los datos originales
+            state.filteredData = state.data;
+
+        }
+    },
       
     },
     extraReducers: (buider) => {
@@ -21,6 +37,7 @@ export const contactSlice = createSlice({
           .addCase(downloadContact.fulfilled, (state, action) => {
             state.status = "fulfilled";
             state.data = action.payload;
+            state.filteredData = state.data;
           })
           .addCase(createContact.pending, (state) => {
             state.status = "loading";
@@ -69,3 +86,4 @@ export const editContact = createAsyncThunk("contact/editContact", async (edited
   await new Promise(resolve => setTimeout(resolve, 200));
   return editedContact;
 });
+export const {filterContacts} = contactSlice.actions;

@@ -4,14 +4,14 @@ import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadContact } from "../features/jsonSlice/fileDownloadSlice";
-import { deleteContact } from "../features/jsonSlice/contactSlice";
+import { deleteContact } from "../features/Contact/contactSlice";
 
 const TableContact = () => {
 
     // Funcion para sacar del json [] a la tabla
 
     const sideBarActivated = useSelector(state => state.sidebar.activated);
-    const contactUser = useSelector(state => state.contact.data);
+    const contactUser = useSelector(state => state.contact.filteredData);
     const status = useSelector(state => state.contact.status);
     const dispatch = useDispatch();
     useEffect(() => {

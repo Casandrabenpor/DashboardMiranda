@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
-import { createRoom } from "../../features/jsonSlice/roomSlice";
-import { Form, Button, Select, FormTitle } from "../../styled/EditStyled";
+import { createRoom } from "../../features/Room/roomSlice";
+import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { CustomLink } from '../../styled/TopBarStyled';
 
 
@@ -26,7 +26,7 @@ export const NewRoom = () => {
         dispatch(createRoom(newRoom));
     }
     return (
-        <div>
+        <Container>
             <FormTitle>NEW ROOM</FormTitle>
             <Form onSubmit={handleCreateRoom}>
                 <label htmlFor="fname">Photo Url</label>
@@ -46,7 +46,7 @@ export const NewRoom = () => {
                 <label htmlFor="Phone Number">Rate</label>
                 <input type="number" id="rate" name="rate" min="10" defaultValue="" placeholder="Rate" />
                 <label htmlFor="fname">Offer price</label>
-                <input type="text" id="offer_price" name="offer_price" min="1" defaultValue="" placeholder="Offer price" />
+                <input type="number" id="offer_price" name="offer_price" min="1" defaultValue="" placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
                 <label for="status1">Available</label>
                 <input type="radio"
@@ -67,6 +67,6 @@ export const NewRoom = () => {
                     <Button type="submit" value="Create" />
                 </CustomLink>
             </Form>
-        </div>
+        </Container>
     );
 };

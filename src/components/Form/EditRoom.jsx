@@ -3,7 +3,7 @@ import { Form, Button, Select, FormTitle, Container } from "../../styled/EditSty
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { editRoom } from "../../features/jsonSlice/roomSlice";
+import { editRoom } from "../../features/Room/roomSlice";
 import { CustomLink } from '../../styled/TopBarStyled';
 
 
@@ -60,7 +60,7 @@ export const EditRoom = () => {
                 <label htmlFor="Phone Number">Rate</label>
                 <input type="number" id="rate" name="rate" min="10" defaultValue={room.rate} placeholder="Rate" />
                 <label htmlFor="fname">Offer price</label>
-                <input type="text" id="offer_price" name="offer_price" min="1" defaultValue={room.offer_price} placeholder="Offer price" />
+                <input type="number" id="offer_price" name="offer_price" min="1" defaultValue={room.offer_price} placeholder="Offer price" />
                 <label htmlFor="fname">Room status</label>
                 <label for="status1">Available</label>
                 <input type="radio"

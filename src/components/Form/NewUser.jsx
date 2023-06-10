@@ -1,11 +1,12 @@
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
-import { CustomLink } from "../../styled/TopBarStyled";
 import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { createPerson } from "../../features/User/personSlice";
+import { useNavigate  } from 'react-router-dom';
 
 export const NewUser = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [personStatus, setPersonStatus] = useState('Active');
     const handleStatusChange = (e) => {
         setPersonStatus(e.target.value); // Actualizar el estado con el valor seleccionado
@@ -23,6 +24,7 @@ export const NewUser = () => {
             status: personStatus,
         };
         dispatch(createPerson(newPerson));
+        navigate("/users");
     }
     return (
         <Container>
@@ -57,9 +59,7 @@ export const NewUser = () => {
                     checked={personStatus === 'Inactive'} // Marcar el radio button si el valor es "Inactive"
                     onChange={handleStatusChange} />
                 <label for="status2">Inactive</label>
-                <CustomLink to="/users">
-                    <Button type="submit" value="Create" />
-                </CustomLink>
+                <Button type="submit" value="Create" />
             </Form>
         </Container>
     );

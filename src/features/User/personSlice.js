@@ -102,4 +102,3 @@ export const editPerson = createAsyncThunk("person/editPerson", async (editedPeo
   return editedPeople;
 });
 export const { filterUsers, filteredActive, filteredAll, filteredInactive } = personSlice.actions;
-export default personSlice.reducer;

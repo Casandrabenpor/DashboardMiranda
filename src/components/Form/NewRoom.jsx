@@ -2,11 +2,11 @@ import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { createRoom } from "../../features/Room/roomSlice";
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
-import { CustomLink } from '../../styled/TopBarStyled';
-
+import { useNavigate  } from 'react-router-dom';
 
 export const NewRoom = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [roomStatus, setRoomStatus] = useState('Available');
     const handleStatusChange = (e) => {
         setRoomStatus(e.target.value); // Actualizar el estado con el valor seleccionado
@@ -24,6 +24,7 @@ export const NewRoom = () => {
             status: roomStatus,
         };
         dispatch(createRoom(newRoom));
+        navigate("/rooms");
     }
     return (
         <Container>
@@ -62,10 +63,7 @@ export const NewRoom = () => {
                     value="Occupied"
                     checked={roomStatus === 'Occupied'}
                     onChange={handleStatusChange} />
-
-                <CustomLink to="/rooms">
-                    <Button type="submit" value="Create" />
-                </CustomLink>
+                <Button type="submit" value="Create" />
             </Form>
         </Container>
     );

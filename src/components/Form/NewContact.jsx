@@ -1,10 +1,12 @@
 import { useDispatch } from "react-redux";
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { createContact } from "../../features/Contact/contactSlice";
-import { CustomLink } from '../../styled/TopBarStyled';
+import { useNavigate  } from 'react-router-dom';
 
 export const NewContact = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const handleCreateContact = (e) => {
         e.preventDefault();
         let newContact = {
@@ -16,6 +18,7 @@ export const NewContact = () => {
 
         };
         dispatch(createContact(newContact));
+        navigate("/contact");
     }
 return (
     <Container>
@@ -31,10 +34,7 @@ return (
             <label htmlFor="fname">Comment</label>
             <input type="text" id="comment" name="comment" defaultValue="" placeholder="comment" />
         
-
-            <CustomLink to="/contact">
             <Button type="submit" value="Create" />
-            </CustomLink>
         </Form>
     </Container>
 );

@@ -4,12 +4,14 @@ import { useSelector ,useDispatch} from "react-redux";
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { editPerson } from "../../features/User/personSlice";
-import { CustomLink } from '../../styled/TopBarStyled';
+import { useNavigate  } from 'react-router-dom';
+
 
 
 
 export const EditPerson = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const location = useLocation()
     const personId = parseInt(location.pathname.replace("/users/edit/",""));
 
@@ -34,6 +36,7 @@ export const EditPerson = () => {
             status: personStatus,
         };
         dispatch(editPerson(editedPerson));
+        navigate("/users");
     }
 
     return (
@@ -69,9 +72,7 @@ export const EditPerson = () => {
                     checked={person.status === 'Inactive'} // Marcar el radio button si el valor es "Inactive"
                     onChange={handleStatusChange} />
                 <label for="status2">Inactive</label>
-                <CustomLink to="/users">
                 <Button type="submit" value="Edit" />
-                </CustomLink>
             </Form>
         </Container>
     );

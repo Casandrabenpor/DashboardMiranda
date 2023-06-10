@@ -1,10 +1,11 @@
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { createBooking } from "../../features/Booking/bookingSlice";
 import { useDispatch } from "react-redux";
-import { CustomLink } from '../../styled/TopBarStyled';
+import { useNavigate  } from 'react-router-dom';
 
 export const NewBooking = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleCreateBooking = (e) => {
         e.preventDefault();
         let newBooking = {
@@ -17,6 +18,7 @@ export const NewBooking = () => {
 
         };
         dispatch(createBooking(newBooking));
+        navigate("/bookings");
     }
     return (
         <Container>
@@ -42,9 +44,7 @@ export const NewBooking = () => {
                     <option value="Single Bed" id="option_3">Single Bed</option>
                 </Select>
 
-                <CustomLink to="/bookings">
                 <Button type="submit" value="Create" />
-                </CustomLink>
             </Form>
         </Container>
     );

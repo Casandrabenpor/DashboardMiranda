@@ -4,12 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { editRoom } from "../../features/Room/roomSlice";
-import { CustomLink } from '../../styled/TopBarStyled';
+import { useNavigate  } from 'react-router-dom';
+
 
 
 
 export const EditRoom = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const location = useLocation()
     const roomId = parseInt(location.pathname.replace("/rooms/edit/", ""));
 
@@ -33,6 +35,7 @@ export const EditRoom = () => {
             status: roomStatus,
         };
         dispatch(editRoom(updateRoom));
+        navigate("/rooms");
     }
 
     return (
@@ -76,9 +79,7 @@ export const EditRoom = () => {
                     value="Occupied"
                     checked={roomStatus === 'Occupied'}
                     onChange={handleStatusChange} />
-                <CustomLink to="/rooms">
                     <Button type="submit" value="Edit" />
-                </CustomLink>
 
             </Form>
         </Container>

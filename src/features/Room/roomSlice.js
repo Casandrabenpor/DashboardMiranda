@@ -89,4 +89,3 @@ export const editRoom = createAsyncThunk("room/editRoom", async (editedRoom) => 
     return editedRoom;
 });
 export const { filteredAll,filteredAvailable, filteredOccupied } = roomSlice.actions;
-export default roomSlice.reducer;

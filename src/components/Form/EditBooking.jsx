@@ -3,18 +3,19 @@ import { Form, Button, Select, FormTitle, Container } from "../../styled/EditSty
 import { useSelector, useDispatch } from "react-redux";
 import { editBooking } from "../../features/Booking/bookingSlice";
 import { useLocation } from 'react-router-dom';
-import { useState } from "react";
-import { CustomLink } from '../../styled/TopBarStyled';
+import { useNavigate  } from 'react-router-dom';
+
 
 
 export const EditBooking = () => {
     const dispatch = useDispatch();
     const location = useLocation()
-    const bookingId = location.pathname.replace("/bookings/edit/","");
-    
+    const navigate = useNavigate();
+    const bookingId = location.pathname.replace("/bookings/edit/", "");
+
     const bookings = useSelector(state => state.booking.data);
     const booking = bookings.find(booking => booking.id === bookingId);
-    
+
     const handleEditBooking = (e) => {
         e.preventDefault();
         let editedBooking = {
@@ -27,6 +28,7 @@ export const EditBooking = () => {
             room_number: booking.room_number
         };
         dispatch(editBooking(editedBooking));
+        navigate("/bookings");
     }
 
 
@@ -39,13 +41,13 @@ export const EditBooking = () => {
                 <label htmlFor="lname">Guest</label>
                 <input type="text" id="guest" name="guest" defaultValue={booking.guest} placeholder="guest" />
                 <label htmlFor="lname">Booking Id</label>
-                <input type="text" id="booking_id" name="booking_id" value={booking.id}  placeholder="Booking id" />
+                <input type="text" id="booking_id" name="booking_id" value={booking.id} placeholder="Booking id" />
                 <label htmlFor="fname">Order date</label>
-                <input type="datetime-local" id="date" name="date" defaultValue={booking.order_date}  placeholder="date" />
+                <input type="datetime-local" id="date" name="date" defaultValue={booking.order_date} placeholder="date" />
                 <label htmlFor="fname">Check in</label>
-                <input type="date" id="check_in" name="check_in" defaultValue={booking.check_in}  placeholder="Check in" />
+                <input type="date" id="check_in" name="check_in" defaultValue={booking.check_in} placeholder="Check in" />
                 <label htmlFor="fname">Check out</label>
-                <input type="date" id="check_out" name="check_out" defaultValue={booking.check_out}  placeholder="Check out" />
+                <input type="date" id="check_out" name="check_out" defaultValue={booking.check_out} placeholder="Check out" />
 
 
                 <Select name="select" defaultValue={booking.room_type}>
@@ -54,10 +56,7 @@ export const EditBooking = () => {
                     <option value="Double Superior" id="option_3">Double Superior</option>
                     <option value="Single Bed" id="option_3">Single Bed</option>
                 </Select>
-
-                <CustomLink to="/bookings">
                 <Button type="submit" value="Edit" />
-                </CustomLink>
             </Form>
         </Container>
     );

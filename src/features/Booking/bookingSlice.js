@@ -147,4 +147,3 @@ function createDateFromString(dateString) {
 }
 
 export const { filterBookings, orderBookings, filteredAll, filteredChecking, filteredCheckout, filteredInProgress } = bookingSlice.actions;
-export default bookingSlice.reducer;

@@ -2,12 +2,13 @@ import { Form, Button, Select, FormTitle, Container } from "../../styled/EditSty
 import { useSelector, useDispatch } from "react-redux";
 import { editContact } from "../../features/Contact/contactSlice";
 import { useLocation } from 'react-router-dom';
-import { CustomLink } from '../../styled/TopBarStyled';
+import { useNavigate  } from 'react-router-dom';
 
 
 
 export const EditContact = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const location = useLocation()
     const contactId = location.pathname.replace("/contacts/edit/","");
     
@@ -24,6 +25,7 @@ export const EditContact = () => {
             comment: e.target.comment.value,
         };
         dispatch(editContact(editedContact));
+        navigate("/contact");
     }
 
     return (
@@ -39,10 +41,7 @@ export const EditContact = () => {
             <label htmlFor="fname">Comment</label>
             <input type="text" id="comment" name="comment" defaultValue={contact.comment} placeholder="comment" />
         
-
-            <CustomLink to="/contact">
             <Button type="submit" value="Edit" />
-            </CustomLink>
             </Form>
         </Container>
     );

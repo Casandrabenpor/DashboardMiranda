@@ -1,5 +1,6 @@
-import { downloadPeople,editPerson,deletePerson,createPerson } from "./userApi";
+import { downloadPeople, editPerson, deletePerson, createPerson } from "./userApi";
 import { createSlice } from "@reduxjs/toolkit";
+import { createDate } from "../Booking/dateReader";
 
 export const personSlice = createSlice({
   name: "person",
@@ -38,6 +39,31 @@ export const personSlice = createSlice({
       // Filtra las habitaciones y actualiza el estado en función del estado "Occupied"
       state.filteredData = state.data.filter(person => person.status === 'active');
     },
+    //ordenar, en select
+    orderUsers: (state, action) => {
+      let users = state.filteredData;
+      if (action.payload === "date") {
+        state.filteredData = users.sort(
+          (current, next) => {
+            let currentDate = createDate(current.startDate);
+            let nextDate = createDate(next.startDate);
+            return currentDate - nextDate;
+          }
+        );
+      } else if (action.payload === "name") {
+        state.filteredData = users.sort(
+          (current, next) => {
+            if (current.name < next.name) {
+              return -1;
+            }
+            if (current.name > next.name) {
+              return 1;
+            }
+            return 0;
+          }
+        );
+      }
+    }
   },
   extraReducers: (buider) => {
     buider
@@ -90,4 +116,4 @@ export const personSlice = createSlice({
   },
 });
 
-export const { filterUsers, filteredActive, filteredAll, filteredInactive } = personSlice.actions;
+export const { filterUsers, filteredActive, filteredAll, filteredInactive, orderUsers } = personSlice.actions;

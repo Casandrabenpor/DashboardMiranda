@@ -5,14 +5,17 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { downloadContact } from "../features/Contact/contactApi";
 import { deleteContact } from "../features/Contact/contactApi";
+import { archiveContacts } from "../features/Contact/contactSlice";
 
 const TableContact = () => {
 
     // Funcion para sacar del json [] a la tabla
-
+    // use selector  de los createSlice
     const sideBarActivated = useSelector(state => state.sidebar.activated);
     const contactUser = useSelector(state => state.contact.filteredData);
     const status = useSelector(state => state.contact.status);
+    const isArchivedViewEnabled = useSelector(state => state.contact.archiveView);
+    const archivedData = useSelector(state => state.contact.archivedData );
     const dispatch = useDispatch();
     useEffect(() => {
         if (status === "idle") {
@@ -34,7 +37,13 @@ const TableContact = () => {
     const handleIconMouseUp = () => {
         setSeeButton(false);
     };
+    //Para archivar contacts
+    const handleArchive = (e,contact) =>{
+        e.preventDefault();
+        dispatch(archiveContacts(contact));
+    }
 
+    const data = isArchivedViewEnabled ? archivedData : contactUser;
     return (
         <Content sideBarActivated={sideBarActivated}>
             <TableContainer>
@@ -46,14 +55,16 @@ const TableContact = () => {
                     <th>Action</th>
 
                 </tr>
-                {contactUser.map(contact =>
+                {data.map(contact =>
                     <tr>
                         <td>{contact.order_id}</td>
                         <td>{contact.date}</td>
                         <td>{contact.customer}</td>
                         <td>{contact.comment}</td>
-                        <td>
-                            <Button type="button">Archive</Button>
+                            {isArchivedViewEnabled 
+                                ?  <></> 
+                                : <><td>
+                                <Button type="button" onClick={e=> handleArchive(e,contact)}>Archive</Button> 
                         </td>
                         <td>
                             <IonIcon>
@@ -76,8 +87,10 @@ const TableContact = () => {
                             </IonIcon>
 
                         </td>
+                        </>
+                        }
                     </tr>
-                )};
+                )}
 
 
             </TableContainer>

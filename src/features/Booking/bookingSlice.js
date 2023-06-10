@@ -43,6 +43,7 @@ export const bookingSlice = createSlice({
             // Filtra inProgress
             state.filteredData = state.data.filter(booking => booking.status === 'In Progress');
         },
+        //ordenar, en select
         orderBookings: (state, action) => {
             let bookings = state.filteredData;
             if (action.payload === "date") {

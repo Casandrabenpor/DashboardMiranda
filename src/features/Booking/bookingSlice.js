@@ -1,5 +1,6 @@
 import { downloadBooking,createBooking,editBooking,deleteBooking } from "./bookingApi";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
+import { createDateFromString , createDateWithTime} from "./dateReader";
 
 export const bookingSlice = createSlice({
     name: "booking",
@@ -42,22 +43,52 @@ export const bookingSlice = createSlice({
             // Filtra inProgress
             state.filteredData = state.data.filter(booking => booking.status === 'In Progress');
         },
+        orderBookings: (state, action) => {
+            let bookings = state.filteredData;
+            if (action.payload === "date") {
+                state.filteredData = bookings.sort(
+                    (current, next) => {
+                        let currentDate = createDateFromString(current.order_date);
+                        let nextDate = createDateFromString(next.order_date);
+                        return currentDate - nextDate;
+                    }
+                );
+            } else if (action.payload === "guest"){
+                state.filteredData = bookings.sort(
+                    (current,next) =>{
+                        if (current.guest < next.guest) {
+                            return -1;
+                          }
+                          if (current.guest > next.guest) {
+                            return 1;
+                          }
+                          return 0;
+                    }
+                );
+            } else if (action.payload === "check_in"){
+                state.filteredData = bookings.sort(
+                    (current,next) =>{
+                        let currentDate = createDateWithTime(current.check_in,current.check_in_hour);
+                        let nextDate = createDateWithTime(next.check_in,next.check_in_hour);
+
+                        return currentDate - nextDate;
+                    }
+                );
+            } else if(action.payload === "check_out"){
+                state.filteredData = bookings.sort(
+                    (current,next) =>{
+                        let currentDate = createDateWithTime(current.check_out,current.check_out_hour);
+                        let nextDate = createDateWithTime(next.check_out,next.check_out_hour);
+
+                        return currentDate - nextDate;
+                    }
+                );
+            }
+    
+    
+        }
     },
     //Para ordenar date,guest,check in y check out
-    orderBookings: (state, action) => {
-        let bookings = state.filteredData;
-        if (action.payload === "date") {
-            state.filteredData = bookings.sort(
-                (current, next) => {
-                    let currentDate = createDateFromString(current.date);
-                    let nextDate = createDateFromString(next.date);
-                    return currentDate - nextDate;
-                }
-            )
-        }
-
-
-    },
     extraReducers: (buider) => {
         buider
             .addCase(downloadBooking.pending, (state) => {
@@ -111,28 +142,6 @@ export const bookingSlice = createSlice({
     },
 });
 
-//función para ordenar los dias,meses y años en js
 
-
-// Nota: En JavaScript, los meses empiezan en 0 (enero es el mes 0)
-function createDateFromString(dateString) {
-    if (!dateString) {
-        return null; // Manejar el caso de valor indefinido o vacío según tus necesidades
-    }
-
-    const dateTimeParts = dateString.split("T");
-    const dateParts = dateTimeParts[0].split("-");
-    const timeParts = dateTimeParts[1].split(":");
-
-    const year = parseInt(dateParts[0]);
-    const month = parseInt(dateParts[1]) - 1;
-    const day = parseInt(dateParts[2]);
-    const hour = parseInt(timeParts[0]);
-    const minute = parseInt(timeParts[1]);
-
-    const date = new Date(year, month, day, hour, minute);
-
-    return date;
-}
 
 export const { filterBookings, orderBookings, filteredAll, filteredChecking, filteredCheckout, filteredInProgress } = bookingSlice.actions;

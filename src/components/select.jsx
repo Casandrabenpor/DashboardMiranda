@@ -23,7 +23,7 @@ export const Select = () => {
                 </CustomLink>
                 <SelectStyled name="order" onChange={handleSelectOrder}>
                     <option value="date">Order Date</option>
-                    <option value="Guest" >
+                    <option value="guest" >
                         Guest
                     </option>
                     <option value="check_in">

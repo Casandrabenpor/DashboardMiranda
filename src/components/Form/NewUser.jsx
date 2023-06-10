@@ -1,7 +1,7 @@
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
-import { createPerson } from "../../features/User/personSlice";
+import { createPerson } from "../../features/User/userApi";
 import { useNavigate  } from 'react-router-dom';
 
 export const NewUser = () => {

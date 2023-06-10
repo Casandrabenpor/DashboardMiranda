@@ -4,8 +4,8 @@ import { ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { downloadRooms } from "../features/jsonSlice/fileDownloadSlice";
-import { deleteRoom } from "../features/Room/roomSlice";
+import { downloadRooms } from "../features/Room/roomApi";
+import { deleteRoom } from "../features/Room/roomApi";
 
 const TableRoom = () => {
     // Funcion para sacar del json [] a la tabla

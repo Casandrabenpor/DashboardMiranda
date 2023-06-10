@@ -3,8 +3,8 @@ import { Content,CustomLink } from '../styled/TopBarStyled';
 import { ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { downloadPeople } from "../features/jsonSlice/fileDownloadSlice";
-import { deletePerson } from "../features/User/personSlice";
+import { downloadPeople } from "../features/User/userApi";
+import { deletePerson } from "../features/User/userApi";
 // Funcion para sacar del json [] a la tabla
 const TableUser = () => {
     const sideBarActivated = useSelector(state => state.sidebar.activated);

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
-import { createRoom } from "../../features/Room/roomSlice";
+import { createRoom } from "../../features/Room/roomApi";
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { useNavigate  } from 'react-router-dom';
 

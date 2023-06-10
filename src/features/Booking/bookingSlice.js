@@ -1,5 +1,5 @@
-import { downloadBooking } from "../jsonSlice/fileDownloadSlice";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { downloadBooking,createBooking,editBooking,deleteBooking } from "./bookingApi";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const bookingSlice = createSlice({
     name: "booking",
@@ -110,18 +110,7 @@ export const bookingSlice = createSlice({
             });
     },
 });
-export const createBooking = createAsyncThunk("booking/createBooking", async (newBooking) => {
-    await new Promise(resolve => setTimeout(resolve, 200));
-    return newBooking;
-});
-export const deleteBooking = createAsyncThunk("booking/deleteBooking", async (booking) => {
-    await new Promise(resolve => setTimeout(resolve, 200));
-    return booking;
-});
-export const editBooking = createAsyncThunk("booking/editBooking", async (editedBooking) => {
-    await new Promise(resolve => setTimeout(resolve, 200));
-    return editedBooking;
-});
+
 //función para ordenar los dias,meses y años en js
 
 

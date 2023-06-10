@@ -1,6 +1,6 @@
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
 import { useSelector, useDispatch } from "react-redux";
-import { editContact } from "../../features/Contact/contactSlice";
+import { editContact } from "../../features/Contact/contactApi";
 import { useLocation } from 'react-router-dom';
 import { useNavigate  } from 'react-router-dom';
 

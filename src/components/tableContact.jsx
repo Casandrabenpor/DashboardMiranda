@@ -3,8 +3,8 @@ import { Button } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { downloadContact } from "../features/jsonSlice/fileDownloadSlice";
-import { deleteContact } from "../features/Contact/contactSlice";
+import { downloadContact } from "../features/Contact/contactApi";
+import { deleteContact } from "../features/Contact/contactApi";
 
 const TableContact = () => {
 

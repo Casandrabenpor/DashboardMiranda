@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
-import { createContact } from "../../features/Contact/contactSlice";
+import { createContact } from "../../features/Contact/contactApi";
 import { useNavigate  } from 'react-router-dom';
 
 export const NewContact = () => {

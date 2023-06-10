@@ -1,4 +1,4 @@
-import { downloadContact } from "../jsonSlice/fileDownloadSlice";
+import { downloadContact,editContact,deleteContact,createContact } from "./contactApi";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const contactSlice = createSlice({
@@ -77,16 +77,5 @@ export const contactSlice = createSlice({
     },
 });
 
-export const createContact = createAsyncThunk("contact/createContact", async (newContact) => {
-    await new Promise(resolve => setTimeout(resolve, 200));
-    return newContact;
-});
-export const deleteContact = createAsyncThunk("contact/deleteContact", async (contact) => {
-  await new Promise(resolve => setTimeout(resolve, 200));
-  return contact;
-});
-export const editContact = createAsyncThunk("contact/editContact", async (editedContact) => {
-  await new Promise(resolve => setTimeout(resolve, 200));
-  return editedContact;
-});
+
 export const {filterContacts} = contactSlice.actions;

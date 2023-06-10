@@ -3,7 +3,7 @@ import { Form, Button, Select, FormTitle, Container } from "../../styled/EditSty
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { editRoom } from "../../features/Room/roomSlice";
+import { editRoom } from "../../features/Room/roomApi";
 import { useNavigate  } from 'react-router-dom';
 
 

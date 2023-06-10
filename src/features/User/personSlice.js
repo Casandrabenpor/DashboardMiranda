@@ -1,5 +1,5 @@
-import { downloadPeople } from "../jsonSlice/fileDownloadSlice";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { downloadPeople,editPerson,deletePerson,createPerson } from "./userApi";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const personSlice = createSlice({
   name: "person",
@@ -89,16 +89,5 @@ export const personSlice = createSlice({
       });
   },
 });
-export const createPerson = createAsyncThunk("person/createPerson", async (newPerson) => {
-  await new Promise(resolve => setTimeout(resolve, 200));
-  return newPerson;
-});
-export const deletePerson = createAsyncThunk("person/deletePerson", async (user) => {
-  await new Promise(resolve => setTimeout(resolve, 200));
-  return user;
-});
-export const editPerson = createAsyncThunk("person/editPerson", async (editedPeople) => {
-  await new Promise(resolve => setTimeout(resolve, 200));
-  return editedPeople;
-});
+
 export const { filterUsers, filteredActive, filteredAll, filteredInactive } = personSlice.actions;

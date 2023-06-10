@@ -1,5 +1,5 @@
 import { Form, Button, Select, FormTitle, Container } from "../../styled/EditStyled";
-import { createBooking } from "../../features/Booking/bookingSlice";
+import { createBooking } from "../../features/Booking/bookingApi";
 import { useDispatch } from "react-redux";
 import { useNavigate  } from 'react-router-dom';
 

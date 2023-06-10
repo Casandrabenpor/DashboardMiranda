@@ -4,8 +4,8 @@ import { Button, ButtonRed, ButtonGreen, ButtonYellow } from "../styled/ButtonSt
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { downloadBooking } from "../features/jsonSlice/fileDownloadSlice";
-import { deleteBooking } from "../features/Booking/bookingSlice";
+import { downloadBooking,deleteBooking } from "../features/Booking/bookingApi";
+
 
 const Table = () => {
     // Funcion para sacar del json [] a la tabla

@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { colors } from "./theme";
 
+// const theme ={
+//   red:{
+//     color: colors.red,
+//   }
+// }
 export const Button = styled.button`
   cursor: pointer;
   border-radius: 12px;
@@ -18,12 +23,13 @@ export const Button = styled.button`
 `;
 
 export const ButtonRed = styled(Button)`
-    color: ${colors.red};
-    &:hover {
+
+  background-color: ${(props) => props.status};
+  &:hover {
     background: ${colors.backgroundBtnRed};
-  
   }
 `;
+
 export const ButtonYellow = styled(Button)`
     color: ${colors.yellow};
     &:hover {

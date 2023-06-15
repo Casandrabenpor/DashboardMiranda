@@ -1,58 +1,25 @@
-import { screen, render ,cleanup} from "@testing-library/react";
+import { screen, render, cleanup } from "@testing-library/react";
+import renderer from 'react-test-renderer';
 import React from "react";
 import '@testing-library/jest-dom';
-
-
-
+import 'jest-styled-components'
 
 import { ButtonRed } from "../styled/ButtonStyled";
- 
+
 afterEach(cleanup);
 
-test ("El componente muestra el color correcto",() =>{
+test("The component show the right color green", () => {
   const roomStatus = "Available";
-  render (<ButtonRed status = {"#5AD07A"}>{roomStatus}</ButtonRed>);
-
-  const button = screen.getByRole("button", {name : roomStatus});
-  expect(button).toHaveStyle(`backgroundColor:"#5AD07A"`);
-})
-test ("El componente muestra el color correcto",() =>{
-  const roomStatus = "Available";
-  render (<ButtonRed status = {"#E23428"}>{roomStatus}</ButtonRed>);
-
-  const button = screen.getByRole("button", {name : roomStatus});
-  expect(button).toHaveStyle(`backgroundColor:"#E23428"`);
+  const tree = renderer.create(<ButtonRed status={"#5AD07A"}>{roomStatus}</ButtonRed>).toJSON();
+  expect(tree).toHaveStyleRule("color", "#5AD07A");
 })
 
-// test('El componente muestra el color correcto', () => {
-//   const { container } = render(<ButtonRed theme="red"/>);
-//   expect(container.firstChild).toHaveStyleRule('color', expect.stringContaining(colors.red));
-// });
-// describe('Button component', () => {
-//   test('renders ButtonRed with the correct color style', () => {
-//     render(<ButtonRed />);
-//     const buttonElement = screen.getByRole('button');
 
-//     expect(buttonElement).toBeInTheDocument();
-    // expect(buttonElement.style.color)({
-    //     borderRadius: '12px',
-    //     width: '109px',
-    //     height: '48px',
-    //     fontSize: '16px',
-    //     fontFamily: 'Poppins',
-    //     fontWeight: '500',
-    //     color: '#E23428'
-    // });
-  //   expect(buttonElement.style.width).toBe('109px');
-  // });
+test("The component show the right color red", () => {
+  const roomStatus = "Occupied";
+  const tree = renderer.create(<ButtonRed status={"#E23428"}>{roomStatus}</ButtonRed>).toJSON();
 
-  // test('renders ButtonYellow with the correct color style', () => {
-  //   render(<ButtonYellow />);
-  //   const buttonElement = screen.getByRole('button');
-  //   expect(buttonElement).toHaveStyle(`color: #FB9F44;`);
-  // });
-  // test('renders ButtonRed with the correct color style', () => {
-  //   const buttonElement = renderer.create(<ButtonRed theme="red" />);
-  //   expect(buttonElement).toHaveStyleRule("color", colors.red);
-  // });
+  expect(tree).toHaveStyleRule("color", "#E23428");
+})
+
 

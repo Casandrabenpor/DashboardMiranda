@@ -67,8 +67,8 @@ const TableRoom = () => {
                         }
                         </td> */}
                         <td>
-                            <ButtonRed  status ={room.status === "Available" ? "#5AD07A" : "#E23428 "}>
-
+                            <ButtonRed   status ={room.status === "Available" ? "#5AD07A" : "#E23428 "}>
+                             {room.status}
                             </ButtonRed>
                         </td>
                             <td>

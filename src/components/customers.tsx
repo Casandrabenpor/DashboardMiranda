@@ -17,19 +17,22 @@ import { useTypedSelector } from '../app/store';
 import React from 'react';
 import { IonIcon } from '@ionic/react';
 
-export const Customers = ({ showTitle }) => {
+export const Customers = ({ showTitle }: { showTitle: boolean }) => {
   const sideBarActivated: boolean = useTypedSelector(
     (state) => state.sidebar.activated,
   );
   const [showModal, setShowModal] = useState(false);
-  const [showUserReview, setShowUserReview] = useState(null);
+  const [showUserReview, setShowUserReview] = useState<{
+    name: string;
+    src: string;
+  } | null>(null);
   const reviews = [
     { name: 'Kusnaidi Anderson', src: person },
     { name: 'Lucas Venetti', src: person1 },
     { name: 'Kusnaidi Anderson', src: person2 },
   ];
 
-  const ShowModalReview = (review) => {
+  const ShowModalReview = (review: { name: string; src: string }) => {
     setShowModal(true);
     setShowUserReview(review);
   };
@@ -37,7 +40,7 @@ export const Customers = ({ showTitle }) => {
   return (
     <Content sideBarActivated={sideBarActivated}>
       {showTitle && <ScheduleTitle>Latest Review by Customers</ScheduleTitle>}
-      {showModal && (
+      {showModal && showUserReview && (
         <Modal user={showUserReview} closeModal={() => setShowModal(false)} />
       )}
 

@@ -58,26 +58,26 @@ export const bookingSlice = createSlice({
       }
     },
     // TABS BOOKING, FILTRAR POR all booking, checking,checkout o in progress
-    filteredAll: (state, action) => {
+    filteredAll: (state) => {
       // Filtra los status
       state.filteredData = state.data.filter(
         (booking) =>
           booking.status === 'Check in' || 'Check out' || 'In Progress',
       );
     },
-    filteredChecking: (state, action) => {
+    filteredChecking: (state) => {
       // Filtra checkin
       state.filteredData = state.data.filter(
         (booking) => booking.status === 'Check In',
       );
     },
-    filteredCheckout: (state, action) => {
+    filteredCheckout: (state) => {
       // Filtra checkout
       state.filteredData = state.data.filter(
         (booking) => booking.status === 'Check Out',
       );
     },
-    filteredInProgress: (state, action) => {
+    filteredInProgress: (state) => {
       // Filtra inProgress
       state.filteredData = state.data.filter(
         (booking) => booking.status === 'In Progress',

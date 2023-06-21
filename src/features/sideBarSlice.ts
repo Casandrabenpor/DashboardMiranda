@@ -6,7 +6,7 @@ export const sideBarSlice = createSlice({
     activated: true,
   },
   reducers: {
-    toggle: (state, action) => {
+    toggle: (state) => {
       if (state.activated === true) {
         state.activated = false;
       } else {

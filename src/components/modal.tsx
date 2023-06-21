@@ -2,8 +2,12 @@ import { ContainerModal, ModalBackground } from '../styled/ModalStyled';
 import { Image, Img, GreenIcon, RedIcon } from '../styled/CustomersStyled';
 import React from 'react';
 import { IonIcon } from '@ionic/react';
+interface ModalProps {
+  closeModal: () => void;
+  user: { name: string; src: string };
+}
 
-export const Modal = ({ closeModal, user }) => {
+export const Modal = ({ closeModal, user }: ModalProps) => {
   return (
     <ModalBackground>
       <ContainerModal onClick={closeModal}>

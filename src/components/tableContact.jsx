@@ -1,4 +1,4 @@
-import { TableContainer, IonIcon, RedIcon } from "../styled/TableStyled";
+import { TableContainer, IonIconCss, RedIcon } from "../styled/TableStyled";
 import { Button } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from "react";
@@ -15,7 +15,7 @@ const TableContact = () => {
     const contactUser = useSelector(state => state.contact.filteredData);
     const status = useSelector(state => state.contact.status);
     const isArchivedViewEnabled = useSelector(state => state.contact.archiveView);
-    const archivedData = useSelector(state => state.contact.archivedData );
+    const archivedData = useSelector(state => state.contact.archivedData);
     const dispatch = useDispatch();
     useEffect(() => {
         if (status === "idle") {
@@ -38,7 +38,7 @@ const TableContact = () => {
         setSeeButton(false);
     };
     //Para archivar contacts
-    const handleArchive = (e,contact) =>{
+    const handleArchive = (e, contact) => {
         e.preventDefault();
         dispatch(archiveContacts(contact));
     }
@@ -61,33 +61,33 @@ const TableContact = () => {
                         <td>{contact.date}</td>
                         <td>{contact.customer}</td>
                         <td>{contact.comment}</td>
-                            {isArchivedViewEnabled 
-                                ?  <></> 
-                                : <><td>
-                                <Button type="button" onClick={e=> handleArchive(e,contact)}>Archive</Button> 
-                        </td>
-                        <td>
-                            <IonIcon>
-                                <ion-icon
-                                    name="ellipsis-vertical-outline"
-                                    onMouseDown={handleIconMouseDown}
-                                    onMouseUp={handleIconMouseUp}
-                                />
-                                {seeButton && (
-                                    <>
-                                        <CustomLink to={`/contacts/edit/${contact.order_id}`}>
-                                            <ion-icon name="create-outline"></ion-icon>
-                                        </CustomLink>
-                                        <RedIcon>
-                                            <ion-icon name="trash-outline" onClick={e => handleDeleteContact(e, contact)}></ion-icon>
-                                        </RedIcon>
+                        {isArchivedViewEnabled
+                            ? <></>
+                            : <><td>
+                                <Button type="button" onClick={e => handleArchive(e, contact)}>Archive</Button>
+                            </td>
+                                <td>
+                                    <IonIconCss>
+                                        <ion-icon
+                                            name="ellipsis-vertical-outline"
+                                            onMouseDown={handleIconMouseDown}
+                                            onMouseUp={handleIconMouseUp}
+                                        />
+                                        {seeButton && (
+                                            <>
+                                                <CustomLink to={`/contacts/edit/${contact.order_id}`}>
+                                                    <ion-icon name="create-outline"></ion-icon>
+                                                </CustomLink>
+                                                <RedIcon>
+                                                    <ion-icon name="trash-outline" onClick={e => handleDeleteContact(e, contact)}></ion-icon>
+                                                </RedIcon>
 
-                                    </>
-                                )}
-                            </IonIcon>
+                                            </>
+                                        )}
+                                    </IonIconCss>
 
-                        </td>
-                        </>
+                                </td>
+                            </>
                         }
                     </tr>
                 )}

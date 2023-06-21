@@ -1,10 +1,10 @@
 import person from "../assets/person.jpg";
-import { TableContainer, IonIcon, RedIcon } from "../styled/TableStyled";
+import { TableContainer, IonIconCss, RedIcon } from "../styled/TableStyled";
 import { Button, ButtonRed, ButtonGreen, ButtonYellow } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { downloadBooking,deleteBooking } from "../features/Booking/bookingApi";
+import { downloadBooking, deleteBooking } from "../features/Booking/bookingApi";
 
 
 const Table = () => {
@@ -93,7 +93,7 @@ const Table = () => {
                             {GetStatus(booking.status)}
                         </td>
                         <td>
-                            <IonIcon>
+                            <IonIconCss>
                                 <ion-icon
                                     name="ellipsis-vertical-outline"
                                     onMouseDown={handleIconMouseDown}
@@ -110,7 +110,7 @@ const Table = () => {
 
                                     </>
                                 )}
-                            </IonIcon>
+                            </IonIconCss>
                         </td>
                     </tr>)}
 

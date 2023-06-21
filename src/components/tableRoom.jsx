@@ -1,5 +1,5 @@
 import sea from "../assets/sea.jpg";
-import { TableContainer, IonIcon, RedIcon } from "../styled/TableStyled";
+import { TableContainer, IonIconCss, RedIcon } from "../styled/TableStyled";
 import { ButtonRed, ButtonGreen } from "../styled/ButtonStyled";
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from "react";
@@ -67,31 +67,31 @@ const TableRoom = () => {
                         }
                         </td> */}
                         <td>
-                            <ButtonRed   status ={room.status === "Available" ? "#5AD07A" : "#E23428 "}>
-                             {room.status}
+                            <ButtonRed status={room.status === "Available" ? "#5AD07A" : "#E23428 "}>
+                                {room.status}
                             </ButtonRed>
                         </td>
-                            <td>
-                                <IonIcon>
-                                    <ion-icon
-                                        name="ellipsis-vertical-outline"
-                                        onMouseDown={handleIconMouseDown}
-                                        onMouseUp={handleIconMouseUp}
-                                    />
-                                    {seeButton && (
-                                        <>
-                                            <CustomLink to={`/rooms/edit/${room.room_id}`}>
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </CustomLink>
-                                            <RedIcon>
-                                                <ion-icon name="trash-outline" onClick={e => handleDeleteRoom(e, room)}></ion-icon>
-                                            </RedIcon>
+                        <td>
+                            <IonIconCss>
+                                <ion-icon
+                                    name="ellipsis-vertical-outline"
+                                    onMouseDown={handleIconMouseDown}
+                                    onMouseUp={handleIconMouseUp}
+                                />
+                                {seeButton && (
+                                    <>
+                                        <CustomLink to={`/rooms/edit/${room.room_id}`}>
+                                            <ion-icon name="create-outline"></ion-icon>
+                                        </CustomLink>
+                                        <RedIcon>
+                                            <ion-icon name="trash-outline" onClick={e => handleDeleteRoom(e, room)}></ion-icon>
+                                        </RedIcon>
 
-                                        </>
-                                    )}
-                                </IonIcon>
+                                    </>
+                                )}
+                            </IonIconCss>
 
-                            </td>
+                        </td>
                     </tr>
                 )};
 

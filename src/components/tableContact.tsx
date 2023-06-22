@@ -23,7 +23,7 @@ const TableContact = () => {
   const dispatch = useTypedDispatch();
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(downloadContact('mockContact.json'));
+      dispatch(downloadContact());
     }
   }, [status, dispatch]);
   //Para eliminar contactos

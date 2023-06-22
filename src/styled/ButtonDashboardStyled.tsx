@@ -4,9 +4,7 @@ import { colors } from './theme';
 interface Props {
   sideBarActivated: boolean;
 }
-export const DisplayDashboard = styled.div<Props>`
-  width: ${(props) => (props.sideBarActivated ? '85%' : '100%')};
-  margin-left: ${(props) => (props.sideBarActivated ? '15%' : '0%')};
+export const DisplayDashboard = styled.div`
   display: flex;
   flex-direction: row;
   gap: 2em;

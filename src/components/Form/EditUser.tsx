@@ -57,7 +57,7 @@ export const EditPerson = () => {
           type="text"
           id="name"
           name="name"
-          defaultValue={person.name}
+          defaultValue={person?.name}
           placeholder="Full Name"
         />
         <label htmlFor="fname">Id user</label>
@@ -65,7 +65,7 @@ export const EditPerson = () => {
           type="text"
           id="id"
           name="id"
-          value={person.id}
+          value={person?.id}
           placeholder="id"
         />
         <label htmlFor="lname">Email</label>
@@ -73,17 +73,22 @@ export const EditPerson = () => {
           type="text"
           id="email"
           name="email"
-          defaultValue={person.email}
+          defaultValue={person?.email}
           placeholder="Email"
         />
         <label htmlFor="fname">Start Date</label>
-        <input type="date" id="date" name="date" defaultValue={person.date} />
+        <input
+          type="date"
+          id="date"
+          name="date"
+          defaultValue={person?.startDate}
+        />
         <label htmlFor="Description">Description</label>
         <input
           type="text"
           id="description"
           name="description"
-          defaultValue={person.description}
+          defaultValue={person?.description}
           placeholder="Description"
         />
         <label htmlFor="Phone Number">Phone Number</label>
@@ -91,7 +96,7 @@ export const EditPerson = () => {
           type="number"
           id="number"
           name="number"
-          defaultValue={person.number}
+          defaultValue={person?.contact}
           placeholder="Number"
         />
         <label htmlFor="fname">Status</label>
@@ -100,7 +105,7 @@ export const EditPerson = () => {
           id="status1"
           name="status"
           value="Active"
-          checked={person.status === 'Active'} // Marcar el radio button si el valor es "Active"
+          checked={person?.status === 'Active'} // Marcar el radio button si el valor es "Active"
           onChange={handleStatusChange}
         />
         <label htmlFor="status1">Active</label>
@@ -109,7 +114,7 @@ export const EditPerson = () => {
           id="status2"
           name="status"
           value="Inactive"
-          checked={person.status === 'Inactive'} // Marcar el radio button si el valor es "Inactive"
+          checked={person?.status === 'Inactive'} // Marcar el radio button si el valor es "Inactive"
           onChange={handleStatusChange}
         />
         <label htmlFor="status2">Inactive</label>

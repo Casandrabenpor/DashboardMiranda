@@ -22,6 +22,10 @@ export const NewBooking = () => {
       check_in: e.target.check_in.value,
       check_out: e.target.check_out.value,
       room_type: e.target.select.value,
+      check_in_hour: undefined,
+      check_out_hour: undefined,
+      room_number: undefined,
+      status: undefined,
     };
     dispatch(createBooking(newBooking));
     navigate('/bookings');

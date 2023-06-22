@@ -4,9 +4,8 @@ import { colors } from './theme';
 interface Props {
   sideBarActivated: boolean;
 }
-export const ContainerData = styled.div<Props>`
-  width: ${(props) => (props.sideBarActivated ? '85%' : '100%')};
-  margin-left: ${(props) => (props.sideBarActivated ? '15%' : '0%')};
+export const ContainerData = styled.div`
+  margin-left: 2%;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 4px;
   padding: 1em;

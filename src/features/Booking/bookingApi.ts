@@ -4,18 +4,10 @@ import { Booking } from './Booking';
 
 export const downloadBooking = createAsyncThunk(
   'booking/downloadBooking',
-  async (fileName: string) => {
-    const response = await fetch(fileName);
-    const data = await response.json();
-    return data;
+  async () => {
+    return retrieveFile('mockBooking.json');
   },
 );
-// export const downloadBooking = createAsyncThunk(
-//   'booking/downloadBooking',
-//   async () => {
-//     return retrieveFile('mockBooking.json');
-//   },
-// );
 export const createBooking = createAsyncThunk(
   'booking/createBooking',
   async (newBooking: Booking) => {

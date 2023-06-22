@@ -22,7 +22,7 @@ export const BtnDashboard = () => {
 
   return (
     <Content sideBarActivated={sideBarActivated}>
-      <DisplayDashboard sideBarActivated={sideBarActivated}>
+      <DisplayDashboard>
         <ButtonDashboard>
           <IonIconBed>
             <IonIcon name="bed-outline"></IonIcon>

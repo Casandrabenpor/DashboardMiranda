@@ -20,7 +20,7 @@ const TableRoom = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(downloadRooms('mockRooms.json'));
+      dispatch(downloadRooms());
     }
   }, [status, dispatch]);
   //Para eliminar rooms
@@ -68,8 +68,6 @@ const TableRoom = () => {
                 ? room.amenities.map((amenitie) => `${amenitie} `)
                 : []}
             </td>
-
-            {/* <td>{room.amenities.map((amenitie) => `${amenitie} `)}</td> */}
             <td>{room.rate}</td>
             <td>{room.offer_price}</td>
             {/* <td>{
@@ -80,11 +78,11 @@ const TableRoom = () => {
                         </td> */}
 
             <td>
-              {/* <ButtonRed
-                status={true}{room.status === 'Available' ? '#5AD07A' : '#E23428 '}
+              <ButtonRed
+                color={room.status === 'Available' ? '#5AD07A' : '#E23428 '}
               >
                 {room.status}
-              </ButtonRed> */}
+              </ButtonRed>
             </td>
             <td>
               <IonIconCss>

@@ -20,7 +20,7 @@ export const EditRoom = () => {
   const rooms = useTypedSelector((state) => state.room.data);
   const room = rooms.find((room) => room.room_id === roomId);
 
-  const [roomStatus, setRoomStatus] = useState(room.status);
+  const [roomStatus, setRoomStatus] = useState(room?.status ?? 'Available');
   const handleStatusChange = (e: any) => {
     setRoomStatus(e.target.value); // Actualizar el estado con el valor seleccionado
   };
@@ -57,7 +57,7 @@ export const EditRoom = () => {
           type="text"
           id="room_number"
           name="name"
-          defaultValue={room.room_number}
+          defaultValue={room?.room_number}
           placeholder="Room Number"
         />
         <label htmlFor="lname">Room Id</label>
@@ -65,7 +65,7 @@ export const EditRoom = () => {
           type="text"
           id="room_id"
           name="room_id"
-          value={room.room_id}
+          value={room?.room_id}
           placeholder="Room Id"
         />
         <label htmlFor="fname">Amenities</label>
@@ -73,12 +73,12 @@ export const EditRoom = () => {
           type="text"
           id="amenities"
           name="amenities"
-          defaultValue={room.amenities[0]}
+          defaultValue={room?.amenities[0]}
           placeholder="Amenities"
         />
         {/* <label htmlFor="Description">Bed type</label>
                 <input type="text" id="bed_type" name="bed_type" defaultValue={room.bed_type} placeholder="Bed type" /> */}
-        <Select name="select" defaultValue={room.room_type}>
+        <Select name="select" defaultValue={room?.bed_type}>
           <option value="Suite" id="option_1">
             Suite
           </option>
@@ -99,7 +99,7 @@ export const EditRoom = () => {
           id="rate"
           name="rate"
           min="10"
-          defaultValue={room.rate}
+          defaultValue={room?.rate}
           placeholder="Rate"
         />
         <label htmlFor="fname">Offer price</label>
@@ -108,7 +108,7 @@ export const EditRoom = () => {
           id="offer_price"
           name="offer_price"
           min="1"
-          defaultValue={room.offer_price}
+          defaultValue={room?.offer_price}
           placeholder="Offer price"
         />
         <label htmlFor="fname">Room status</label>

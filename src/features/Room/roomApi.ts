@@ -4,18 +4,10 @@ import { Room } from './Room';
 
 export const downloadRooms = createAsyncThunk(
   'room/downloadRooms',
-  async (fileName: string) => {
-    const response = await fetch(fileName);
-    const data = await response.json();
-    return data;
+  async () => {
+    return retrieveFile('mockRooms.json');
   },
 );
-// export const downloadRooms = createAsyncThunk(
-//   'room/downloadRooms',
-//   async () => {
-//     return retrieveFile('mockRooms.json');
-//   },
-// );
 
 export const createRoom = createAsyncThunk(
   'room/createRoom',

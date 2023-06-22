@@ -20,7 +20,7 @@ export const BookingData = () => {
 
   return (
     <Content sideBarActivated={sideBarActivated}>
-      <ContainerData sideBarActivated={sideBarActivated}>
+      <ContainerData>
         <ScheduleTitle>Recent Booking Schedule</ScheduleTitle>
         <BookingSchedule>
           <img src={Sea} width={150} height={150} alt="sea" />

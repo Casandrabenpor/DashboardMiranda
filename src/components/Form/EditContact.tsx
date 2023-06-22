@@ -41,7 +41,7 @@ export const EditContact = () => {
           type="text"
           id="id"
           name="id"
-          value={contact.order_id}
+          value={contact?.order_id}
           placeholder="id"
         />
         <label htmlFor="lname">Date</label>
@@ -49,7 +49,7 @@ export const EditContact = () => {
           type="date"
           id="date"
           name="date"
-          defaultValue={contact.date}
+          defaultValue={contact?.date}
           placeholder="Date"
         />
         <label htmlFor="fname">Customer</label>
@@ -57,7 +57,7 @@ export const EditContact = () => {
           type="text"
           id="customer"
           name="customer"
-          defaultValue={contact.customer}
+          defaultValue={contact?.customer}
           placeholder="customer"
         />
         <label htmlFor="fname">Comment</label>
@@ -65,7 +65,7 @@ export const EditContact = () => {
           type="text"
           id="comment"
           name="comment"
-          defaultValue={contact.comment}
+          defaultValue={contact?.comment}
           placeholder="comment"
         />
 

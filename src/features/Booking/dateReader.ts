@@ -20,15 +20,19 @@ export const createDateFromString = (dateString: string) => {
   return date;
 };
 //Función para ordenar días, horas pm / am
-export const createDateWithTime = (date: string, time: string) => {
+export const createDateWithTime = (date: string, time: string | undefined) => {
   if (!date && !time) {
     return null;
   }
+
   const dateParts = date.split('-');
   const year = parseInt(dateParts[0]);
   const month = parseInt(dateParts[1]) - 1;
   const day = parseInt(dateParts[2]);
 
+  if (!time) {
+    return new Date(year, month, day);
+  }
   const timeParts = time.split(':');
   const minutes = parseInt(timeParts[1].substring(0, 2));
   const isPM = timeParts[1].slice(-2) === 'PM';

@@ -29,9 +29,12 @@ export const EditBooking = () => {
       check_in: e.target.check_in.value,
       check_out: e.target.check_out.value,
       room_type: e.target.select.value,
-      room_number: booking ? booking.room_number : '',
+      room_number: booking?.room_number,
+      check_in_hour: undefined,
+      check_out_hour: undefined,
+      status: undefined,
     };
-    // dispatch(editBooking(editedBooking));
+    dispatch(editBooking(editedBooking));
     navigate('/bookings');
   };
 
@@ -52,7 +55,7 @@ export const EditBooking = () => {
           type="text"
           id="guest"
           name="guest"
-          defaultValue={booking ? booking.guest : ''}
+          defaultValue={booking?.guest}
           placeholder="guest"
         />
         <label htmlFor="lname">Booking Id</label>
@@ -60,7 +63,7 @@ export const EditBooking = () => {
           type="text"
           id="booking_id"
           name="booking_id"
-          defaultValue={booking ? booking.id : ''}
+          defaultValue={booking?.id}
           placeholder="Booking id"
         />
         <label htmlFor="fname">Order date</label>
@@ -68,7 +71,7 @@ export const EditBooking = () => {
           type="datetime-local"
           id="date"
           name="date"
-          defaultValue={booking ? booking.order_date : ''}
+          defaultValue={booking?.order_date}
           placeholder="date"
         />
         <label htmlFor="fname">Check in</label>
@@ -76,7 +79,7 @@ export const EditBooking = () => {
           type="date"
           id="check_in"
           name="check_in"
-          defaultValue={booking ? booking.check_in : ''}
+          defaultValue={booking?.check_in}
           placeholder="Check in"
         />
         <label htmlFor="fname">Check out</label>
@@ -84,11 +87,11 @@ export const EditBooking = () => {
           type="date"
           id="check_out"
           name="check_out"
-          defaultValue={booking ? booking.check_out : ''}
+          defaultValue={booking?.check_out}
           placeholder="Check out"
         />
 
-        <Select name="select" defaultValue={booking ? booking.guest : ''}>
+        <Select name="select" defaultValue={booking?.guest}>
           <option value="Suite" id="option_1">
             Suite
           </option>

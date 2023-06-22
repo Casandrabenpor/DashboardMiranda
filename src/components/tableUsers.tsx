@@ -16,7 +16,7 @@ const TableUser = () => {
   const dispatch = useTypedDispatch();
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(downloadPeople('mockUsers.json'));
+      dispatch(downloadPeople());
     }
   }, [status, dispatch]);
   // Funcion para generar photos de avatares random
@@ -80,7 +80,7 @@ const TableUser = () => {
               <td>
                 {' '}
                 {user.status === 'inactive' ? (
-                  <ButtonRed status={true} type="button">
+                  <ButtonRed color="red" type="button">
                     INACTIVE
                   </ButtonRed>
                 ) : (

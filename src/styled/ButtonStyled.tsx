@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from './theme';
 
 interface Props {
-  status: boolean;
+  color: string;
 }
 export const Button = styled.button`
   cursor: pointer;
@@ -20,7 +20,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonRed = styled(Button)<Props>`
-  color: ${(props) => (props.status ? 'red' : 'green')};
+  color: ${(props) => props.color};
   &:hover {
     background: ${colors.backgroundBtnRed};
   }

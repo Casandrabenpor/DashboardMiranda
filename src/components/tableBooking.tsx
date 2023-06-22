@@ -23,17 +23,17 @@ const Table = () => {
   const dispatch = useTypedDispatch();
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(downloadBooking('mockBooking.json'));
+      dispatch(downloadBooking());
     }
   }, [status, dispatch]);
   // Para los botones de colores .
-  const GetStatus = (bookingStatus: string) => {
+  const GetStatus = (bookingStatus: string | undefined) => {
     switch (bookingStatus) {
       case 'Check In':
         return <ButtonGreen type="button">Check In</ButtonGreen>;
       case 'Check Out':
         return (
-          <ButtonRed status={true} type="button">
+          <ButtonRed color="red" type="button">
             Check Out
           </ButtonRed>
         );
@@ -97,7 +97,7 @@ const Table = () => {
             <td>
               {booking.room_type}-{booking.room_number}
             </td>
-            <td>{GetStatus(booking.status)}</td>
+            <td>{GetStatus(booking?.status)}</td>
             <td>
               <IonIconCss>
                 <IonIcon

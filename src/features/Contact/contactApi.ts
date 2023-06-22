@@ -4,18 +4,10 @@ import { Contact } from './Contact';
 
 export const downloadContact = createAsyncThunk(
   'contact/downloadContact',
-  async (fileName: string) => {
-    const response = await fetch(fileName);
-    const data = await response.json();
-    return data;
+  async () => {
+    return retrieveFile('mockContact.json');
   },
 );
-// export const downloadContact = createAsyncThunk(
-//   'contact/downloadContact',
-//   async () => {
-//     return retrieveFile('mockContact.json');
-//   },
-// );
 export const createContact = createAsyncThunk(
   'contact/createContact',
   async (newContact: Contact) => {

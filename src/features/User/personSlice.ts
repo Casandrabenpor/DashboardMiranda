@@ -35,19 +35,19 @@ export const personSlice = createSlice({
       }
     },
     //Filtrar users
-    filteredAll: (state, action) => {
+    filteredAll: (state) => {
       // Filtra las habitaciones
       state.filteredData = state.data.filter(
         (person) => person.status === 'inactive' || 'active',
       );
     },
-    filteredInactive: (state, action) => {
+    filteredInactive: (state) => {
       // Filtra las habitaciones y actualiza el estado en función del estado "Available"
       state.filteredData = state.data.filter(
         (person) => person.status === 'inactive',
       );
     },
-    filteredActive: (state, action) => {
+    filteredActive: (state) => {
       // Filtra las habitaciones y actualiza el estado en función del estado "Occupied"
       state.filteredData = state.data.filter(
         (person) => person.status === 'active',

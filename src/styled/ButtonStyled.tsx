@@ -20,7 +20,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonRed = styled(Button)<Props>`
-  color: ${(props) => (props.status ? 'red' : 'inherit')};
+  color: ${(props) => (props.status ? 'red' : 'green')};
   &:hover {
     background: ${colors.backgroundBtnRed};
   }

@@ -12,19 +12,19 @@ export const roomSlice = createSlice({
   name: 'room',
   initialState: initialState,
   reducers: {
-    filteredAll: (state, action) => {
+    filteredAll: (state) => {
       // Filtra las habitaciones
       state.filteredData = state.data.filter(
         (room) => room.status === 'Available' || 'Occupied',
       );
     },
-    filteredAvailable: (state, action) => {
+    filteredAvailable: (state) => {
       // Filtra las habitaciones y actualiza el estado en función del estado "Available"
       state.filteredData = state.data.filter(
         (room) => room.status === 'Available',
       );
     },
-    filteredOccupied: (state, action) => {
+    filteredOccupied: (state) => {
       // Filtra las habitaciones y actualiza el estado en función del estado "Occupied"
       state.filteredData = state.data.filter(
         (room) => room.status === 'Occupied',

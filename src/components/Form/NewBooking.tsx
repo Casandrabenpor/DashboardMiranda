@@ -5,40 +5,31 @@ import {
   FormTitle,
   Container,
 } from '../../styled/EditStyled';
-import { useSelector, useDispatch } from 'react-redux';
-import { editBooking } from '../../features/Booking/bookingApi';
-import { useLocation } from 'react-router-dom';
+import { createBooking } from '../../features/Booking/bookingApi';
 import { useNavigate } from 'react-router-dom';
+import { useTypedDispatch } from '../../app/store';
 import React from 'react';
 
-export const EditBooking = () => {
-  const dispatch = useDispatch();
-  const location = useLocation();
+export const NewBooking = () => {
+  const dispatch = useTypedDispatch();
   const navigate = useNavigate();
-  const bookingId = location.pathname.replace('/bookings/edit/', '');
-
-  const bookings = useSelector((state) => state.booking.data);
-  const booking = bookings.find((booking) => booking.id === bookingId);
-
-  const handleEditBooking = (e) => {
+  const handleCreateBooking = (e: any) => {
     e.preventDefault();
-    let editedBooking = {
+    let newBooking = {
       guest: e.target.guest.value,
       id: e.target.booking_id.value,
       order_date: e.target.date.value,
       check_in: e.target.check_in.value,
       check_out: e.target.check_out.value,
       room_type: e.target.select.value,
-      room_number: booking.room_number,
     };
-    dispatch(editBooking(editedBooking));
+    dispatch(createBooking(newBooking));
     navigate('/bookings');
   };
-
   return (
     <Container>
-      <FormTitle>EDIT BOOKING</FormTitle>
-      <Form onSubmit={handleEditBooking}>
+      <FormTitle>NEW BOOKING</FormTitle>
+      <Form onSubmit={handleCreateBooking}>
         <label htmlFor="fname">Photo Url</label>
         <input
           type="text"
@@ -52,7 +43,7 @@ export const EditBooking = () => {
           type="text"
           id="guest"
           name="guest"
-          defaultValue={booking.guest}
+          defaultValue=""
           placeholder="guest"
         />
         <label htmlFor="lname">Booking Id</label>
@@ -60,15 +51,15 @@ export const EditBooking = () => {
           type="text"
           id="booking_id"
           name="booking_id"
-          value={booking.id}
+          defaultValue=""
           placeholder="Booking id"
         />
         <label htmlFor="fname">Order date</label>
         <input
-          type="datetime-local"
+          type="date"
           id="date"
           name="date"
-          defaultValue={booking.order_date}
+          defaultValue=""
           placeholder="date"
         />
         <label htmlFor="fname">Check in</label>
@@ -76,7 +67,7 @@ export const EditBooking = () => {
           type="date"
           id="check_in"
           name="check_in"
-          defaultValue={booking.check_in}
+          defaultValue=""
           placeholder="Check in"
         />
         <label htmlFor="fname">Check out</label>
@@ -84,11 +75,11 @@ export const EditBooking = () => {
           type="date"
           id="check_out"
           name="check_out"
-          defaultValue={booking.check_out}
+          defaultValue=""
           placeholder="Check out"
         />
 
-        <Select name="select" defaultValue={booking.room_type}>
+        <Select name="select" defaultValue="">
           <option value="Suite" id="option_1">
             Suite
           </option>
@@ -102,7 +93,8 @@ export const EditBooking = () => {
             Single Bed
           </option>
         </Select>
-        <Button type="submit" value="Edit" />
+
+        <Button type="submit" value="Create" />
       </Form>
     </Container>
   );

@@ -43,10 +43,10 @@ export const contactSlice = createSlice({
       state.filteredData = state.data;
       state.archivedData.push(action.payload);
     },
-    enableArchiveView: (state, action) => {
+    enableArchiveView: (state) => {
       state.archiveView = true;
     },
-    enableAllView: (state, action) => {
+    enableAllView: (state) => {
       state.archiveView = false;
     },
   },

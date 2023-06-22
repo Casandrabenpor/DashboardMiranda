@@ -15,7 +15,8 @@ import {
 import { useTypedSelector } from '../../app/store';
 import React from 'react';
 import { Booking } from '../../features/Booking/Booking';
-export const GuestDetailUser = (booking: Booking) => {
+
+export const GuestDetailUser = ({ booking }: { booking: Booking }) => {
   const sideBarActivated = useTypedSelector((state) => state.sidebar.activated);
   return (
     <Content sideBarActivated={sideBarActivated}>

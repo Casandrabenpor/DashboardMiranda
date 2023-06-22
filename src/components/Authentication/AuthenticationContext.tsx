@@ -1,4 +1,4 @@
-import React, { FC, createContext, useState } from 'react';
+import React, { FC, ReactNode, createContext, useState } from 'react';
 
 class User implements IUser {
   email: string;
@@ -38,7 +38,10 @@ const defaultUser = new User('', false, '');
 export const AuthContext = createContext<IUser>(null!);
 
 // Crea el proveedor del contexto de autenticación
-export const AuthProvider: FC = ({ children }: any) => {
+interface AuthProviderProps {
+  children: ReactNode;
+}
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   //Obtener usuario del local storage
   const userJson = localStorage.getItem('user');
   let userLoaded: User = defaultUser;

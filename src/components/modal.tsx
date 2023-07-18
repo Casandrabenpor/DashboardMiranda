@@ -22,10 +22,10 @@ export const Modal = ({ closeModal, user }: ModalProps) => {
           <div>
             <p>{user.name}</p>
             <GreenIcon>
-              <IonIcon name="checkmark-circle-outline"></IonIcon>
+              <IonIcon name="checkmark-circle-outline" />
             </GreenIcon>
             <RedIcon>
-              <IonIcon name="close-circle-outline"></IonIcon>
+              <IonIcon name="close-circle-outline" />
             </RedIcon>
           </div>
         </Image>

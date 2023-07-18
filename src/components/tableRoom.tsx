@@ -1,6 +1,6 @@
 import sea from '../assets/sea.jpg';
 import { TableContainer, IonIconCss, RedIcon } from '../styled/TableStyled';
-import { ButtonRed, ButtonGreen } from '../styled/ButtonStyled';
+import { ButtonRed } from '../styled/ButtonStyled';
 import { Content, CustomLink } from '../styled/TopBarStyled';
 import { useEffect, useState } from 'react';
 import { downloadRooms } from '../features/Room/roomApi';
@@ -55,7 +55,7 @@ const TableRoom = () => {
         {rooms.map((room) => (
           <tr>
             <td>
-              <img src={sea} alt="photo" width={100} height={100} />
+              <img src={sea} alt="sea" width={100} height={100} />
             </td>
             <td>
               {' '}

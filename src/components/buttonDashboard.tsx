@@ -25,7 +25,7 @@ export const BtnDashboard = () => {
       <DisplayDashboard>
         <ButtonDashboard>
           <IonIconBed>
-            <IonIcon name="bed-outline"></IonIcon>
+            <IonIcon name="bed-outline" />
           </IonIconBed>
           <TextButton>
             <Number>8,461</Number>
@@ -43,7 +43,7 @@ export const BtnDashboard = () => {
         </ButtonDashboard>
         <ButtonDashboard>
           <FlippedIcon>
-            <IonIcon name="push-outline"></IonIcon>
+            <IonIcon name="push-outline" />
           </FlippedIcon>
           <TextButton>
             <Number>753</Number>
@@ -52,7 +52,7 @@ export const BtnDashboard = () => {
         </ButtonDashboard>
         <ButtonDashboard>
           <FlippedIconTwo>
-            <IonIcon name="push-outline"></IonIcon>
+            <IonIcon name="push-outline" />
           </FlippedIconTwo>
           <TextButton>
             <Number>516</Number>

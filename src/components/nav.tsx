@@ -1,10 +1,4 @@
-import {
-  IconNav,
-  ContainerNav,
-  Content,
-  CustomLink,
-  Burger,
-} from '../styled/TopBarStyled';
+import { IconNav, ContainerNav, Content, Burger } from '../styled/TopBarStyled';
 import { toggle } from '../features/sideBarSlice';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useContext } from 'react';

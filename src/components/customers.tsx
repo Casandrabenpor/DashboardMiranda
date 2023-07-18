@@ -60,13 +60,13 @@ export const Customers = ({ showTitle }: { showTitle: boolean }) => {
                 <IonIcon
                   onClick={() => ShowModalReview(reviews[0])}
                   name="checkmark-circle-outline"
-                ></IonIcon>
+                />
               </GreenIcon>
               <RedIcon>
                 <IonIcon
                   onClick={() => ShowModalReview(reviews[0])}
                   name="close-circle-outline"
-                ></IonIcon>
+                />
               </RedIcon>
             </div>
           </Image>
@@ -85,13 +85,13 @@ export const Customers = ({ showTitle }: { showTitle: boolean }) => {
                 <IonIcon
                   onClick={() => ShowModalReview(reviews[1])}
                   name="checkmark-circle-outline"
-                ></IonIcon>
+                />
               </GreenIcon>
               <RedIcon>
                 <IonIcon
                   onClick={() => ShowModalReview(reviews[1])}
                   name="close-circle-outline"
-                ></IonIcon>
+                />
               </RedIcon>
             </div>
           </Image>
@@ -110,13 +110,13 @@ export const Customers = ({ showTitle }: { showTitle: boolean }) => {
                 <IonIcon
                   onClick={() => ShowModalReview(reviews[2])}
                   name="checkmark-circle-outline"
-                ></IonIcon>
+                />
               </GreenIcon>
               <RedIcon>
                 <IonIcon
                   onClick={() => ShowModalReview(reviews[2])}
                   name="close-circle-outline"
-                ></IonIcon>
+                />
               </RedIcon>
             </div>
           </Image>

@@ -73,7 +73,7 @@ const Table = () => {
         {bookings.map((booking) => (
           <tr>
             <td>
-              <img src={person} alt="photo" width={100} height={100} />
+              <img src={person} alt="person" width={100} height={100} />
             </td>
 
             <td>

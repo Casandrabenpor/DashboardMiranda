@@ -1,14 +1,17 @@
-import React, { FC, ReactNode, createContext, useState } from 'react';
+import React, { ReactNode, createContext, useState } from 'react';
+import { CrossFetch } from '../../Api/Api';
 
 class User implements IUser {
   email: string;
   isLogged: boolean;
   user: string;
+  token: string;
 
   constructor(email: string, isLogged: boolean, user: string) {
     this.email = email;
     this.isLogged = isLogged;
     this.user = user;
+    this.token = '';
   }
   login(user: string, email: string, isLogged: boolean): void {
     // Implement the login functionality here
@@ -52,12 +55,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User>(userLoaded);
 
   // Función para iniciar sesión
-  const login = (user: string, email: string) => {
+  const login = async (user: string, email: string) => {
     let userLogged = new User(user, true, email);
+    console.log(userLogged);
+    let response = await CrossFetch('login', 'POST', {
+      name: user,
+      email: email,
+      password: 'test',
+    });
+    userLogged.token = response.token;
     setUser(userLogged);
     // guardar en el local storage
     let userJson = JSON.stringify(userLogged);
-    localStorage.setItem('user', userJson);
     localStorage.setItem('user', userJson);
   };
 

@@ -64,7 +64,7 @@ export const TopBar = () => {
         </li>
       </CustomList>
       <ContainerPhoto>
-        <img src={Photo} alt="photo" width={150} height={100} />
+        <img src={Photo} alt="container" width={150} height={100} />
         <h3> {authContext.user}</h3>
         <p>{authContext.email}</p>
         <button>Contact Us</button>

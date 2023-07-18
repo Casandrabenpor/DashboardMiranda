@@ -30,9 +30,10 @@ export const EditBooking = () => {
       check_out: e.target.check_out.value,
       room_type: e.target.select.value,
       room_number: booking?.room_number,
-      check_in_hour: undefined,
-      check_out_hour: undefined,
-      status: undefined,
+      check_in_hour: booking?.check_in_hour,
+      check_out_hour: booking?.check_out_hour,
+      status: booking?.status,
+      room_id: booking?.room_id,
     };
     dispatch(editBooking(editedBooking));
     navigate('/bookings');

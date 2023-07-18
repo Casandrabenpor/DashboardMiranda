@@ -66,7 +66,7 @@ const TableUser = () => {
               <td>
                 <img
                   src={GenerateRandomAvatar()}
-                  alt="photo"
+                  alt="avatar"
                   width={100}
                   height={100}
                 />

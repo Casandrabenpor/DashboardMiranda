@@ -9,4 +9,5 @@ export type Booking = {
   room_type: string;
   room_number: string | undefined;
   status: string | undefined;
+  room_id: string | undefined;
 };

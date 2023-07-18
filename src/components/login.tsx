@@ -14,7 +14,7 @@ export const Login = () => {
   const authContext = useContext(AuthContext);
   const { login } = authContext;
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     if (
@@ -22,7 +22,7 @@ export const Login = () => {
       email === 'casandra@gmail.com' &&
       password === 'test'
     ) {
-      login(name, email, true);
+      await login(name, email, true);
       navigate('/');
     }
   };

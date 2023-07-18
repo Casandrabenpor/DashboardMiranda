@@ -48,6 +48,7 @@ const TableContact = () => {
   };
 
   const data = isArchivedViewEnabled ? archivedData : contactUser;
+  console.log(data);
   return (
     <Content sideBarActivated={sideBarActivated}>
       <TableContainer>

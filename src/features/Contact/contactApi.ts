@@ -1,31 +1,28 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { retrieveFile } from '../jsonSlice/fileDownloadSlice';
 import { Contact } from './Contact';
+import { CrossFetch } from '../../Api/Api';
 
 export const downloadContact = createAsyncThunk(
   'contact/downloadContact',
   async () => {
-    return retrieveFile('mockContact.json');
+    return CrossFetch('contact', 'GET', null);
   },
 );
 export const createContact = createAsyncThunk(
   'contact/createContact',
   async (newContact: Contact) => {
-    await new Promise((resolve) => setTimeout(resolve, 200));
     return newContact;
   },
 );
 export const deleteContact = createAsyncThunk(
   'contact/deleteContact',
   async (contact: Contact) => {
-    await new Promise((resolve) => setTimeout(resolve, 200));
     return contact;
   },
 );
 export const editContact = createAsyncThunk(
   'contact/editContact',
   async (editedContact: Contact) => {
-    await new Promise((resolve) => setTimeout(resolve, 200));
     return editedContact;
   },
 );

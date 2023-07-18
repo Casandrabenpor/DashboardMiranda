@@ -17,15 +17,15 @@ export const NewBooking = () => {
     e.preventDefault();
     let newBooking = {
       guest: e.target.guest.value,
-      id: e.target.booking_id.value,
       order_date: e.target.date.value,
       check_in: e.target.check_in.value,
       check_out: e.target.check_out.value,
       room_type: e.target.select.value,
-      check_in_hour: undefined,
-      check_out_hour: undefined,
-      room_number: undefined,
-      status: undefined,
+      check_in_hour: e.target.check_in_hour.value,
+      check_out_hour: e.target.check_out_hour.value,
+      room_number: e.target.room_number.value,
+      status: 'In Progress',
+      room_id: '64b6f4773277f597e5ac1926',
     };
     dispatch(createBooking(newBooking));
     navigate('/bookings');
@@ -50,13 +50,13 @@ export const NewBooking = () => {
           defaultValue=""
           placeholder="guest"
         />
-        <label htmlFor="lname">Booking Id</label>
+        <label htmlFor="lname">Room Number</label>
         <input
           type="text"
-          id="booking_id"
-          name="booking_id"
+          id="room_number"
+          name="room_number"
           defaultValue=""
-          placeholder="Booking id"
+          placeholder="Room Number"
         />
         <label htmlFor="fname">Order date</label>
         <input
@@ -74,6 +74,14 @@ export const NewBooking = () => {
           defaultValue=""
           placeholder="Check in"
         />
+        <label htmlFor="lname">Check In Hour</label>
+        <input
+          type="time"
+          id="check_in_hour"
+          name="check_in_hour"
+          defaultValue=""
+          placeholder="Check In Hour"
+        />
         <label htmlFor="fname">Check out</label>
         <input
           type="date"
@@ -82,7 +90,14 @@ export const NewBooking = () => {
           defaultValue=""
           placeholder="Check out"
         />
-
+        <label htmlFor="lname">Check Out Hour</label>
+        <input
+          type="time"
+          id="check_out_hour"
+          name="check_out_hour"
+          defaultValue=""
+          placeholder="Check Out Hour"
+        />
         <Select name="select" defaultValue="">
           <option value="Suite" id="option_1">
             Suite

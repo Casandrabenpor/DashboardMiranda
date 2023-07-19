@@ -42,76 +42,78 @@ const TableUser = () => {
   return (
     <Content sideBarActivated={sideBarActivated}>
       <TableContainer>
-        <tr>
-          <th>Photo</th>
-          <th>Name</th>
-          <th>ID</th>
-          <th>Email</th>
-          <th>Start Date</th>
-          <th>Description</th>
-          <th>Contact</th>
-          <th>Status</th>
-        </tr>
-        {users.map(
-          (user: {
-            name: any;
-            id: any;
-            email: any;
-            startDate: any;
-            description: any;
-            contact: any;
-            status: any;
-          }) => (
-            <tr>
-              <td>
-                <img
-                  src={GenerateRandomAvatar()}
-                  alt="avatar"
-                  width={100}
-                  height={100}
-                />
-              </td>
-              <td>{user.name}</td>
-              <td>{user.id}</td>
-              <td>{user.email}</td>
-              <td>{user.startDate}</td>
-              <td>{user.description} </td>
-              <td>{user.contact}</td>
-              <td>
-                {' '}
-                {user.status === 'inactive' ? (
-                  <ButtonRed color="red" type="button">
-                    INACTIVE
-                  </ButtonRed>
-                ) : (
-                  <ButtonGreen type="button">ACTIVE</ButtonGreen>
-                )}
-              </td>
-              <td>
-                <IonIconCss>
-                  <IonIcon
-                    name="ellipsis-vertical-outline"
-                    onMouseDown={handleIconMouseDown}
-                    onMouseUp={handleIconMouseUp}
-                  ></IonIcon>
-                  {seeButton && (
-                    <>
-                      <CustomLink to={`/users/edit/${user.id}`}>
-                        <IonIcon name="create-outline"></IonIcon>
-                      </CustomLink>
-                      <RedIcon>
-                        <IonIcon
-                          name="trash-outline"
-                          onClick={(e) => handleDeletePerson(e, user)}
-                        ></IonIcon>
-                      </RedIcon>
-                    </>
+        <tbody>
+          <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Start Date</th>
+            <th>Description</th>
+            <th>Contact</th>
+            <th>Status</th>
+          </tr>
+          {users.map(
+            (user: {
+              name: any;
+              id: any;
+              email: any;
+              startDate: any;
+              description: any;
+              contact: any;
+              status: any;
+            }) => (
+              <tr>
+                <td>
+                  <img
+                    src={GenerateRandomAvatar()}
+                    alt="avatar"
+                    width={100}
+                    height={100}
+                  />
+                </td>
+                <td>{user.name}</td>
+                <td>{user.id}</td>
+                <td>{user.email}</td>
+                <td>{user.startDate}</td>
+                <td>{user.description} </td>
+                <td>{user.contact}</td>
+                <td>
+                  {' '}
+                  {user.status === 'inactive' ? (
+                    <ButtonRed color="red" type="button">
+                      INACTIVE
+                    </ButtonRed>
+                  ) : (
+                    <ButtonGreen type="button">ACTIVE</ButtonGreen>
                   )}
-                </IonIconCss>
-              </td>
-            </tr>
-          ),
-        )}
+                </td>
+                <td>
+                  <IonIconCss>
+                    <IonIcon
+                      name="ellipsis-vertical-outline"
+                      onMouseDown={handleIconMouseDown}
+                      onMouseUp={handleIconMouseUp}
+                    ></IonIcon>
+                    {seeButton && (
+                      <>
+                        <CustomLink to={`/users/edit/${user.id}`}>
+                          <IonIcon name="create-outline"></IonIcon>
+                        </CustomLink>
+                        <RedIcon>
+                          <IonIcon
+                            name="trash-outline"
+                            onClick={(e) => handleDeletePerson(e, user)}
+                          ></IonIcon>
+                        </RedIcon>
+                      </>
+                    )}
+                  </IonIconCss>
+                </td>
+              </tr>
+            ),
+          )}
+        </tbody>
       </TableContainer>
     </Content>
   );

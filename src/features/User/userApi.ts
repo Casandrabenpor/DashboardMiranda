@@ -18,6 +18,7 @@ export const createPerson = createAsyncThunk(
 export const deletePerson = createAsyncThunk(
   'person/deletePerson',
   async (user: Person) => {
+    await CrossFetch(`users?id=${user.id}`, 'DELETE', null);
     return user;
   },
 );

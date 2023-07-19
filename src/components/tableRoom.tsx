@@ -42,73 +42,75 @@ const TableRoom = () => {
   return (
     <Content sideBarActivated={sideBarActivated}>
       <TableContainer>
-        <tr>
-          <th>Photo</th>
-          <th>Room Number</th>
-          <th>Room ID</th>
-          <th>Room Type</th>
-          <th>Amenities</th>
-          <th>Price</th>
-          <th>Offer Price </th>
-          <th>Status</th>
-        </tr>
-        {rooms.map((room) => (
+        <tbody>
           <tr>
-            <td>
-              <img src={sea} alt="sea" width={100} height={100} />
-            </td>
-            <td>
-              {' '}
-              <CustomLink to="/bookingRoom">{room.room_number}</CustomLink>
-            </td>
-            <td>{room.room_id}</td>
-            <td>{room.bed_type}</td>
-            <td>
-              {Array.isArray(room.amenities)
-                ? room.amenities.map((amenitie) => `${amenitie} `)
-                : []}
-            </td>
-            <td>{room.rate}</td>
-            <td>{room.offer_price}</td>
-            {/* <td>{
+            <th>Photo</th>
+            <th>Room Number</th>
+            <th>Room ID</th>
+            <th>Room Type</th>
+            <th>Amenities</th>
+            <th>Price</th>
+            <th>Offer Price </th>
+            <th>Status</th>
+          </tr>
+          {rooms.map((room) => (
+            <tr key={room.room_id}>
+              <td>
+                <img src={sea} alt="sea" width={100} height={100} />
+              </td>
+              <td>
+                {' '}
+                <CustomLink to="/bookingRoom">{room.room_number}</CustomLink>
+              </td>
+              <td>{room.room_id}</td>
+              <td>{room.bed_type}</td>
+              <td>
+                {Array.isArray(room.amenities)
+                  ? room.amenities.map((amenitie) => `${amenitie} `)
+                  : []}
+              </td>
+              <td>{room.rate}</td>
+              <td>{room.offer_price}</td>
+              {/* <td>{
                             room.status === 'Occupied'
                                 ? <ButtonRed type="button">Occupied</ButtonRed>
                                 : <ButtonGreen type="button">Available</ButtonGreen>
                         }
                         </td> */}
 
-            <td>
-              <ButtonRed
-                color={room.status === 'Available' ? '#5AD07A' : '#E23428 '}
-              >
-                {room.status}
-              </ButtonRed>
-            </td>
-            <td>
-              <IonIconCss>
-                <IonIcon
-                  name="ellipsis-vertical-outline"
-                  onMouseDown={handleIconMouseDown}
-                  onMouseUp={handleIconMouseUp}
-                />
-                {seeButton && (
-                  <>
-                    <CustomLink to={`/rooms/edit/${room.room_id}`}>
-                      <IonIcon name="create-outline"></IonIcon>
-                    </CustomLink>
-                    <RedIcon>
-                      <IonIcon
-                        name="trash-outline"
-                        onClick={(e) => handleDeleteRoom(e, room)}
-                      ></IonIcon>
-                    </RedIcon>
-                  </>
-                )}
-              </IonIconCss>
-            </td>
-          </tr>
-        ))}
-        ;
+              <td>
+                <ButtonRed
+                  color={room.status === 'Available' ? '#5AD07A' : '#E23428 '}
+                >
+                  {room.status}
+                </ButtonRed>
+              </td>
+              <td>
+                <IonIconCss>
+                  <IonIcon
+                    name="ellipsis-vertical-outline"
+                    onMouseDown={handleIconMouseDown}
+                    onMouseUp={handleIconMouseUp}
+                  />
+                  {seeButton && (
+                    <>
+                      <CustomLink to={`/rooms/edit/${room.room_id}`}>
+                        <IonIcon name="create-outline"></IonIcon>
+                      </CustomLink>
+                      <RedIcon>
+                        <IonIcon
+                          name="trash-outline"
+                          onClick={(e) => handleDeleteRoom(e, room)}
+                        ></IonIcon>
+                      </RedIcon>
+                    </>
+                  )}
+                </IonIconCss>
+              </td>
+            </tr>
+          ))}
+          ;
+        </tbody>
       </TableContainer>
     </Content>
   );

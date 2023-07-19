@@ -60,68 +60,71 @@ const Table = () => {
   return (
     <Content sideBarActivated={sideBarActivated}>
       <TableContainer>
-        <tr>
-          <th>Photo</th>
-          <th>Guest</th>
-          <th>Order Date</th>
-          <th>Check in</th>
-          <th>Check out</th>
-          <th>Special Request</th>
-          <th>Room type</th>
-          <th>Status</th>
-        </tr>
-        {bookings.map((booking) => (
+        <tbody>
           <tr>
-            <td>
-              <img src={person} alt="person" width={100} height={100} />
-            </td>
-
-            <td>
-              {booking.guest}
-              <CustomLink to={`/BookingsUser/${booking.id}`}>
-                <div className="subrow">#{booking.id}</div>
-              </CustomLink>
-            </td>
-            <td>{booking.order_date}</td>
-            <td>
-              {booking.check_in}
-              <div>{booking.check_in_hour}</div>
-            </td>
-            <td>
-              {booking.check_out}
-              <div>{booking.check_out_hour}</div>
-            </td>
-            <td>
-              <Button type="button">View Notes</Button>
-            </td>
-            <td>
-              {booking.room_type}-{booking.room_number}
-            </td>
-            <td>{GetStatus(booking?.status)}</td>
-            <td>
-              <IonIconCss>
-                <IonIcon
-                  name="ellipsis-vertical-outline"
-                  onMouseDown={handleIconMouseDown}
-                  onMouseUp={handleIconMouseUp}
-                />
-                {seeButton && (
-                  <>
-                    <CustomLink to={`/bookings/edit/${booking.id}`}>
-                      <IonIcon name="create-outline"></IonIcon>
-                    </CustomLink>
-                    <RedIcon>
-                      <IonIcon
-                        name="trash-outline"
-                        onClick={(e) => handleDeleteBooking(e, booking)}
-                      ></IonIcon>
-                    </RedIcon>
-                  </>
-                )}
-              </IonIconCss>
-            </td>
+            <th>Photo</th>
+            <th>Guest</th>
+            <th>Order Date</th>
+            <th>Check in</th>
+            <th>Check out</th>
+            <th>Special Request</th>
+            <th>Room type</th>
+            <th>Status</th>
           </tr>
-        ))}
+
+          {bookings.map((booking) => (
+            <tr key={booking.id}>
+              <td>
+                <img src={person} alt="person" width={100} height={100} />
+              </td>
+
+              <td>
+                {booking.guest}
+                <CustomLink to={`/BookingsUser/${booking.id}`}>
+                  <div className="subrow">#{booking.id}</div>
+                </CustomLink>
+              </td>
+              <td>{booking.order_date}</td>
+              <td>
+                {booking.check_in}
+                <div>{booking.check_in_hour}</div>
+              </td>
+              <td>
+                {booking.check_out}
+                <div>{booking.check_out_hour}</div>
+              </td>
+              <td>
+                <Button type="button">View Notes</Button>
+              </td>
+              <td>
+                {booking.room_type}-{booking.room_number}
+              </td>
+              <td>{GetStatus(booking?.status)}</td>
+              <td>
+                <IonIconCss>
+                  <IonIcon
+                    name="ellipsis-vertical-outline"
+                    onMouseDown={handleIconMouseDown}
+                    onMouseUp={handleIconMouseUp}
+                  />
+                  {seeButton && (
+                    <>
+                      <CustomLink to={`/bookings/edit/${booking.id}`}>
+                        <IonIcon name="create-outline"></IonIcon>
+                      </CustomLink>
+                      <RedIcon>
+                        <IonIcon
+                          name="trash-outline"
+                          onClick={(e) => handleDeleteBooking(e, booking)}
+                        ></IonIcon>
+                      </RedIcon>
+                    </>
+                  )}
+                </IonIconCss>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </TableContainer>
     </Content>
   );

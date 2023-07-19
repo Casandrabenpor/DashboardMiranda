@@ -52,57 +52,59 @@ const TableContact = () => {
   return (
     <Content sideBarActivated={sideBarActivated}>
       <TableContainer>
-        <tr>
-          <th>ID</th>
-          <th>Date</th>
-          <th>Customer</th>
-          <th>Comment</th>
-          <th>Action</th>
-        </tr>
-        {data.map((contact) => (
+        <tbody>
           <tr>
-            <td>{contact.order_id}</td>
-            <td>{contact.date}</td>
-            <td>{contact.customer}</td>
-            <td>{contact.comment}</td>
-            {isArchivedViewEnabled ? (
-              <></>
-            ) : (
-              <>
-                <td>
-                  <Button
-                    type="button"
-                    onClick={(e: any) => handleArchive(e, contact)}
-                  >
-                    Archive
-                  </Button>
-                </td>
-                <td>
-                  <IonIconCss>
-                    <IonIcon
-                      name="ellipsis-vertical-outline"
-                      onMouseDown={handleIconMouseDown}
-                      onMouseUp={handleIconMouseUp}
-                    />
-                    {seeButton && (
-                      <>
-                        <CustomLink to={`/contacts/edit/${contact.order_id}`}>
-                          <IonIcon name="create-outline"></IonIcon>
-                        </CustomLink>
-                        <RedIcon>
-                          <IonIcon
-                            name="trash-outline"
-                            onClick={(e) => handleDeleteContact(e, contact)}
-                          ></IonIcon>
-                        </RedIcon>
-                      </>
-                    )}
-                  </IonIconCss>
-                </td>
-              </>
-            )}
+            <th>ID</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Comment</th>
+            <th>Action</th>
           </tr>
-        ))}
+          {data.map((contact) => (
+            <tr key={contact.order_id}>
+              <td>{contact.order_id}</td>
+              <td>{contact.date}</td>
+              <td>{contact.customer}</td>
+              <td>{contact.comment}</td>
+              {isArchivedViewEnabled ? (
+                <></>
+              ) : (
+                <>
+                  <td>
+                    <Button
+                      type="button"
+                      onClick={(e: any) => handleArchive(e, contact)}
+                    >
+                      Archive
+                    </Button>
+                  </td>
+                  <td>
+                    <IonIconCss>
+                      <IonIcon
+                        name="ellipsis-vertical-outline"
+                        onMouseDown={handleIconMouseDown}
+                        onMouseUp={handleIconMouseUp}
+                      />
+                      {seeButton && (
+                        <>
+                          <CustomLink to={`/contacts/edit/${contact.order_id}`}>
+                            <IonIcon name="create-outline"></IonIcon>
+                          </CustomLink>
+                          <RedIcon>
+                            <IonIcon
+                              name="trash-outline"
+                              onClick={(e) => handleDeleteContact(e, contact)}
+                            ></IonIcon>
+                          </RedIcon>
+                        </>
+                      )}
+                    </IonIconCss>
+                  </td>
+                </>
+              )}
+            </tr>
+          ))}
+        </tbody>
       </TableContainer>
     </Content>
   );

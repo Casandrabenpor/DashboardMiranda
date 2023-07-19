@@ -107,7 +107,7 @@ export const personSlice = createSlice({
       })
       .addCase(deletePerson.fulfilled, (state, action) => {
         state.status = 'fulfilled';
-        state.data = state.data.filter((user) => user.id != action.payload.id);
+        state.data = state.data.filter((user) => user.id !== action.payload.id);
         state.filteredData = state.data;
       })
       .addCase(editPerson.pending, (state) => {

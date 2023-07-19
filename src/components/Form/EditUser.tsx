@@ -1,10 +1,4 @@
-import {
-  Form,
-  Button,
-  Select,
-  FormTitle,
-  Container,
-} from '../../styled/EditStyled';
+import { Form, Button, FormTitle, Container } from '../../styled/EditStyled';
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { editPerson } from '../../features/User/userApi';

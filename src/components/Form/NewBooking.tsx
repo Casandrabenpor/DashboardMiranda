@@ -16,6 +16,7 @@ export const NewBooking = () => {
   const handleCreateBooking = (e: any) => {
     e.preventDefault();
     let newBooking = {
+      id: '1',
       guest: e.target.guest.value,
       order_date: e.target.date.value,
       check_in: e.target.check_in.value,
@@ -52,7 +53,7 @@ export const NewBooking = () => {
         />
         <label htmlFor="lname">Room Number</label>
         <input
-          type="text"
+          type="number"
           id="room_number"
           name="room_number"
           defaultValue=""

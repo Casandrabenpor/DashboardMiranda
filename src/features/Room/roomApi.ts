@@ -12,6 +12,8 @@ export const downloadRooms = createAsyncThunk(
 export const createRoom = createAsyncThunk(
   'room/createRoom',
   async (newRoom: Room) => {
+    let result = await CrossFetch('rooms', 'POST', newRoom);
+    newRoom.room_id = result.room_id;
     return newRoom;
   },
 );
@@ -19,6 +21,9 @@ export const deleteRoom = createAsyncThunk(
   'room/deleteRoom',
   async (room: Room) => {
     await CrossFetch(`rooms?id=${room.room_id}`, 'DELETE', null);
+
+    // throw new Error('Error');
+
     return room;
   },
 );

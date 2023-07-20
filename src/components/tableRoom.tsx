@@ -9,6 +9,8 @@ import { useTypedDispatch, useTypedSelector } from '../app/store';
 import { Room } from '../features/Room/Room';
 import React from 'react';
 import { IonIcon } from '@ionic/react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TableRoom = () => {
   // Funcion para sacar del json [] a la tabla
@@ -41,6 +43,7 @@ const TableRoom = () => {
 
   return (
     <Content sideBarActivated={sideBarActivated}>
+      <ToastContainer theme="colored" />
       <TableContainer>
         <tbody>
           <tr>

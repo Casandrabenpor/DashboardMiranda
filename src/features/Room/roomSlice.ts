@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { Room } from './Room';
 import { downloadRooms, createRoom, deleteRoom, editRoom } from './roomApi';
 import { createSlice } from '@reduxjs/toolkit';
@@ -61,6 +62,10 @@ export const roomSlice = createSlice({
       })
       .addCase(deleteRoom.rejected, (state) => {
         state.status = 'failed';
+
+        toast.error('Item not deleted', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deleteRoom.fulfilled, (state, action) => {
         state.status = 'fulfilled';
@@ -68,6 +73,10 @@ export const roomSlice = createSlice({
           (room) => room.room_id !== action.payload.room_id,
         );
         state.filteredData = state.data;
+
+        toast.success('Item deleted', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(editRoom.pending, (state) => {
         state.status = 'loading';

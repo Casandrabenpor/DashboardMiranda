@@ -23,8 +23,6 @@ export const NewContact = () => {
     <Container>
       <FormTitle>NEW CONTACT</FormTitle>
       <Form onSubmit={handleCreateContact}>
-        <label htmlFor="lname">ID</label>
-        <input type="text" id="id" name="id" defaultValue="" placeholder="id" />
         <label htmlFor="lname">Date</label>
         <input
           type="date"

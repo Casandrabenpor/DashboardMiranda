@@ -27,7 +27,6 @@ export const deletePerson = createAsyncThunk(
 export const editPerson = createAsyncThunk(
   'person/editPerson',
   async (editedPeople: Person) => {
-    console.log(editedPeople);
     await CrossFetch('users', 'PUT', editedPeople);
     return editedPeople;
   },

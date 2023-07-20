@@ -15,7 +15,7 @@ export const EditRoom = () => {
   const dispatch = useTypedDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const roomId = parseInt(location.pathname.replace('/rooms/edit/', ''));
+  const roomId = location.pathname.replace('/rooms/edit/', '');
 
   const rooms = useTypedSelector((state) => state.room.data);
   const room = rooms.find((room) => room.room_id === roomId);
@@ -29,7 +29,7 @@ export const EditRoom = () => {
     e.preventDefault();
     let updateRoom = {
       room_number: e.target.room_number.value,
-      room_id: parseInt(e.target.room_id.value),
+      room_id: e.target.room_id.value,
       amenities: [e.target.amenities.value],
       bed_type: e.target.select.value,
       rate: e.target.rate.value,

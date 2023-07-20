@@ -1,6 +1,6 @@
 export type Room = {
   room_number: number;
-  room_id: number;
+  room_id: string | undefined;
   amenities: string[];
   bed_type: string;
   rate: number;

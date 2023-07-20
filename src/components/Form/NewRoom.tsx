@@ -22,7 +22,7 @@ export const NewRoom = () => {
     e.preventDefault();
     let newRoom = {
       room_number: e.target.room_number.value,
-      room_id: e.target.room_id.value,
+      room_id: e.target.id.value,
       amenities: [e.target.amenities.value],
       bed_type: e.target.select.value,
       rate: e.target.rate.value,

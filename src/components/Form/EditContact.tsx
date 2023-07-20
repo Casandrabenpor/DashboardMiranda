@@ -18,12 +18,12 @@ export const EditContact = () => {
   const contactId = location.pathname.replace('/contacts/edit/', '');
 
   const contacts = useTypedSelector((state) => state.contact.data);
-  const contact = contacts.find((contact) => contact.order_id === contactId);
+  const contact = contacts.find((contact) => contact.contact_id === contactId);
 
   const handleEditContact = (e: any) => {
     e.preventDefault();
     let editedContact = {
-      order_id: e.target.id.value,
+      contact_id: e.target.id.value,
       date: e.target.date.value,
       customer: e.target.customer.value,
       comment: e.target.comment.value,
@@ -41,7 +41,7 @@ export const EditContact = () => {
           type="text"
           id="id"
           name="id"
-          value={contact?.order_id}
+          value={contact?.contact_id}
           placeholder="id"
           readOnly
         />

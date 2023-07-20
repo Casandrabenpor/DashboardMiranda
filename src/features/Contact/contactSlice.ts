@@ -38,7 +38,7 @@ export const contactSlice = createSlice({
     },
     archiveContacts: (state, action) => {
       state.data = state.data.filter(
-        (contact) => contact.order_id !== action.payload.order_id,
+        (contact) => contact.contact_id !== action.payload.contact_id,
       );
       state.filteredData = state.data;
       state.archivedData.push(action.payload);
@@ -83,7 +83,7 @@ export const contactSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data = state.data.filter(
-          (contact) => contact.order_id !== action.payload.order_id,
+          (contact) => contact.contact_id !== action.payload.contact_id,
         );
         state.filteredData = state.data;
       })
@@ -96,7 +96,7 @@ export const contactSlice = createSlice({
       .addCase(editContact.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         let index = state.data.findIndex(
-          (contact) => contact.order_id === action.payload.order_id,
+          (contact) => contact.contact_id === action.payload.contact_id,
         );
         state.data[index] = action.payload;
         state.filteredData = state.data;

@@ -11,7 +11,7 @@ export const NewContact = () => {
   const handleCreateContact = (e: any) => {
     e.preventDefault();
     let newContact = {
-      order_id: e.target.id.value,
+      contact_id: e.target.id.value,
       date: e.target.date.value,
       customer: e.target.customer.value,
       comment: e.target.comment.value,

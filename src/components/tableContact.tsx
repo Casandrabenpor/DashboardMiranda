@@ -61,8 +61,8 @@ const TableContact = () => {
             <th>Action</th>
           </tr>
           {data.map((contact) => (
-            <tr key={contact.order_id}>
-              <td>{contact.order_id}</td>
+            <tr key={contact.contact_id}>
+              <td>{contact.contact_id}</td>
               <td>{contact.date}</td>
               <td>{contact.customer}</td>
               <td>{contact.comment}</td>
@@ -87,7 +87,9 @@ const TableContact = () => {
                       />
                       {seeButton && (
                         <>
-                          <CustomLink to={`/contacts/edit/${contact.order_id}`}>
+                          <CustomLink
+                            to={`/contacts/edit/${contact.contact_id}`}
+                          >
                             <IonIcon name="create-outline"></IonIcon>
                           </CustomLink>
                           <RedIcon>

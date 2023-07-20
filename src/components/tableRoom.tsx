@@ -46,7 +46,7 @@ const TableRoom = () => {
           <tr>
             <th>Photo</th>
             <th>Room Number</th>
-            <th>Room ID</th>
+            <th>ID</th>
             <th>Room Type</th>
             <th>Amenities</th>
             <th>Price</th>

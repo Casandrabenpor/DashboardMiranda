@@ -52,14 +52,6 @@ export const NewRoom = () => {
           defaultValue=""
           placeholder="Room Number"
         />
-        <label htmlFor="lname">Room Id</label>
-        <input
-          type="text"
-          id="room_id"
-          name="room_id"
-          defaultValue=""
-          placeholder="Room Id"
-        />
         <label htmlFor="fname">Amenities</label>
         <input
           type="text"

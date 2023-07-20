@@ -19,7 +19,6 @@ export const createContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   'contact/deleteContact',
   async (contact: Contact) => {
-    console.log(contact);
     await CrossFetch(`contact?id=${contact.contact_id}`, 'DELETE', null);
     return contact;
   },

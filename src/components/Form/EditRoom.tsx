@@ -54,7 +54,7 @@ export const EditRoom = () => {
         />
         <label htmlFor="lname">Room Number</label>
         <input
-          type="text"
+          type="number"
           id="room_number"
           name="name"
           defaultValue={room?.room_number}

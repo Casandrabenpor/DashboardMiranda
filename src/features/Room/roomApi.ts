@@ -18,12 +18,14 @@ export const createRoom = createAsyncThunk(
 export const deleteRoom = createAsyncThunk(
   'room/deleteRoom',
   async (room: Room) => {
+    await CrossFetch(`rooms?id=${room.room_id}`, 'DELETE', null);
     return room;
   },
 );
 export const editRoom = createAsyncThunk(
   'room/editRoom',
   async (editedRoom: Room) => {
+    await CrossFetch('rooms', 'PUT', editedRoom);
     return editedRoom;
   },
 );

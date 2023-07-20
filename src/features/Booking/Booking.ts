@@ -1,6 +1,6 @@
 export type Booking = {
   guest: string;
-  id: string;
+  id: string | undefined;
   order_date: string;
   check_in: string;
   check_in_hour: string | undefined;

@@ -12,6 +12,8 @@ export const downloadPeople = createAsyncThunk(
 export const createPerson = createAsyncThunk(
   'person/createPerson',
   async (newPerson: Person) => {
+    let result = await CrossFetch('users', 'POST', newPerson);
+    newPerson.id = result.id;
     return newPerson;
   },
 );
@@ -25,6 +27,8 @@ export const deletePerson = createAsyncThunk(
 export const editPerson = createAsyncThunk(
   'person/editPerson',
   async (editedPeople: Person) => {
+    console.log(editedPeople);
+    await CrossFetch('users', 'PUT', editedPeople);
     return editedPeople;
   },
 );

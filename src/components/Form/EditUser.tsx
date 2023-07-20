@@ -9,12 +9,14 @@ export const EditPerson = () => {
   const dispatch = useTypedDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const personId = parseInt(location.pathname.replace('/users/edit/', ''));
+  const personId = location.pathname.replace('/users/edit/', '');
 
   const people = useTypedSelector((state) => state.person.data);
   const person = people.find((person) => person.id === personId);
 
-  const [personStatus, setPersonStatus] = useState('Active');
+  const [personStatus, setPersonStatus] = useState(
+    person?.status ?? 'Inactive',
+  );
   const handleStatusChange = (e: any) => {
     setPersonStatus(e.target.value); // Actualizar el estado con el valor seleccionado
   };
@@ -23,7 +25,7 @@ export const EditPerson = () => {
     e.preventDefault();
     let editedPerson = {
       name: e.target.name.value,
-      id: parseInt(e.target.id.value),
+      id: e.target.id.value,
       email: e.target.email.value,
       startDate: e.target.date.value,
       description: e.target.description.value,
@@ -61,6 +63,7 @@ export const EditPerson = () => {
           name="id"
           value={person?.id}
           placeholder="id"
+          readOnly
         />
         <label htmlFor="lname">Email</label>
         <input
@@ -87,7 +90,7 @@ export const EditPerson = () => {
         />
         <label htmlFor="Phone Number">Phone Number</label>
         <input
-          type="number"
+          type="text"
           id="number"
           name="number"
           defaultValue={person?.contact}
@@ -99,7 +102,7 @@ export const EditPerson = () => {
           id="status1"
           name="status"
           value="Active"
-          checked={person?.status === 'Active'} // Marcar el radio button si el valor es "Active"
+          checked={personStatus === 'Active'} // Marcar el radio button si el valor es "Active"
           onChange={handleStatusChange}
         />
         <label htmlFor="status1">Active</label>
@@ -108,7 +111,7 @@ export const EditPerson = () => {
           id="status2"
           name="status"
           value="Inactive"
-          checked={person?.status === 'Inactive'} // Marcar el radio button si el valor es "Inactive"
+          checked={personStatus === 'Inactive'} // Marcar el radio button si el valor es "Inactive"
           onChange={handleStatusChange}
         />
         <label htmlFor="status2">Inactive</label>

@@ -67,6 +67,7 @@ export const EditRoom = () => {
           name="room_id"
           value={room?.room_id}
           placeholder="Room Id"
+          readOnly
         />
         <label htmlFor="fname">Amenities</label>
         <input

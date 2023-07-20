@@ -80,7 +80,7 @@ const TableUser = () => {
                 <td>{user.contact}</td>
                 <td>
                   {' '}
-                  {user.status === 'inactive' ? (
+                  {user.status === 'Inactive' ? (
                     <ButtonRed color="red" type="button">
                       INACTIVE
                     </ButtonRed>

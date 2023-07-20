@@ -43,6 +43,7 @@ export const EditContact = () => {
           name="id"
           value={contact?.order_id}
           placeholder="id"
+          readOnly
         />
         <label htmlFor="lname">Date</label>
         <input

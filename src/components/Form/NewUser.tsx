@@ -16,12 +16,12 @@ export const NewUser = () => {
     e.preventDefault();
     let newPerson = {
       name: e.target.name.value,
-      id: e.target.id.value,
       email: e.target.email.value,
       startDate: e.target.date.value,
       description: e.target.description.value,
       contact: e.target.number.value,
       status: personStatus,
+      id: undefined,
     };
     dispatch(createPerson(newPerson));
     navigate('/users');
@@ -46,8 +46,6 @@ export const NewUser = () => {
           defaultValue=""
           placeholder="Full Name"
         />
-        <label htmlFor="fname">Id user</label>
-        <input type="text" id="id" name="id" defaultValue="" placeholder="id" />
         <label htmlFor="lname">Email</label>
         <input
           type="text"
@@ -68,7 +66,7 @@ export const NewUser = () => {
         />
         <label htmlFor="Phone Number">Phone Number</label>
         <input
-          type="number"
+          type="text"
           id="number"
           name="number"
           defaultValue=""

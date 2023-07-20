@@ -66,6 +66,7 @@ export const EditBooking = () => {
           name="booking_id"
           defaultValue={booking?.id}
           placeholder="Booking id"
+          readOnly
         />
         <label htmlFor="fname">Order date</label>
         <input

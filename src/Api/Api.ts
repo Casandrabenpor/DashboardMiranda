@@ -11,7 +11,6 @@ export const CrossFetch = async (
     let jsonBody = null;
     if (body) {
       jsonBody = JSON.stringify(body);
-      console.log(jsonBody);
     }
     const response = await fetch(`${url}/${endpoint}`, {
       method: method,

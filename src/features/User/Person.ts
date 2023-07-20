@@ -1,6 +1,6 @@
 export type Person = {
   name: string;
-  id: string;
+  id: string | undefined;
   email: string;
   startDate: string;
   description: string;

@@ -17,6 +17,7 @@ export const NewBooking = () => {
     e.preventDefault();
     let newBooking = {
       guest: e.target.guest.value,
+      id: undefined,
       order_date: e.target.date.value,
       check_in: e.target.check_in.value,
       check_out: e.target.check_out.value,

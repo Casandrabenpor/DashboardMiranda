@@ -43,6 +43,9 @@ export const contactSlice = createSlice({
       );
       state.filteredData = state.data;
       state.archivedData.push(action.payload);
+      toast.success('Item archived', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     },
     enableArchiveView: (state) => {
       state.archiveView = true;

@@ -53,7 +53,7 @@ const TableContact = () => {
 
   return (
     <Content sideBarActivated={sideBarActivated}>
-      <ToastContainer theme="colored" />
+      <ToastContainer theme="light" />
       <TableContainer>
         <tbody>
           <tr>

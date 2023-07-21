@@ -3,6 +3,8 @@ import { createContact } from '../../features/Contact/contactApi';
 import { useNavigate } from 'react-router-dom';
 import { useTypedDispatch } from '../../app/store';
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const NewContact = () => {
   const dispatch = useTypedDispatch();
@@ -21,6 +23,7 @@ export const NewContact = () => {
   };
   return (
     <Container>
+      <ToastContainer theme="colored" />
       <FormTitle>NEW CONTACT</FormTitle>
       <Form onSubmit={handleCreateContact}>
         <label htmlFor="lname">Date</label>
@@ -30,6 +33,7 @@ export const NewContact = () => {
           name="date"
           defaultValue=""
           placeholder="Date"
+          required
         />
         <label htmlFor="fname">Customer</label>
         <input
@@ -38,6 +42,7 @@ export const NewContact = () => {
           name="customer"
           defaultValue=""
           placeholder="customer"
+          required
         />
         <label htmlFor="fname">Comment</label>
         <input
@@ -46,6 +51,7 @@ export const NewContact = () => {
           name="comment"
           defaultValue=""
           placeholder="comment"
+          required
         />
 
         <Button type="submit" value="Create" />

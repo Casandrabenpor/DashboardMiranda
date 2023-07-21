@@ -72,8 +72,8 @@ const TableRoom = () => {
                   ? room.amenities.map((amenitie) => `${amenitie} `)
                   : []}
               </td>
-              <td>{room.rate}</td>
-              <td>{room.offer_price}</td>
+              <td>{room.rate}$/night</td>
+              <td>{room.offer_price}$/night</td>
               {/* <td>{
                             room.status === 'Occupied'
                                 ? <ButtonRed type="button">Occupied</ButtonRed>

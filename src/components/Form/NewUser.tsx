@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { createPerson } from '../../features/User/userApi';
 import { useNavigate } from 'react-router-dom';
 import { useTypedDispatch } from '../../app/store';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const NewUser = () => {
   const dispatch = useTypedDispatch();
@@ -28,6 +30,7 @@ export const NewUser = () => {
   };
   return (
     <Container>
+      <ToastContainer theme="colored" />
       <FormTitle>NEW USER</FormTitle>
       <Form onSubmit={handleCreatePerson}>
         <label htmlFor="fname">Photo Url</label>
@@ -45,17 +48,19 @@ export const NewUser = () => {
           name="name"
           defaultValue=""
           placeholder="Full Name"
+          required
         />
         <label htmlFor="lname">Email</label>
         <input
-          type="text"
+          type="email"
           id="email"
           name="email"
           defaultValue=""
           placeholder="Email"
+          required
         />
         <label htmlFor="fname">Start Date</label>
-        <input type="date" id="date" name="date" defaultValue="" />
+        <input type="date" id="date" name="date" defaultValue="" required />
         <label htmlFor="Description">Description</label>
         <input
           type="text"
@@ -63,6 +68,7 @@ export const NewUser = () => {
           name="description"
           defaultValue=""
           placeholder="Description"
+          required
         />
         <label htmlFor="Phone Number">Phone Number</label>
         <input
@@ -71,6 +77,7 @@ export const NewUser = () => {
           name="number"
           defaultValue=""
           placeholder="Number"
+          required
         />
         <label htmlFor="fname">Status</label>
         <input

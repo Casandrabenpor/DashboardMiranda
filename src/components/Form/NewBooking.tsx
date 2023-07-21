@@ -9,6 +9,8 @@ import { createBooking } from '../../features/Booking/bookingApi';
 import { useNavigate } from 'react-router-dom';
 import { useTypedDispatch } from '../../app/store';
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const NewBooking = () => {
   const dispatch = useTypedDispatch();
@@ -33,6 +35,7 @@ export const NewBooking = () => {
   };
   return (
     <Container>
+      <ToastContainer theme="colored" />
       <FormTitle>NEW BOOKING</FormTitle>
       <Form onSubmit={handleCreateBooking}>
         <label htmlFor="fname">Photo Url</label>
@@ -50,6 +53,7 @@ export const NewBooking = () => {
           name="guest"
           defaultValue=""
           placeholder="guest"
+          required
         />
         <label htmlFor="lname">Room Number</label>
         <input
@@ -58,6 +62,7 @@ export const NewBooking = () => {
           name="room_number"
           defaultValue=""
           placeholder="Room Number"
+          required
         />
         <label htmlFor="fname">Order date</label>
         <input
@@ -66,6 +71,7 @@ export const NewBooking = () => {
           name="date"
           defaultValue=""
           placeholder="date"
+          required
         />
         <label htmlFor="fname">Check in</label>
         <input
@@ -74,6 +80,7 @@ export const NewBooking = () => {
           name="check_in"
           defaultValue=""
           placeholder="Check in"
+          required
         />
         <label htmlFor="lname">Check In Hour</label>
         <input
@@ -82,6 +89,7 @@ export const NewBooking = () => {
           name="check_in_hour"
           defaultValue=""
           placeholder="Check In Hour"
+          required
         />
         <label htmlFor="fname">Check out</label>
         <input
@@ -90,6 +98,7 @@ export const NewBooking = () => {
           name="check_out"
           defaultValue=""
           placeholder="Check out"
+          required
         />
         <label htmlFor="lname">Check Out Hour</label>
         <input
@@ -98,6 +107,7 @@ export const NewBooking = () => {
           name="check_out_hour"
           defaultValue=""
           placeholder="Check Out Hour"
+          required
         />
         <Select name="select" defaultValue="">
           <option value="Suite" id="option_1">

@@ -7,6 +7,7 @@ import {
 import { createSlice } from '@reduxjs/toolkit';
 import { createDate } from '../Booking/dateReader';
 import { Person } from './Person';
+import { toast } from 'react-toastify';
 
 const initialState = {
   status: 'idle',
@@ -93,22 +94,34 @@ export const personSlice = createSlice({
       })
       .addCase(createPerson.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(createPerson.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data.push(action.payload);
         state.filteredData = state.data;
+        toast.success('Item created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deletePerson.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(deletePerson.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not deleted', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deletePerson.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data = state.data.filter((user) => user.id !== action.payload.id);
         state.filteredData = state.data;
+        toast.success('Item deleted', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(editPerson.pending, (state) => {
         state.status = 'loading';

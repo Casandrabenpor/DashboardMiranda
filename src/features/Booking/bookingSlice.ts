@@ -7,6 +7,8 @@ import {
 import { createSlice } from '@reduxjs/toolkit';
 import { createDateFromString, createDateWithTime } from './dateReader';
 import { Booking } from './Booking';
+import { toast } from 'react-toastify';
+
 // 3 tipos para hacer
 // Interface
 // interface  InitialState  {
@@ -148,18 +150,27 @@ export const bookingSlice = createSlice({
       })
       .addCase(createBooking.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(createBooking.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data.push(action.payload);
 
         state.filteredData = state.data;
+        toast.success('Item created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deleteBooking.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(deleteBooking.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not deleted', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deleteBooking.fulfilled, (state, action) => {
         state.status = 'fulfilled';
@@ -167,6 +178,9 @@ export const bookingSlice = createSlice({
           (booking) => booking.id !== action.payload.id,
         );
         state.filteredData = state.data;
+        toast.success('Item deleted', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(editBooking.pending, (state) => {
         state.status = 'loading';

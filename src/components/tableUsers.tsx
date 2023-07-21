@@ -8,6 +8,8 @@ import { IonIcon } from '@ionic/react';
 import React from 'react';
 import { Person } from '../features/User/Person';
 import { useTypedDispatch, useTypedSelector } from '../app/store';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // Funcion para sacar del json [] a la tabla
 const TableUser = () => {
   const sideBarActivated = useTypedSelector((state) => state.sidebar.activated);
@@ -41,6 +43,7 @@ const TableUser = () => {
   };
   return (
     <Content sideBarActivated={sideBarActivated}>
+      <ToastContainer theme="colored" />
       <TableContainer>
         <tbody>
           <tr>
@@ -77,7 +80,7 @@ const TableUser = () => {
                 <td>{user.email}</td>
                 <td>{user.startDate}</td>
                 <td>{user.description} </td>
-                <td>{user.contact}</td>
+                <td>📞{user.contact}</td>
                 <td>
                   {' '}
                   {user.status === 'Inactive' ? (

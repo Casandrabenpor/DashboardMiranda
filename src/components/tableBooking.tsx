@@ -13,6 +13,8 @@ import { useTypedDispatch, useTypedSelector } from '../app/store';
 import React from 'react';
 import { IonIcon } from '@ionic/react';
 import { Booking } from '../features/Booking/Booking';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Table = () => {
   // Funcion para sacar del json [] a la tabla
@@ -59,6 +61,7 @@ const Table = () => {
 
   return (
     <Content sideBarActivated={sideBarActivated}>
+      <ToastContainer theme="colored" />
       <TableContainer>
         <tbody>
           <tr>
@@ -73,7 +76,7 @@ const Table = () => {
           </tr>
 
           {bookings.map((booking) => (
-            <tr key={booking.id}>
+            <tr>
               <td>
                 <img src={person} alt="person" width={100} height={100} />
               </td>

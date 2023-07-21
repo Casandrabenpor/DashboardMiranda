@@ -9,6 +9,8 @@ import {
 } from '../../styled/EditStyled';
 import { useNavigate } from 'react-router-dom';
 import { useTypedDispatch } from '../../app/store';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const NewRoom = () => {
   const dispatch = useTypedDispatch();
@@ -34,6 +36,8 @@ export const NewRoom = () => {
   };
   return (
     <Container>
+      <ToastContainer theme="colored" />
+
       <FormTitle>NEW ROOM</FormTitle>
       <Form onSubmit={handleCreateRoom}>
         <label htmlFor="fname">Photo Url</label>
@@ -51,6 +55,7 @@ export const NewRoom = () => {
           name="name"
           defaultValue=""
           placeholder="Room Number"
+          required
         />
         <label htmlFor="fname">Amenities</label>
         <input
@@ -59,6 +64,7 @@ export const NewRoom = () => {
           name="amenities"
           defaultValue=""
           placeholder="Amenities"
+          required
         />
         <Select name="select" defaultValue="">
           <option value="Suite" id="option_1">
@@ -82,6 +88,7 @@ export const NewRoom = () => {
           min="10"
           defaultValue=""
           placeholder="Rate"
+          required
         />
         <label htmlFor="fname">Offer price</label>
         <input
@@ -91,6 +98,7 @@ export const NewRoom = () => {
           min="1"
           defaultValue=""
           placeholder="Offer price"
+          required
         />
         <label htmlFor="fname">Room status</label>
         <label htmlFor="status1">Available</label>

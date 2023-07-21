@@ -9,6 +9,8 @@ import { useTypedDispatch, useTypedSelector } from '../app/store';
 import { Contact } from '../features/Contact/Contact';
 import React from 'react';
 import { IonIcon } from '@ionic/react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TableContact = () => {
   // Funcion para sacar del json [] a la tabla
@@ -48,9 +50,10 @@ const TableContact = () => {
   };
 
   const data = isArchivedViewEnabled ? archivedData : contactUser;
-  console.log(data);
+
   return (
     <Content sideBarActivated={sideBarActivated}>
+      <ToastContainer theme="colored" />
       <TableContainer>
         <tbody>
           <tr>

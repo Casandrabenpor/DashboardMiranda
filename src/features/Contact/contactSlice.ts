@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { Contact } from './Contact';
 import {
   downloadContact,
@@ -68,17 +69,26 @@ export const contactSlice = createSlice({
       })
       .addCase(createContact.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(createContact.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data.push(action.payload);
         state.filteredData = state.data;
+        toast.success('Item created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deleteContact.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(deleteContact.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not deleted', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.status = 'fulfilled';
@@ -86,6 +96,9 @@ export const contactSlice = createSlice({
           (contact) => contact.contact_id !== action.payload.contact_id,
         );
         state.filteredData = state.data;
+        toast.success('Item deleted', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(editContact.pending, (state) => {
         state.status = 'loading';

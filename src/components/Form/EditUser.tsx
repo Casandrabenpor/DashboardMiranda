@@ -67,7 +67,7 @@ export const EditPerson = () => {
         />
         <label htmlFor="lname">Email</label>
         <input
-          type="text"
+          type="email"
           id="email"
           name="email"
           defaultValue={person?.email}

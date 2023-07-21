@@ -51,11 +51,17 @@ export const roomSlice = createSlice({
       })
       .addCase(createRoom.rejected, (state) => {
         state.status = 'failed';
+        toast.error('Item not created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(createRoom.fulfilled, (state, action) => {
         state.status = 'fulfilled';
         state.data.push(action.payload);
         state.filteredData = state.data;
+        toast.success('Item created', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       })
       .addCase(deleteRoom.pending, (state) => {
         state.status = 'loading';

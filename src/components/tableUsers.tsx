@@ -24,7 +24,7 @@ const TableUser = () => {
   // Funcion para generar photos de avatares random
   const GenerateRandomAvatar = () => {
     let randomNumber = Math.floor(Math.random() * 9);
-    let path = `./avatars/avatar${randomNumber}.jpg`;
+    let path = process.env.PUBLIC_URL + `/avatars/avatar${randomNumber}.jpg`;
     return path;
   };
   const handleDeletePerson = (e: any, user: Person) => {
@@ -42,7 +42,7 @@ const TableUser = () => {
     setSeeButton(false);
   };
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ToastContainer theme="colored" />
       <TableContainer>
         <tbody>
@@ -66,7 +66,7 @@ const TableUser = () => {
               contact: any;
               status: any;
             }) => (
-              <tr>
+              <tr key={user.id}>
                 <td>
                   <img
                     src={GenerateRandomAvatar()}

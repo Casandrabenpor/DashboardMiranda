@@ -22,14 +22,14 @@ export const Nav = (props: any) => {
     e.preventDefault();
     authContext.logout();
   };
-
+  const { name } = props;
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ContainerNav>
         <Burger>
           <GiHamburgerMenu onClick={toggleSideBar} />
         </Burger>
-        <p>{props.name} </p>
+        <p>{name} </p>
         <IconNav>
           <IonIcon name="mail-outline"></IonIcon>
           <IonIcon name="notifications-outline"></IonIcon>

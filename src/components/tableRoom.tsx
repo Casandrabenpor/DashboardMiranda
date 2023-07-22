@@ -42,7 +42,7 @@ const TableRoom = () => {
   };
 
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ToastContainer theme="colored" />
       <TableContainer>
         <tbody>
@@ -62,15 +62,15 @@ const TableRoom = () => {
                 <img src={sea} alt="sea" width={100} height={100} />
               </td>
               <td>
-                {' '}
+                {null}
                 <CustomLink to="/bookingRoom">{room.room_number}</CustomLink>
               </td>
               <td>{room.room_id}</td>
               <td>{room.bed_type}</td>
               <td>
                 {Array.isArray(room.amenities)
-                  ? room.amenities.map((amenitie) => `${amenitie} `)
-                  : []}
+                  ? room.amenities.map((amenitie) => `${amenitie}`)
+                  : null}
               </td>
               <td>{room.rate}$/night</td>
               <td>{room.offer_price}$/night</td>
@@ -83,7 +83,7 @@ const TableRoom = () => {
 
               <td>
                 <ButtonRed
-                  color={room.status === 'Available' ? '#5AD07A' : '#E23428 '}
+                  color={room.status === 'Available' ? '#5AD07A' : '#E23428'}
                 >
                   {room.status}
                 </ButtonRed>
@@ -95,7 +95,7 @@ const TableRoom = () => {
                     onMouseDown={handleIconMouseDown}
                     onMouseUp={handleIconMouseUp}
                   />
-                  {seeButton && (
+                  {seeButton ? (
                     <>
                       <CustomLink to={`/rooms/edit/${room.room_id}`}>
                         <IonIcon name="create-outline"></IonIcon>
@@ -107,7 +107,7 @@ const TableRoom = () => {
                         ></IonIcon>
                       </RedIcon>
                     </>
-                  )}
+                  ) : null}
                 </IonIconCss>
               </td>
             </tr>

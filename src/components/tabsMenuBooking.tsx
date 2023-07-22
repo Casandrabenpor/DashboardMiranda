@@ -27,7 +27,7 @@ export const TabsMenu = () => {
     dispatch(filteredInProgress());
   };
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ContainerTabsMenu>
         <Button type="button" onClick={handleShowAll}>
           All Bookings

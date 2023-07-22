@@ -60,7 +60,7 @@ const Table = () => {
   };
 
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ToastContainer theme="colored" />
       <TableContainer>
         <tbody>
@@ -74,9 +74,8 @@ const Table = () => {
             <th>Room type</th>
             <th>Status</th>
           </tr>
-
           {bookings.map((booking) => (
-            <tr>
+            <tr key={booking.id}>
               <td>
                 <img src={person} alt="person" width={100} height={100} />
               </td>

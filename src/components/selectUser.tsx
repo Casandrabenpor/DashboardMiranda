@@ -19,7 +19,7 @@ export const SelectUser = () => {
     dispatch(orderUsers(orderSelect));
   };
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <StyledSearchSelect>
         <SearchUser></SearchUser>
         <StyledBtnUser>

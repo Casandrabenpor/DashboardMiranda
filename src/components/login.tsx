@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
 import { ContainerLogin, Form } from '../styled/loginStyled';
 import { useNavigate } from 'react-router-dom';
@@ -17,15 +17,16 @@ export const Login = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    if (
-      name === 'casandra' &&
-      email === 'casandra@gmail.com' &&
-      password === 'test'
-    ) {
-      await login(name, email, true);
+    await login(name, password, email);
+    navigate('/');
+  };
+
+  useEffect(() => {
+    if (authContext.isLogged) {
       navigate('/');
     }
-  };
+  }, [authContext]);
+
   return (
     <ContainerLogin>
       <img src={logo} alt="logo" />

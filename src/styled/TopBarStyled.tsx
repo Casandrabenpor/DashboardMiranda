@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors } from './theme';
 
 interface Props {
-  sideBarActivated: boolean;
+  $sideBarActivated: boolean;
 }
 
 export const SideBar = styled.div`
@@ -40,9 +40,14 @@ export const Burger = styled.div`
 `;
 
 export const Content = styled.div<Props>`
-  width: ${(props) => (props.sideBarActivated ? '85%' : '100%')};
-  margin-left: ${(props) => (props.sideBarActivated ? '15%' : '0%')};
+  width: ${(props) => (props.$sideBarActivated ? '85%' : '100%')};
+  margin-left: ${(props) => (props.$sideBarActivated ? '15%' : '0%')};
 `;
+
+// export const Content = styled.div<{ $sideBarActivated: boolean }>`
+//   width: ${(props) => (props.$sideBarActivated ? '85%' : '100%')};
+//   margin-left: ${(props) => (props.$sideBarActivated ? '15%' : '0%')};
+// `;
 
 export const IconNav = styled.div`
   display: flex;

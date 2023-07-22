@@ -18,7 +18,7 @@ export const TabsMenuContact = () => {
     dispatch(enableArchiveView());
   };
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ContainerTabsMenu>
         <Button type="button" onClick={handleShowAll}>
           All Contacts

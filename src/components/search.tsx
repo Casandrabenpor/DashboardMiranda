@@ -67,7 +67,7 @@ export const SearchContact = () => {
   };
   return (
     <Container>
-      <Content sideBarActivated={sideBarActivated}>
+      <Content $sideBarActivated={sideBarActivated}>
         <InputWithDifferentStyle
           placeholder="Search ..."
           onChange={handleSearchContact}

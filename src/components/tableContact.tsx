@@ -52,7 +52,7 @@ const TableContact = () => {
   const data = isArchivedViewEnabled ? archivedData : contactUser;
 
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ToastContainer theme="light" />
       <TableContainer>
         <tbody>

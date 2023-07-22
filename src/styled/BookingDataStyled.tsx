@@ -78,7 +78,7 @@ export const NumberYellow = styled.p`
   margin-left: 58%;
   align-items: center;
 `;
-export const PositionNumber = styled.p`
+export const PositionNumber = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;

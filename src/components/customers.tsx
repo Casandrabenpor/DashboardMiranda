@@ -38,7 +38,7 @@ export const Customers = ({ showTitle }: { showTitle: boolean }) => {
   };
 
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       {showTitle && <ScheduleTitle>Latest Review by Customers</ScheduleTitle>}
       {showModal && showUserReview && (
         <Modal user={showUserReview} closeModal={() => setShowModal(false)} />

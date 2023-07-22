@@ -20,7 +20,7 @@ export const Select = () => {
     dispatch(orderBookings(orderSelect));
   };
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <StyledSearchSelect>
         <SearchBooking></SearchBooking>
         <CustomLink to="/newBooking">

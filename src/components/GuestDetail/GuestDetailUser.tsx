@@ -19,7 +19,7 @@ import { Booking } from '../../features/Booking/Booking';
 export const GuestDetailUser = ({ booking }: { booking: Booking }) => {
   const sideBarActivated = useTypedSelector((state) => state.sidebar.activated);
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ContainerUser>
         <img src={person1} alt="person photo" width={200} height={200} />
         <IdUser>

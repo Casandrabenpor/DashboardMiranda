@@ -21,7 +21,7 @@ export const BtnDashboard = () => {
   );
 
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <DisplayDashboard>
         <ButtonDashboard>
           <IonIconBed>

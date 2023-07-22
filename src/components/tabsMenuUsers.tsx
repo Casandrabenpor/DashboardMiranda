@@ -23,7 +23,7 @@ export const TabsMenuUsers = () => {
     dispatch(filteredInactive());
   };
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ContainerTabsMenu>
         <Button type="button" onClick={handleShowAll}>
           All Employee

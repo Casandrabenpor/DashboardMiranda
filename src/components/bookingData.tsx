@@ -19,7 +19,7 @@ export const BookingData = () => {
   );
 
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ContainerData>
         <ScheduleTitle>Recent Booking Schedule</ScheduleTitle>
         <BookingSchedule>

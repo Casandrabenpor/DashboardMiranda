@@ -19,7 +19,7 @@ import { IonIcon } from '@ionic/react';
 export const GuestDetailUser = () => {
   const sideBarActivated = useTypedSelector((state) => state.sidebar.activated);
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ContainerUser>
         <CustomButtonBed>
           <IonIcon name="bed-outline"></IonIcon>

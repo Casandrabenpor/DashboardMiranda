@@ -11,7 +11,7 @@ import { Content, CustomLink } from '../styled/TopBarStyled';
 export const SelectRoom = () => {
   const sideBarActivated = useTypedSelector((state) => state.sidebar.activated);
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <StyledSearchSelect>
         <StyledBtnRoom>
           <CustomLink to="/newRoom">

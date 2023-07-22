@@ -24,7 +24,7 @@ export const TabsMenuRoom = () => {
     dispatch(filteredOccupied());
   };
   return (
-    <Content sideBarActivated={sideBarActivated}>
+    <Content $sideBarActivated={sideBarActivated}>
       <ContainerTabsMenu>
         <Button type="button" onClick={handleShowAll}>
           All Rooms

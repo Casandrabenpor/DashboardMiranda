@@ -13,12 +13,12 @@ class User implements IUser {
     this.user = user;
     this.token = '';
   }
-  login(user: string, email: string, isLogged: boolean): void {
+  login(user: string, email: string): void {
     // Implement the login functionality here
     // For example, you can set the provided values to the instance properties
     this.user = user;
     this.email = email;
-    this.isLogged = isLogged;
+    this.isLogged = true;
   }
   logout(): void {
     // Implement the logout functionality here
@@ -33,7 +33,7 @@ export interface IUser {
   email: string;
   isLogged: boolean;
   user: string;
-  login: (user: string, email: string, isLogged: boolean) => void;
+  login: (user: string, password: string, email: string) => void;
   logout: () => void;
 }
 const defaultUser = new User('', false, '');
@@ -55,19 +55,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User>(userLoaded);
 
   // Función para iniciar sesión
-  const login = async (user: string, email: string) => {
+  const login = async (user: string, password: string, email: string) => {
     let userLogged = new User(user, true, email);
-    console.log(userLogged);
     let response = await CrossFetch('login', 'POST', {
       name: user,
       email: email,
-      password: 'test',
+      password: password,
     });
-    userLogged.token = response.token;
-    setUser(userLogged);
-    // guardar en el local storage
-    let userJson = JSON.stringify(userLogged);
-    localStorage.setItem('user', userJson);
+
+    if (!response) {
+      let userNotLogged = new User('', false, '');
+      setUser(userNotLogged);
+    } else {
+      userLogged.token = response.token;
+      setUser(userLogged);
+      // guardar en el local storage
+      let userJson = JSON.stringify(userLogged);
+      localStorage.setItem('user', userJson);
+    }
   };
 
   // Función para cerrar sesión

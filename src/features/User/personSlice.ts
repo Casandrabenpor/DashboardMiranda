@@ -39,19 +39,19 @@ export const personSlice = createSlice({
     filteredAll: (state) => {
       // Filtra las habitaciones
       state.filteredData = state.data.filter(
-        (person) => person.status === 'inactive' || 'active',
+        (person) => person.status === 'Inactive' || 'Active',
       );
     },
     filteredInactive: (state) => {
       // Filtra las habitaciones y actualiza el estado en función del estado "Available"
       state.filteredData = state.data.filter(
-        (person) => person.status === 'inactive',
+        (person) => person.status === 'Inactive',
       );
     },
     filteredActive: (state) => {
       // Filtra las habitaciones y actualiza el estado en función del estado "Occupied"
       state.filteredData = state.data.filter(
-        (person) => person.status === 'active',
+        (person) => person.status === 'Active',
       );
     },
     //ordenar, en select

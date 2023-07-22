@@ -5,7 +5,7 @@ import { CrossFetch } from '../../Api/Api';
 export const downloadBooking = createAsyncThunk(
   'booking/downloadBooking',
   async () => {
-    return CrossFetch('bookings', 'GET', null);
+    return await CrossFetch('bookings', 'GET', null);
   },
 );
 export const createBooking = createAsyncThunk(

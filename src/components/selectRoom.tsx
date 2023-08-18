@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTypedSelector } from '../app/store';
 import {
-  SelectStyled,
   ButtonGreenDark,
   StyledSearchSelect,
   StyledBtnRoom,
@@ -18,11 +17,11 @@ export const SelectRoom = () => {
             <ButtonGreenDark>New Room</ButtonGreenDark>
           </CustomLink>
 
-          <SelectStyled name="order">
+          {/* <SelectStyled name="order">
             <option value="room_number">Room Number</option>
             <option value="price">Price</option>
             <option value="status">Status</option>
-          </SelectStyled>
+          </SelectStyled> */}
         </StyledBtnRoom>
       </StyledSearchSelect>
     </Content>

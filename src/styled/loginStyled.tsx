@@ -15,6 +15,7 @@ export const ContainerLogin = styled.div`
   justify-content: center;
   margin-left: 25%;
   margin-top: 10%;
+  padding: 2%;
 `;
 
 export const Form = styled.form`

@@ -17,12 +17,12 @@ jobs:
           node-version: '18.13.0'
       - name: Install Dependencies
         run: npm install
-        - name: Create .env with Github Secrets and run script
-          run: |
-            touch .env
-            echo REACT_APP_API_URL=$REACT_APP_API_URL >> .env
-          env:
-            REACT_APP_API_URL: ${{ vars.REACT_APP_API_URL }}
+      - name: Create .env with Github Secrets and run script
+        run: |
+          touch .env
+          echo REACT_APP_API_URL=$REACT_APP_API_URL >> .env
+        env:
+          REACT_APP_API_URL: ${{ vars.REACT_APP_API_URL }}
       - name: Build
         run: npm run build
       - name: Sync with S3

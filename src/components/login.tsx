@@ -25,7 +25,7 @@ export const Login = () => {
     if (authContext.isLogged) {
       navigate('/');
     }
-  }, [authContext]);
+  }, [authContext, navigate]);
 
   return (
     <ContainerLogin>

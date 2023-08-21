@@ -21,7 +21,7 @@ export const GuestDetailUser = ({ booking }: { booking: Booking }) => {
   return (
     <Content $sideBarActivated={sideBarActivated}>
       <ContainerUser>
-        <img src={person1} alt="person photo" width={200} height={200} />
+        <img src={person1} alt="person" width={200} height={200} />
         <IdUser>
           <IdName>
             <h3>{booking.guest}</h3>

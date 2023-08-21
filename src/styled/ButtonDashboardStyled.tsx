@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { colors } from './theme';
 
-interface Props {
-  sideBarActivated: boolean;
-}
+// interface Props {
+//   sideBarActivated: boolean;
+// }
 export const DisplayDashboard = styled.div`
   display: flex;
   flex-direction: row;

@@ -15,8 +15,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.13.0'
-      - run: npm install
-      - run: npm run build
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
       - name: Sync with S3
         uses: jakejarvis/s3-sync-action@master
         with:

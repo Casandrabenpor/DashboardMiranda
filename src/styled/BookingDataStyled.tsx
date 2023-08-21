@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { colors } from './theme';
 
-interface Props {
-  sideBarActivated: boolean;
-}
+// interface Props {
+//   sideBarActivated: boolean;
+// }
 export const ContainerData = styled.div`
   margin-left: 2%;
   background-color: rgb(255, 255, 255);

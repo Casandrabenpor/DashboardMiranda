@@ -1,10 +1,4 @@
-import {
-  Form,
-  Button,
-  Select,
-  FormTitle,
-  Container,
-} from '../../styled/EditStyled';
+import { Form, Button, FormTitle, Container } from '../../styled/EditStyled';
 import { editContact } from '../../features/Contact/contactApi';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';

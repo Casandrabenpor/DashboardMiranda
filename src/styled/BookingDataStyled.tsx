@@ -19,7 +19,6 @@ export const ScheduleTitle = styled.h4`
   font-size: 20px;
   color: ${colors.blackTwo};
 `;
-
 export const BookingSchedule = styled.div`
   display: flex;
   flex-direction: row;
